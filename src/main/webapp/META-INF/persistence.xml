@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="pis1.0">
+		<class>com.pis.model.Kontrola1zmena</class>
+		<class>com.pis.model.Maerz</class>
+		<class>com.pis.model.Odprasovanie</class>
+		<class>com.pis.model.PracovnaSnimka</class>
+		<class>com.pis.model.PracovnaSnimka1zmena</class>
+		<class>com.pis.model.Rola</class>
+		<class>com.pis.model.ZamMaerz</class>
+		<class>com.pis.model.Zamestnanec</class>
+	</persistence-unit>
+</persistence>
