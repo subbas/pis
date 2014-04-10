@@ -1,28 +1,22 @@
 package com.pis.controller;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pis.formular.Formular;
 import com.pis.model.Maerz;
-import com.pis.model.PracovnaSnimka;
 import com.pis.model.Rola;
 import com.pis.model.ZamMaerz;
 import com.pis.model.Zamestnanec;
 import com.pis.service.EntityService;
-import com.pis.service.RolaService;
 
 @Controller
 @RequestMapping(value = "/")
