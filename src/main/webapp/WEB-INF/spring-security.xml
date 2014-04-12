@@ -8,8 +8,8 @@
 	<http auto-config="true">
 		<intercept-url pattern="/add*" access="ROLE_MAJSTER" />
 		<form-login login-page="/login" default-target-url="/add"
-			authentication-failure-url="/login" />
-		<logout logout-success-url="/login" />
+			authentication-failure-url="/loginfailed" />
+		<logout logout-success-url="/logout" />
 	</http>
 
 	<authentication-manager>

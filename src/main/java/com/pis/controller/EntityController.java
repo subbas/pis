@@ -35,19 +35,19 @@ public class EntityController {
 	
 	private List<Integer> zmenaList;
 	
-	@RequestMapping(value = "/get")
+	/*@RequestMapping(value = "/get")
 	public ModelAndView zobraz() {
 		ModelAndView modelAndView = new ModelAndView("zobraz");
 		List<Rola> role = rolaService.getEntities();
 		modelAndView.addObject("role", role);
 		return modelAndView;
-	}
+	}*/
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView addMaerzPage() {
 		ModelAndView modelAndView = new ModelAndView("add-maerz-form");
 		modelAndView.addObject("formular", new Formular());
-		zmenaList = new ArrayList();
+		zmenaList = new ArrayList<Integer>();
 		zmenaList.add(1);
 		zmenaList.add(2);
 		modelAndView.addObject("zmenaList", zmenaList);

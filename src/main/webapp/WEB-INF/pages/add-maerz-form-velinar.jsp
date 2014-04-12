@@ -1,4 +1,5 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -11,6 +12,7 @@
 <body>
 	<h1>PIS pece Maerz</h1>
 	<br />
+	<a href="<c:url value="/j_spring_security_logout" />" > Logout</a>
 	<form:form method="POST" commandName="formular" action="${pageContext.request.contextPath}/add.html">
 		<table>
 			<tbody>
