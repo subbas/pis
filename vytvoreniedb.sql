@@ -10,6 +10,7 @@ CREATE TABLE zamestnanec (
 	priezvisko VARCHAR(30),
 	rola INT,
 	aktivny INT,
+	login VARCHAR(20),
 	heslo VARCHAR(20),
 	PRIMARY KEY (id),
 	FOREIGN KEY (rola)

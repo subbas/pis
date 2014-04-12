@@ -21,6 +21,8 @@ public class Zamestnanec implements Serializable {
 
 	private String heslo;
 
+	private String login;
+
 	private String meno;
 
 	private String priezvisko;
@@ -59,6 +61,14 @@ public class Zamestnanec implements Serializable {
 
 	public void setHeslo(String heslo) {
 		this.heslo = heslo;
+	}
+
+	public String getLogin() {
+		return this.login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	public String getMeno() {

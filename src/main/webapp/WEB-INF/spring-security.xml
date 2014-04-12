@@ -17,13 +17,13 @@
 			<jdbc-user-service data-source-ref="dataSource"
 				
 				users-by-username-query="
-                                    select priezvisko, heslo, aktivny
-                                    from ZAMESTNANEC where priezvisko = ?" 
+                                    select login, heslo, aktivny
+                                    from ZAMESTNANEC where login = ?" 
 				
 				authorities-by-username-query="
-                                    select us.priezvisko, ur.nazov 
-                                    from ZAMESTNANEC us, ROLA ur   
-                                    where us.rola = ur.id and us.priezvisko =?"
+                                    select zam.login, r.nazov 
+                                    from ZAMESTNANEC zam, ROLA r   
+                                    where zam.rola = r.id and zam.login =?"
 					
 			/>
 		</authentication-provider>

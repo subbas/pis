@@ -29,7 +29,7 @@
 		<table>
 			<tr>
 				<td>Prihlasovacie meno:</td>
-				<td><input type='text' name='j_username' value='A'>
+				<td><input type='text' name='j_username' value='majster'>
 				</td>
 			</tr>
 			<tr>
