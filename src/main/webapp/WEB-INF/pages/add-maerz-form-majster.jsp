@@ -23,7 +23,7 @@ table,td,th {
 	<br />
 	<a href="<c:url value="/j_spring_security_logout" />" > Logout</a>
 	<form:form method="POST" commandName="formular"
-		action="${pageContext.request.contextPath}/add.html">
+		action="${pageContext.request.contextPath}/add-maerz-form-majster.html">
 		<table>
 			<tbody>
 				<tr>

@@ -5,27 +5,36 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
-	<http auto-config="true">
-		<intercept-url pattern="/add*" access="ROLE_MAJSTER" />
-		<form-login login-page="/login" default-target-url="/add"
-			authentication-failure-url="/loginfailed" />
+	<http use-expressions="true" auto-config="true">
+		<intercept-url pattern="/login" access="permitAll()" />
+		<intercept-url pattern="/add*" access="isAuthenticated()" />
+		<form-login login-page="/login" authentication-failure-url="/loginfailed"
+			authentication-success-handler-ref="myAuthenticationSuccessHandler" />
+		
+		<access-denied-handler ref="accessDeniedHandler" />
+		<!-- <intercept-url pattern="/add-maerz-form-majster" access="ROLE_MAJSTER" 
+			/> <form-login login-page="/login" default-target-url="/add-maerz-form-majster" 
+			authentication-failure-url="/loginfailed" /> -->
 		<logout logout-success-url="/logout" />
 	</http>
+
+	<beans:bean id="myAuthenticationSuccessHandler"
+		class="com.pis.security.MyAuthenticationSuccessHandler" />
+
+	<beans:bean id="accessDeniedHandler" class="com.pis.security.MyAccessDeniedHandler" />
 
 	<authentication-manager>
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource"
-				
+
 				users-by-username-query="
                                     select login, heslo, aktivny
-                                    from ZAMESTNANEC where login = ?" 
-				
+                                    from ZAMESTNANEC where login = ?"
+
 				authorities-by-username-query="
                                     select zam.login, r.nazov 
                                     from ZAMESTNANEC zam, ROLA r   
-                                    where zam.rola = r.id and zam.login =?"
-					
-			/>
+                                    where zam.rola = r.id and zam.login =?" />
 		</authentication-provider>
 	</authentication-manager>
 

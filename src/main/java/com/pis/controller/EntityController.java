@@ -26,26 +26,26 @@ public class EntityController {
 	private EntityService<Rola> rolaService;
 	@Autowired
 	private EntityService<Maerz> maerzService;
-	/*@Autowired
-	private EntityService<PracovnaSnimka> pracSnimkaService;*/
+	/*
+	 * @Autowired private EntityService<PracovnaSnimka> pracSnimkaService;
+	 */
 	@Autowired
 	private EntityService<ZamMaerz> zamMaerzService;
 	@Autowired
 	private EntityService<Zamestnanec> zamestnanecService;
-	
-	private List<Integer> zmenaList;
-	
-	/*@RequestMapping(value = "/get")
-	public ModelAndView zobraz() {
-		ModelAndView modelAndView = new ModelAndView("zobraz");
-		List<Rola> role = rolaService.getEntities();
-		modelAndView.addObject("role", role);
-		return modelAndView;
-	}*/
 
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public ModelAndView addMaerzPage() {
-		ModelAndView modelAndView = new ModelAndView("add-maerz-form");
+	private List<Integer> zmenaList;
+
+	/*
+	 * @RequestMapping(value = "/get") public ModelAndView zobraz() {
+	 * ModelAndView modelAndView = new ModelAndView("zobraz"); List<Rola> role =
+	 * rolaService.getEntities(); modelAndView.addObject("role", role); return
+	 * modelAndView; }
+	 */
+
+	@RequestMapping(value = "/add-maerz-form-majster", method = RequestMethod.GET)
+	public ModelAndView addMaerzPageMajster() {
+		ModelAndView modelAndView = new ModelAndView("add-maerz-form-majster");
 		modelAndView.addObject("formular", new Formular());
 		zmenaList = new ArrayList<Integer>();
 		zmenaList.add(1);
@@ -54,24 +54,42 @@ public class EntityController {
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public ModelAndView addingMaerz(@ModelAttribute Formular formular) {
-		ModelAndView modelAndView = new ModelAndView("add-maerz-form");
-		
+	@RequestMapping(value = "/add-maerz-form-majster", method = RequestMethod.POST)
+	public ModelAndView addingMaerzMajster(@ModelAttribute Formular formular) {
+		ModelAndView modelAndView = new ModelAndView("add-maerz-form-majster");
+
 		maerzService.add(formular.getMaerz());
-		
+
 		ZamMaerz zamMaerz = new ZamMaerz();
 		zamMaerz.setMaerz(formular.getMaerz());
 		zamMaerz.setZamestnanec(zamestnanecService.getEntity(1));
 		zamMaerz.setDatum(new Date());
 		zamMaerz.setZmena(formular.getZamMaerz().getZmena());
 		zamMaerzService.add(zamMaerz);
-		
-		//zamMaerzService.delete(zamMaerz.getId());
-		//maerzService.delete(formular.getMaerz().getId());
+
+		// zamMaerzService.delete(zamMaerz.getId());
+		// maerzService.delete(formular.getMaerz().getId());
 		String message = "Maerz bol úspešne pridaný.";
 		modelAndView.addObject("message", message);
 		modelAndView.addObject("zmenaList", zmenaList);
+		return modelAndView;
+	}
+
+	@RequestMapping(value = "/add-maerz-form-strojnik", method = RequestMethod.GET)
+	public ModelAndView addingMaerzStrojnik(@ModelAttribute Formular formular) {
+		ModelAndView modelAndView = new ModelAndView("add-maerz-form-strojnik");
+		return modelAndView;
+	}
+
+	@RequestMapping(value = "/add-maerz-form-veduci", method = RequestMethod.GET)
+	public ModelAndView addingMaerzVeduci(@ModelAttribute Formular formular) {
+		ModelAndView modelAndView = new ModelAndView("add-maerz-form-veduci");
+		return modelAndView;
+	}
+
+	@RequestMapping(value = "/add-maerz-form-velinar", method = RequestMethod.GET)
+	public ModelAndView addingMaerzVelinar(@ModelAttribute Formular formular) {
+		ModelAndView modelAndView = new ModelAndView("add-maerz-form-velinar");
 		return modelAndView;
 	}
 
