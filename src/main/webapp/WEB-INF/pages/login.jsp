@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
+
 <title>Login Page</title>
 <style>
 .errorblock {
@@ -11,8 +12,15 @@
 	margin: 16px;
 }
 </style>
+<script type="text/javascript">
+	window.history.forward();
+	function noBack() {
+		window.history.forward();
+	}
+</script>
 </head>
-<body onload='document.f.j_username.focus();'>
+<body onload="document.f.j_username.focus();noBack();" onunload="">
+
 	<h1>Prevadzkovy informacny system</h1>
 
 	<%-- <c:if test="${not empty error}">
@@ -22,7 +30,7 @@
 		</div>
 	</c:if>
  --%>
- <p>${message}</p>
+	<p>${message}</p>
 	<form name='f' action="<c:url value='j_spring_security_check' />"
 		method='POST'>
 
@@ -34,13 +42,11 @@
 			</tr>
 			<tr>
 				<td>Heslo:</td>
-				<td><input type='password' name='j_password' value='heslo'/>
-				</td>
+				<td><input type='password' name='j_password' value='heslo' /></td>
 			</tr>
 			<tr>
 				<td colspan='2'><input name="submit" type="submit"
-					value="submit" />
-				</td>
+					value="submit" /></td>
 			</tr>
 		</table>
 

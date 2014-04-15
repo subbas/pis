@@ -2,8 +2,6 @@ package com.pis.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +15,16 @@ public class LinkController {
 	public ModelAndView mainPage() {
 		return new ModelAndView("login");
 	}
+	
+	@RequestMapping(value = "/**")
+	public ModelAndView url() {
+		return new ModelAndView("login");
+	}
+	
+	@RequestMapping(value = "/login")
+	public ModelAndView loginPage() {
+		return new ModelAndView("login");
+	}
 
 	@RequestMapping(value = "/index")
 	public ModelAndView indexPage() {
@@ -26,13 +34,19 @@ public class LinkController {
 	@RequestMapping(value="/loginfailed", method = RequestMethod.GET)
 	public String loginerror(ModelMap model, HttpServletRequest request) {
         System.out.println(request.getServletPath());
- 		model.addAttribute("message", "Prihlasenie zlyhalo!");
+ 		model.addAttribute("message", "Zadali ste neplatne prihlasovacie udaje!");
 		return "login";
  	}
 	
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	public String logout(ModelMap model) {
 		model.addAttribute("message", "Boli ste uspesne odhlaseny!");
+ 		return "login";
+ 	}
+	
+	@RequestMapping(value="/accessDenied", method = RequestMethod.GET)
+	public String accessDenied(ModelMap model, HttpServletRequest request) {
+		model.addAttribute("message", "Nemate prava!");
  		return "login";
  	}
 

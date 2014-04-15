@@ -7,6 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 <title>PIS Maerz</title>
 <style>
 table {
@@ -17,11 +18,16 @@ table,td,th {
 	border: 1px solid #CCFFCC;
 }
 </style>
+<script type="text/javascript">
+   window.history.forward();
+   function noBack() { window.history.forward(); }
+</script>
 </head>
-<body>
+<body onload="noBack();" onunload="">
+
 	<h1>PIS pece Maerz</h1>
 	<br />
-	<a href="<c:url value="/j_spring_security_logout" />" > Logout</a>
+	<a href="<c:url value="/j_spring_security_logout" />"> Logout</a>
 	<form:form method="POST" commandName="formular"
 		action="${pageContext.request.contextPath}/add-maerz-form-majster.html">
 		<table>
@@ -43,7 +49,7 @@ table,td,th {
 					<td></td>
 					<td colspan='5' rowspan='5'><form:textarea
 							path="maerz.neodstranenePoruchy" /></td>
-					<td></td>	
+					<td></td>
 				</tr>
 				<tr>
 					<td colspan='3'></td>
@@ -186,7 +192,6 @@ table,td,th {
 					<td>Chod pece:</td>
 					<td><form:input path="maerz.chodPece" /></td>
 				</tr>
-				<th>Briketizačná linka</th>
 				<tr>
 					<td></td>
 					<td>Briketizačka</td>
