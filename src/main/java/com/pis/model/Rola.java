@@ -89,5 +89,6 @@ public class Rola implements Serializable {
 
 		return zamestnanec;
 	}
-
+	
+	
 }

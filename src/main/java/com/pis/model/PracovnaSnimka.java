@@ -2,6 +2,9 @@ package com.pis.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.sql.Time;
 
 
@@ -18,8 +21,10 @@ public class PracovnaSnimka implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
+	//@DateTimeFormat(pattern="hh:mm")
 	private Time dokedy;
 
+	//@DateTimeFormat(pattern="hh:mm")
 	private Time odkedy;
 
 	private String popis;

@@ -1,5 +1,6 @@
 package com.pis.controller;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.pis.formular.Formular;
 import com.pis.model.Maerz;
+import com.pis.model.PracovnaSnimka;
 import com.pis.model.Rola;
 import com.pis.model.ZamMaerz;
 import com.pis.model.Zamestnanec;
@@ -26,58 +28,73 @@ public class EntityController {
 	private EntityService<Rola> rolaService;
 	@Autowired
 	private EntityService<Maerz> maerzService;
-	/*
-	 * @Autowired private EntityService<PracovnaSnimka> pracSnimkaService;
-	 */
 	@Autowired
 	private EntityService<ZamMaerz> zamMaerzService;
 	@Autowired
 	private EntityService<Zamestnanec> zamestnanecService;
+	@Autowired
+	private EntityService<PracovnaSnimka> pracovnaSnimkaService;
 
+	//formular
+	private Formular formular;
 	private List<Integer> zmenaList;
-
-	/*
-	 * @RequestMapping(value = "/get") public ModelAndView zobraz() {
-	 * ModelAndView modelAndView = new ModelAndView("zobraz"); List<Rola> role =
-	 * rolaService.getEntities(); modelAndView.addObject("role", role); return
-	 * modelAndView; }
-	 */
+	
 
 	@RequestMapping(value = "/add-maerz-form-majster", method = RequestMethod.GET)
 	public ModelAndView addMaerzPageMajster() {
 		ModelAndView modelAndView = new ModelAndView("add-maerz-form-majster");
-		modelAndView.addObject("formular", new Formular());
-		zmenaList = new ArrayList<Integer>();
-		zmenaList.add(1);
-		zmenaList.add(2);
+		if(formular == null) {
+			formular = new Formular();
+		}
+		if(zmenaList == null) {
+			zmenaList = new ArrayList<Integer>();
+			zmenaList.add(1);
+			zmenaList.add(2);
+		}
+		modelAndView.addObject("formular", formular);
+		modelAndView.addObject("zmenaList", zmenaList);
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/add-maerz-form-strojnik", method = RequestMethod.GET)
+	public ModelAndView addMaerzPageStrojnik() {
+		ModelAndView modelAndView = new ModelAndView("add-maerz-form-strojnik");
+		if(formular == null) {
+			formular = new Formular();
+		}
+		if(zmenaList == null) {
+			zmenaList = new ArrayList<Integer>();
+			zmenaList.add(1);
+			zmenaList.add(2);
+		}
+		modelAndView.addObject("formular", formular);
 		modelAndView.addObject("zmenaList", zmenaList);
 		return modelAndView;
 	}
 
 	@RequestMapping(value = "/add-maerz-form-majster", method = RequestMethod.POST)
-	public ModelAndView addingMaerzMajster(@ModelAttribute Formular formular) {
+	public ModelAndView addingMaerzMajster(@ModelAttribute Formular form) {
 		ModelAndView modelAndView = new ModelAndView("add-maerz-form-majster");
-
-		maerzService.add(formular.getMaerz());
-
+		maerzService.add(form.getMaerz());
 		ZamMaerz zamMaerz = new ZamMaerz();
-		zamMaerz.setMaerz(formular.getMaerz());
+		zamMaerz.setMaerz(form.getMaerz());
 		zamMaerz.setZamestnanec(zamestnanecService.getEntity(1));
 		zamMaerz.setDatum(new Date());
-		zamMaerz.setZmena(formular.getZamMaerz().getZmena());
+		zamMaerz.setZmena(form.getZamMaerz().getZmena());
 		zamMaerzService.add(zamMaerz);
-
-		// zamMaerzService.delete(zamMaerz.getId());
-		// maerzService.delete(formular.getMaerz().getId());
+		PracovnaSnimka pracSnimka = new PracovnaSnimka();
+		pracSnimka.setMaerz(form.getMaerz());
+		pracSnimka.setRola(rolaService.getEntity(4));	
+		//Time dt = form.getPracSnimka().getOdkedy();
+		
+		pracSnimka.setOdkedy(form.getPracSnimka().getOdkedy());
+		pracSnimka.setDokedy(form.getPracSnimka().getDokedy());
+		pracSnimka.setPopis(form.getPracSnimka().getPopis());
+		pracovnaSnimkaService.add(pracSnimka);		
 		String message = "Maerz bol úspešne pridaný.";
 		modelAndView.addObject("message", message);
 		modelAndView.addObject("zmenaList", zmenaList);
-		return modelAndView;
-	}
-
-	@RequestMapping(value = "/add-maerz-form-strojnik", method = RequestMethod.GET)
-	public ModelAndView addingMaerzStrojnik(@ModelAttribute Formular formular) {
-		ModelAndView modelAndView = new ModelAndView("add-maerz-form-strojnik");
+		formular = form;
 		return modelAndView;
 	}
 
