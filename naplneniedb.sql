@@ -3,15 +3,15 @@ INSERT INTO rola VALUES(2,'ROLE_STROJNIK');
 INSERT INTO rola VALUES(3,'ROLE_VEDUCIVAPENKY');
 INSERT INTO rola VALUES(4,'ROLE_MAJSTER');
 
-INSERT INTO zamestnanec VALUES(1,'Ján','Boka',4,1,'majster','heslo');
-INSERT INTO zamestnanec VALUES(2,'Miroslav','Bučkuliak',1,1,'velinar','heslo');
-INSERT INTO zamestnanec VALUES(3,'Ján','Zbynovský',2,1,'strojnik','heslo');
-INSERT INTO zamestnanec VALUES(4,'Rudolf','Hošták',4,1,'majster','heslo');
-INSERT INTO zamestnanec VALUES(5,'Pavol','Hotera',1,1,'velinar','heslo');
-INSERT INTO zamestnanec VALUES(6,'Ján','Matej',4,1,'majster','heslo');
-INSERT INTO zamestnanec VALUES(7,'Martin','Daniš',1,1,'velinar','heslo');
-INSERT INTO zamestnanec VALUES(8,'Rudolf','Kmec',2,1,'strojnik','heslo');
-INSERT INTO zamestnanec VALUES(9,'Rudolf','Veduci',3,1,'veduci','heslo');
+INSERT INTO zamestnanec VALUES(1,'Ján','Boka',4,1,'majster1','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea');
+INSERT INTO zamestnanec VALUES(2,'Miroslav','Bučkuliak',1,1,'velinar1','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea');
+INSERT INTO zamestnanec VALUES(3,'Ján','Zbynovský',2,1,'strojnik1','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea');
+INSERT INTO zamestnanec VALUES(4,'Rudolf','Hošták',4,1,'majster2','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea');
+INSERT INTO zamestnanec VALUES(5,'Pavol','Hotera',1,1,'velinar2','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea');
+INSERT INTO zamestnanec VALUES(6,'Ján','Matej',4,1,'majster3','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea');
+INSERT INTO zamestnanec VALUES(7,'Martin','Daniš',1,1,'velinar3','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea');
+INSERT INTO zamestnanec VALUES(8,'Rudolf','Kmec',2,1,'strojnik2','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea');
+INSERT INTO zamestnanec VALUES(9,'Rudolf','Veduci',3,1,'veduci1','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea');
 
 INSERT INTO maerz VALUES(1,'nic',35,70,17,0,6,55,5,100,0,0,0,0,0,22.1,38.1,'40-80',0,null,0,null,1.7,20311.1,20312.7,20311.1,20312.7,'bez zavad','bez zavad','bez zavad','bez zavad','zariadenie schopne prevadzky','bez zavad');
 INSERT INTO maerz VALUES(2,'nic',35,68,17,10,6,74,5,100,0,0,0,17.8,0,15.6,57.6,'40-80',0,null,0,null,2.7,20312.7,20316.3,20312.7,20316.3,'bez zavad','bez zavad','bez zavad','bez zavad','zariadenie schopne prevadzky','bez zavad');

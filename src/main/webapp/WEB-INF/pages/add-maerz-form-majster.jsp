@@ -374,12 +374,12 @@ table,td,th {
 					<td>Do</td>
 					<td colspan=5>druh cinnosti (kontrola, udrzba, mazanie, opravy a pod.)</td>
 				</tr>
-				<tr>
-				<%-- 	<fmt:formatDate value="${form.pracSnimka.odkedy}" pattern="hh:mm" var="fmtTime" type="time"/> --%>
+			<%-- 	<tr>
+					<fmt:formatDate value="${form.pracSnimka.odkedy}" pattern="hh:mm" var="fmtTime" type="time"/>
 					<td><form:input path="pracSnimka.odkedy" type="time" pattern="hh:mm"/></td>
 					<td><form:input path="pracSnimka.dokedy" type="time" pattern="hh:mm"/></td>
 					<td colspan=2><form:input path="pracSnimka.popis" /></td>
-				</tr>
+				</tr> --%>
 				<tr>
 					<td><input type="button" value="dalsi zaznam" action=""/></td>
 				</tr>

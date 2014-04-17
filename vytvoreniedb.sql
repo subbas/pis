@@ -7,11 +7,11 @@ CREATE TABLE rola(
 CREATE TABLE zamestnanec (
 	id INT NOT NULL AUTO_INCREMENT,
 	meno VARCHAR(20),
-	priezvisko VARCHAR(30),
+	priezvisko VARCHAR(50),
 	rola INT,
 	aktivny INT,
-	login VARCHAR(20),
-	heslo VARCHAR(20),
+	login VARCHAR(100),
+	heslo VARCHAR(200),
 	PRIMARY KEY (id),
 	FOREIGN KEY (rola)
 		REFERENCES rola(id)
@@ -20,7 +20,7 @@ CREATE TABLE zamestnanec (
 
 CREATE TABLE maerz (
 	id INT NOT NULL AUTO_INCREMENT,
-	neodstranene_poruchy VARCHAR(2000),
+	neodstranene_poruchy VARCHAR(20000),
 	-- zasoby
 	zasobnik_1_druh INT,
 	zasobnik_1_plnenie INT,
