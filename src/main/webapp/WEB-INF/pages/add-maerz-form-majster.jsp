@@ -19,12 +19,50 @@ table {
 table,td,th {
 	border: 1px solid #CCFFCC;
 }
+tr {
+	height: 23px;
+}
+td {
+	padding: 3px;
+}
 </style>
 <script type="text/javascript">
 	window.history.forward();
 	function noBack() {
 		window.history.forward();
 	}
+	function vytvorDalsiZaznam(rola){
+		if(rola=='velinar'){
+			var tr = document.createElement("tr");
+			var td1 = document.createElement("td");
+			var td2 = document.createElement("td");
+			var td3 = document.createElement("td");
+			var td4 = document.createElement("td");
+			var td5 = document.createElement("td");
+			var td6 = document.createElement("td");
+			var td7 = document.createElement("td");
+			var odkedy = document.createElement("input");
+			odkedy.setAttribute("type","text");
+			var dokedy = document.createElement("input");
+			dokedy.setAttribute("type","text");
+			var popis = document.createElement("input");
+			popis.setAttribute("type","text");
+			td3.appendChild(popis);
+			td2.appendChild(dokedy);
+			td1.appendChild(odkedy);
+			tr.appendChild(td1);
+			tr.appendChild(td2);
+			tr.appendChild(td3);
+			tr.appendChild(td4);
+			tr.appendChild(td5);
+			tr.appendChild(td6);
+			tr.appendChild(td7);
+			var posledny = document.getElementById("posledny");
+			var teloTabulky = document.getElementById("teloTabulky");
+	 		teloTabulky.insertBefore(tr,posledny);
+		}
+	 	
+}
 </script>
 </head>
 <body onload="noBack();" onunload="">
@@ -33,8 +71,8 @@ table,td,th {
 	<br />
 	<a href="<c:url value="/j_spring_security_logout" />"> Logout</a>
 	<form:form method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-majster.html">
-		<table>
-			<tbody>
+		<table id="tabulka">
+			<tbody id="teloTabulky">
 				<tr>
 					<td></td>
 					<td colspan='3'>PIS - Prevádzkový informačný systém pece Maerz</td>
@@ -374,18 +412,19 @@ table,td,th {
 					<td>Do</td>
 					<td colspan=5>druh cinnosti (kontrola, udrzba, mazanie, opravy a pod.)</td>
 				</tr>
-			<%-- 	<tr>
-					<fmt:formatDate value="${form.pracSnimka.odkedy}" pattern="hh:mm" var="fmtTime" type="time"/>
-					<td><form:input path="pracSnimka.odkedy" type="time" pattern="hh:mm"/></td>
-					<td><form:input path="pracSnimka.dokedy" type="time" pattern="hh:mm"/></td>
-					<td colspan=2><form:input path="pracSnimka.popis" /></td>
-				</tr> --%>
 				<tr>
-					<td><input type="button" value="dalsi zaznam" action=""/></td>
+				<!-- 	<td><input type="text"/></td>
+					<td><input type="text"/></td>
+					<td colspan=2><input type="text"/></td> -->
+					<%-- <td colspan=3>Kontrola ochrannych krytov :</td>
+					<td colspan=4><form:input path="maerz.kontrolaOchrannychKrytov" /></td> --%>
+				</tr>
+				<tr id="posledny">
+					<td><input type="button" value="dalsi zaznam" onclick="vytvorDalsiZaznam('velinar')"/></td>
 				</tr>
 			</tbody>
 			<tfoot>
-				<tr>
+				<tr >
 					<td><input type="submit" value="Pridať" /></td>
 					<td></td>
 				</tr>

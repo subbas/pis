@@ -5,8 +5,10 @@ import com.pis.model.Odprasovanie;
 import com.pis.model.PracovnaSnimka;
 import com.pis.model.ZamMaerz;
 
+
 public class Formular {
 
+	
 	private Maerz maerz;
 	private PracovnaSnimka pracSnimka;
 	private Odprasovanie odprasovanie;

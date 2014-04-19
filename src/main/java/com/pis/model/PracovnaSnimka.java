@@ -21,7 +21,7 @@ public class PracovnaSnimka implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
-	//@DateTimeFormat(pattern="hh:mm")
+	//@Pattern("hh:mm")
 	private Time dokedy;
 
 	//@DateTimeFormat(pattern="hh:mm")

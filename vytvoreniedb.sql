@@ -56,6 +56,7 @@ CREATE TABLE maerz (
 	stav_obeznych_kolies_ventilatorov VARCHAR(50),
 	stav_izolatorov_ventilatorov VARCHAR(50),
 	vysledok_kontroly_technologickeho_zariadenia VARCHAR(300),
+	//vstup_tepla VARCHAR(100);
 	
 	stav_lekarnicky VARCHAR(300),
 	
