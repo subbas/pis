@@ -8,5 +8,5 @@ public interface EntityService<T> {
 	public T getEntity(int id);
 	public void delete(int id);
 	public List<T> getEntities();
-
+	public int getLastId();
 }

@@ -47,4 +47,10 @@ public class RolaDao implements Dao<Rola> {
 		return getCurrentSession().createQuery("from Rola").list();
 	}
 
+	@Override
+	public int getLastId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

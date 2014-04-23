@@ -35,4 +35,10 @@ public class ZamMaerzService implements EntityService<ZamMaerz> {
 	public List<ZamMaerz> getEntities() {
 		return entityDao.getEntities();
 	}
+
+	@Override
+	public int getLastId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

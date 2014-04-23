@@ -35,4 +35,9 @@ public class PracovnaSnimkaService implements EntityService<PracovnaSnimka> {
 	public List<PracovnaSnimka> getEntities() {
 		return entityDao.getEntities();
 	}
+
+	@Override
+	public int getLastId() {
+		return entityDao.getLastId();
+	}
 }

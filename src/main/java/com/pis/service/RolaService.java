@@ -35,4 +35,10 @@ public class RolaService implements EntityService<Rola> {
 	public List<Rola> getEntities() {
 		return entityDao.getEntities();
 	}
+
+	@Override
+	public int getLastId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

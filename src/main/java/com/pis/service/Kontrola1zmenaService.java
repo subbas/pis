@@ -35,4 +35,10 @@ public class Kontrola1zmenaService implements EntityService<Kontrola1zmena> {
 	public List<Kontrola1zmena> getEntities() {
 		return entityDao.getEntities();
 	}
+
+	@Override
+	public int getLastId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

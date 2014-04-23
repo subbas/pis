@@ -35,4 +35,10 @@ public class ZamestnanecService implements EntityService<Zamestnanec> {
 	public List<Zamestnanec> getEntities() {
 		return entityDao.getEntities();
 	}
+
+	@Override
+	public int getLastId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

@@ -47,4 +47,10 @@ public class Kontrola1zmenaDao implements Dao<Kontrola1zmena> {
 		return getCurrentSession().createQuery("from Kontrola1zmenaDao").list();
 	}
 
+	@Override
+	public int getLastId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

@@ -47,4 +47,9 @@ public class PracovnaSnimkaDao implements Dao<PracovnaSnimka> {
 		return getCurrentSession().createQuery("from PracovnaSnimka").list();
 	}
 
+	@Override
+	public int getLastId() {
+		return (Integer)getCurrentSession().createQuery("select max(id) from PracovnaSnimka").uniqueResult();
+	}
+
 }

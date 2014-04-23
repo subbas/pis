@@ -35,4 +35,8 @@ public class MaerzService implements EntityService<Maerz> {
 	public List<Maerz> getEntities() {
 		return entityDao.getEntities();
 	}
+	
+	public int getLastId(){
+		return entityDao.getLastId();
+	}
 }

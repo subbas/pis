@@ -35,4 +35,10 @@ public class OdprasovanieService implements EntityService<Odprasovanie> {
 	public List<Odprasovanie> getEntities() {
 		return entityDao.getEntities();
 	}
+
+	@Override
+	public int getLastId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

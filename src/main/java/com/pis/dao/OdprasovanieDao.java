@@ -47,4 +47,10 @@ public class OdprasovanieDao implements Dao<Odprasovanie> {
 		return getCurrentSession().createQuery("from Odprasovanie").list();
 	}
 
+	@Override
+	public int getLastId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

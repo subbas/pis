@@ -25,8 +25,12 @@ public class MaerzDao implements Dao<Maerz> {
 
 	public void update(Maerz maerz) {
 		Maerz maerzToUpdate = getEntity(maerz.getId());
-		//maerzToUpdate.setName(maerz.getName());
-		//maerzToUpdate.setRating(maerz.getRating());
+		maerzToUpdate.setBriketizackaKonStav(maerz.getBriketizackaKonStav());
+		maerzToUpdate.setBriketizackaPocStav(maerz.getBriketizackaPocStav());
+		maerzToUpdate.setChodPece(maerz.getChodPece());
+		maerzToUpdate.setFilter_M20_kon_stav(maerz.getFilter_M20_kon_stav());
+		maerzToUpdate.setZasobnik1Druh(maerz.getZasobnik1Druh());
+		maerzToUpdate.setNeodstranenePoruchy(maerz.getNeodstranenePoruchy());
 		getCurrentSession().update(maerzToUpdate);
 		
 	}
@@ -45,6 +49,11 @@ public class MaerzDao implements Dao<Maerz> {
 	@SuppressWarnings("unchecked")
 	public List<Maerz> getEntities() {
 		return getCurrentSession().createQuery("from Maerz").list();
+	}
+	
+	public int getLastId() {
+		int id = (Integer)getCurrentSession().createQuery("select max(id) from Maerz").uniqueResult();
+		return id;
 	}
 
 }

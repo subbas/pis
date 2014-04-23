@@ -47,4 +47,10 @@ public class ZamestnanecDao implements Dao<Zamestnanec> {
 		return getCurrentSession().createQuery("from Zamestnanec").list();
 	}
 
+	@Override
+	public int getLastId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

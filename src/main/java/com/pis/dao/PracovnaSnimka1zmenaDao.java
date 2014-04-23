@@ -47,4 +47,10 @@ public class PracovnaSnimka1zmenaDao implements Dao<PracovnaSnimka1zmena> {
 		return getCurrentSession().createQuery("from PracovnaSnimka1zmena").list();
 	}
 
+	@Override
+	public int getLastId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
