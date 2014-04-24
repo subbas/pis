@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pis.model.Rola;
+import com.pis.model.Zamestnanec;
 
 @Repository
 public class RolaDao implements Dao<Rola> {
@@ -51,6 +52,42 @@ public class RolaDao implements Dao<Rola> {
 	public int getLastId() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void updateVelinar(Rola entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateStrojnik(Rola entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateVeduci(Rola entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Zamestnanec> getAllStrojnik() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Zamestnanec> getAllVelinar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Zamestnanec> getAllMajster() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

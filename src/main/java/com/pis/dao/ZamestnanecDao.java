@@ -53,4 +53,39 @@ public class ZamestnanecDao implements Dao<Zamestnanec> {
 		return 0;
 	}
 
+	@Override
+	public void updateVelinar(Zamestnanec entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateStrojnik(Zamestnanec entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateVeduci(Zamestnanec entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Zamestnanec> getAllStrojnik() {
+		return getCurrentSession().createQuery("from Zamestnanec where rola='2'").list();
+	}
+
+	@Override
+	public List<Zamestnanec> getAllVelinar() {
+		
+		return getCurrentSession().createQuery("from Zamestnanec where rola='1'").list();
+	}
+
+	@Override
+	public List<Zamestnanec> getAllMajster() {
+	
+		return getCurrentSession().createQuery("from Zamestnanec where rola='4'").list();
+	}
+
 }

@@ -19,10 +19,6 @@ public class Rola implements Serializable {
 
 	private String nazov;
 
-	//bi-directional many-to-one association to PracovnaSnimka
-	@OneToMany(mappedBy="rola")
-	private List<PracovnaSnimka> pracovnaSnimkas;
-
 	//bi-directional many-to-one association to Zamestnanec
 	@OneToMany(mappedBy="rolaBean")
 	private List<Zamestnanec> zamestnanecs;
@@ -46,28 +42,6 @@ public class Rola implements Serializable {
 		this.nazov = nazov;
 	}
 
-	public List<PracovnaSnimka> getPracovnaSnimkas() {
-		return this.pracovnaSnimkas;
-	}
-
-	public void setPracovnaSnimkas(List<PracovnaSnimka> pracovnaSnimkas) {
-		this.pracovnaSnimkas = pracovnaSnimkas;
-	}
-
-	public PracovnaSnimka addPracovnaSnimka(PracovnaSnimka pracovnaSnimka) {
-		getPracovnaSnimkas().add(pracovnaSnimka);
-		pracovnaSnimka.setRola(this);
-
-		return pracovnaSnimka;
-	}
-
-	public PracovnaSnimka removePracovnaSnimka(PracovnaSnimka pracovnaSnimka) {
-		getPracovnaSnimkas().remove(pracovnaSnimka);
-		pracovnaSnimka.setRola(null);
-
-		return pracovnaSnimka;
-	}
-
 	public List<Zamestnanec> getZamestnanecs() {
 		return this.zamestnanecs;
 	}
@@ -89,6 +63,5 @@ public class Rola implements Serializable {
 
 		return zamestnanec;
 	}
-	
-	
+
 }

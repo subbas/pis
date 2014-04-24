@@ -1,4 +1,4 @@
-package com.pis.dao;
+/*package com.pis.dao;
 
 import java.util.List;
 
@@ -52,4 +52,23 @@ public class PracovnaSnimkaDao implements Dao<PracovnaSnimka> {
 		return (Integer)getCurrentSession().createQuery("select max(id) from PracovnaSnimka").uniqueResult();
 	}
 
+	@Override
+	public void updateVelinar(PracovnaSnimka entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateStrojnik(PracovnaSnimka entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateVeduci(PracovnaSnimka entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
+*/

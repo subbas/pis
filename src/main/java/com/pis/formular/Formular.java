@@ -1,26 +1,69 @@
 package com.pis.formular;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Date;
 
 import com.pis.model.Maerz;
 import com.pis.model.Odprasovanie;
-import com.pis.model.PracovnaSnimka;
 import com.pis.model.ZamMaerz;
-import com.pis.service.EntityService;
+import com.pis.model.Zamestnanec;
 
 
 public class Formular {
 
 	private static Formular instance = null;
 	private Maerz maerz;
-	private List<PracovnaSnimka> pracovnaSnimkas = new ArrayList<PracovnaSnimka>();
 	private Odprasovanie odprasovanie;
 	private ZamMaerz zamMaerz;
+	private String majster;
+	private String velinar;
+	private String strojnik;
+	private String datum;
+	private int zmena;
 	
 	
+	
+
+	public String getDatum() {
+		return datum;
+	}
+
+	public void setDatum(String datum) {
+		this.datum = datum;
+	}
+
+	public int getZmena() {
+		return zmena;
+	}
+
+	public void setZmena(int zmena) {
+		this.zmena = zmena;
+	}
+
+	
+	public String getMajster() {
+		return majster;
+	}
+
+	public void setMajster(String majster) {
+		this.majster = majster;
+	}
+
+	public String getVelinar() {
+		return velinar;
+	}
+
+	public void setVelinar(String velinar) {
+		this.velinar = velinar;
+	}
+
+	public String getStrojnik() {
+		return strojnik;
+	}
+
+	public void setStrojnik(String strojnik) {
+		this.strojnik = strojnik;
+	}
+
 	public Formular() {
 	}
 	
@@ -41,14 +84,6 @@ public class Formular {
 
 	public void setMaerz(Maerz maerz) {
 		this.maerz = maerz;
-	}
-
-	public List<PracovnaSnimka> getPracovnaSnimkas() {
-		return pracovnaSnimkas;
-	}
-
-	public void setPracovnaSnimkas(List<PracovnaSnimka> pracovnaSnimkas) {
-		this.pracovnaSnimkas = pracovnaSnimkas;
 	}
 
 	public Odprasovanie getOdprasovanie() {

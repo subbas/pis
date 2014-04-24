@@ -25,11 +25,22 @@ public class Zamestnanec implements Serializable {
 
 	private String meno;
 
+	@Column(name="osobne_cislo")
+	private int osobneCislo;
+
 	private String priezvisko;
 
 	//bi-directional many-to-one association to ZamMaerz
-	@OneToMany(mappedBy="zamestnanec")
-	private List<ZamMaerz> zamMaerzs;
+	@OneToMany(mappedBy="zamestnanec1")
+	private List<ZamMaerz> zamMaerzs1;
+
+	//bi-directional many-to-one association to ZamMaerz
+	@OneToMany(mappedBy="zamestnanec2")
+	private List<ZamMaerz> zamMaerzs2;
+
+	//bi-directional many-to-one association to ZamMaerz
+	@OneToMany(mappedBy="zamestnanec3")
+	private List<ZamMaerz> zamMaerzs3;
 
 	//bi-directional many-to-one association to Rola
 	@ManyToOne
@@ -38,6 +49,13 @@ public class Zamestnanec implements Serializable {
 
 	public Zamestnanec() {
 	}
+	
+
+	@Override
+	public String toString() {
+		return meno + " " + priezvisko;
+	}
+
 
 	public int getId() {
 		return this.id;
@@ -79,6 +97,14 @@ public class Zamestnanec implements Serializable {
 		this.meno = meno;
 	}
 
+	public int getOsobneCislo() {
+		return this.osobneCislo;
+	}
+
+	public void setOsobneCislo(int osobneCislo) {
+		this.osobneCislo = osobneCislo;
+	}
+
 	public String getPriezvisko() {
 		return this.priezvisko;
 	}
@@ -87,26 +113,70 @@ public class Zamestnanec implements Serializable {
 		this.priezvisko = priezvisko;
 	}
 
-	public List<ZamMaerz> getZamMaerzs() {
-		return this.zamMaerzs;
+	public List<ZamMaerz> getZamMaerzs1() {
+		return this.zamMaerzs1;
 	}
 
-	public void setZamMaerzs(List<ZamMaerz> zamMaerzs) {
-		this.zamMaerzs = zamMaerzs;
+	public void setZamMaerzs1(List<ZamMaerz> zamMaerzs1) {
+		this.zamMaerzs1 = zamMaerzs1;
 	}
 
-	public ZamMaerz addZamMaerz(ZamMaerz zamMaerz) {
-		getZamMaerzs().add(zamMaerz);
-		zamMaerz.setZamestnanec(this);
+	public ZamMaerz addZamMaerzs1(ZamMaerz zamMaerzs1) {
+		getZamMaerzs1().add(zamMaerzs1);
+		zamMaerzs1.setZamestnanec1(this);
 
-		return zamMaerz;
+		return zamMaerzs1;
 	}
 
-	public ZamMaerz removeZamMaerz(ZamMaerz zamMaerz) {
-		getZamMaerzs().remove(zamMaerz);
-		zamMaerz.setZamestnanec(null);
+	public ZamMaerz removeZamMaerzs1(ZamMaerz zamMaerzs1) {
+		getZamMaerzs1().remove(zamMaerzs1);
+		zamMaerzs1.setZamestnanec1(null);
 
-		return zamMaerz;
+		return zamMaerzs1;
+	}
+
+	public List<ZamMaerz> getZamMaerzs2() {
+		return this.zamMaerzs2;
+	}
+
+	public void setZamMaerzs2(List<ZamMaerz> zamMaerzs2) {
+		this.zamMaerzs2 = zamMaerzs2;
+	}
+
+	public ZamMaerz addZamMaerzs2(ZamMaerz zamMaerzs2) {
+		getZamMaerzs2().add(zamMaerzs2);
+		zamMaerzs2.setZamestnanec2(this);
+
+		return zamMaerzs2;
+	}
+
+	public ZamMaerz removeZamMaerzs2(ZamMaerz zamMaerzs2) {
+		getZamMaerzs2().remove(zamMaerzs2);
+		zamMaerzs2.setZamestnanec2(null);
+
+		return zamMaerzs2;
+	}
+
+	public List<ZamMaerz> getZamMaerzs3() {
+		return this.zamMaerzs3;
+	}
+
+	public void setZamMaerzs3(List<ZamMaerz> zamMaerzs3) {
+		this.zamMaerzs3 = zamMaerzs3;
+	}
+
+	public ZamMaerz addZamMaerzs3(ZamMaerz zamMaerzs3) {
+		getZamMaerzs3().add(zamMaerzs3);
+		zamMaerzs3.setZamestnanec3(this);
+
+		return zamMaerzs3;
+	}
+
+	public ZamMaerz removeZamMaerzs3(ZamMaerz zamMaerzs3) {
+		getZamMaerzs3().remove(zamMaerzs3);
+		zamMaerzs3.setZamestnanec3(null);
+
+		return zamMaerzs3;
 	}
 
 	public Rola getRolaBean() {

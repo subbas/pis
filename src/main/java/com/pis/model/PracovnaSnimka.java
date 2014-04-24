@@ -1,4 +1,4 @@
-package com.pis.model;
+/*package com.pis.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -8,10 +8,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.sql.Time;
 
 
-/**
+*//**
  * The persistent class for the pracovna_snimka database table.
  * 
- */
+ *//*
 @Entity
 @Table(name="pracovna_snimka")
 public class PracovnaSnimka implements Serializable {
@@ -90,4 +90,4 @@ public class PracovnaSnimka implements Serializable {
 		this.rola = rola;
 	}
 
-}
+}*/

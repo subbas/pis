@@ -1,4 +1,4 @@
-package com.pis.service;
+/*package com.pis.service;
 
 import java.util.List;
 
@@ -40,4 +40,23 @@ public class PracovnaSnimkaService implements EntityService<PracovnaSnimka> {
 	public int getLastId() {
 		return entityDao.getLastId();
 	}
+
+	@Override
+	public void updateVelinar(PracovnaSnimka entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateStrojnik(PracovnaSnimka entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateVeduci(PracovnaSnimka entity) {
+		// TODO Auto-generated method stub
+		
+	}
 }
+*/

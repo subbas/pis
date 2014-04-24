@@ -36,6 +36,12 @@ public class Maerz implements Serializable {
 	@Column(name="neodstranene_poruchy")
 	private String neodstranenePoruchy;
 
+	@Column(name="pracovna_snimka_strojnik")
+	private String pracovnaSnimkaStrojnik;
+
+	@Column(name="pracovna_snimka_velinar")
+	private String pracovnaSnimkaVelinar;
+
 	@Column(name="stav_izolatorov_ventilatorov")
 	private String stavIzolatorovVentilatorov;
 
@@ -47,6 +53,12 @@ public class Maerz implements Serializable {
 
 	@Column(name="stav_potrubia_vzduchotechniky")
 	private String stavPotrubiaVzduchotechniky;
+
+	@Column(name="teplota_pyrometra")
+	private String teplotaPyrometra;
+
+	@Column(name="vstup_tepla")
+	private String vstupTepla;
 
 	@Column(name="vyroba_vapenec_vsadzka_17_frakcia_vapenca")
 	private String vyrobaVapenecVsadzka17FrakciaVapenca;
@@ -114,14 +126,6 @@ public class Maerz implements Serializable {
 	//bi-directional many-to-one association to Odprasovanie
 	@OneToMany(mappedBy="maerz")
 	private List<Odprasovanie> odprasovanies;
-
-	//bi-directional many-to-one association to PracovnaSnimka
-	@OneToMany(mappedBy="maerz")
-	private List<PracovnaSnimka> pracovnaSnimkas;
-
-	//bi-directional many-to-one association to PracovnaSnimka1zmena
-	@OneToMany(mappedBy="maerz")
-	private List<PracovnaSnimka1zmena> pracovnaSnimka1zmenas;
 
 	//bi-directional many-to-one association to ZamMaerz
 	@OneToMany(mappedBy="maerz")
@@ -194,6 +198,22 @@ public class Maerz implements Serializable {
 		this.neodstranenePoruchy = neodstranenePoruchy;
 	}
 
+	public String getPracovnaSnimkaStrojnik() {
+		return this.pracovnaSnimkaStrojnik;
+	}
+
+	public void setPracovnaSnimkaStrojnik(String pracovnaSnimkaStrojnik) {
+		this.pracovnaSnimkaStrojnik = pracovnaSnimkaStrojnik;
+	}
+
+	public String getPracovnaSnimkaVelinar() {
+		return this.pracovnaSnimkaVelinar;
+	}
+
+	public void setPracovnaSnimkaVelinar(String pracovnaSnimkaVelinar) {
+		this.pracovnaSnimkaVelinar = pracovnaSnimkaVelinar;
+	}
+
 	public String getStavIzolatorovVentilatorov() {
 		return this.stavIzolatorovVentilatorov;
 	}
@@ -224,6 +244,22 @@ public class Maerz implements Serializable {
 
 	public void setStavPotrubiaVzduchotechniky(String stavPotrubiaVzduchotechniky) {
 		this.stavPotrubiaVzduchotechniky = stavPotrubiaVzduchotechniky;
+	}
+
+	public String getTeplotaPyrometra() {
+		return this.teplotaPyrometra;
+	}
+
+	public void setTeplotaPyrometra(String teplotaPyrometra) {
+		this.teplotaPyrometra = teplotaPyrometra;
+	}
+
+	public String getVstupTepla() {
+		return this.vstupTepla;
+	}
+
+	public void setVstupTepla(String vstupTepla) {
+		this.vstupTepla = vstupTepla;
 	}
 
 	public String getVyrobaVapenecVsadzka17FrakciaVapenca() {
@@ -414,50 +450,6 @@ public class Maerz implements Serializable {
 		odprasovany.setMaerz(null);
 
 		return odprasovany;
-	}
-
-	public List<PracovnaSnimka> getPracovnaSnimkas() {
-		return this.pracovnaSnimkas;
-	}
-
-	public void setPracovnaSnimkas(List<PracovnaSnimka> pracovnaSnimkas) {
-		this.pracovnaSnimkas = pracovnaSnimkas;
-	}
-
-	public PracovnaSnimka addPracovnaSnimka(PracovnaSnimka pracovnaSnimka) {
-		getPracovnaSnimkas().add(pracovnaSnimka);
-		pracovnaSnimka.setMaerz(this);
-
-		return pracovnaSnimka;
-	}
-
-	public PracovnaSnimka removePracovnaSnimka(PracovnaSnimka pracovnaSnimka) {
-		getPracovnaSnimkas().remove(pracovnaSnimka);
-		pracovnaSnimka.setMaerz(null);
-
-		return pracovnaSnimka;
-	}
-
-	public List<PracovnaSnimka1zmena> getPracovnaSnimka1zmenas() {
-		return this.pracovnaSnimka1zmenas;
-	}
-
-	public void setPracovnaSnimka1zmenas(List<PracovnaSnimka1zmena> pracovnaSnimka1zmenas) {
-		this.pracovnaSnimka1zmenas = pracovnaSnimka1zmenas;
-	}
-
-	public PracovnaSnimka1zmena addPracovnaSnimka1zmena(PracovnaSnimka1zmena pracovnaSnimka1zmena) {
-		getPracovnaSnimka1zmenas().add(pracovnaSnimka1zmena);
-		pracovnaSnimka1zmena.setMaerz(this);
-
-		return pracovnaSnimka1zmena;
-	}
-
-	public PracovnaSnimka1zmena removePracovnaSnimka1zmena(PracovnaSnimka1zmena pracovnaSnimka1zmena) {
-		getPracovnaSnimka1zmenas().remove(pracovnaSnimka1zmena);
-		pracovnaSnimka1zmena.setMaerz(null);
-
-		return pracovnaSnimka1zmena;
 	}
 
 	public List<ZamMaerz> getZamMaerzs() {

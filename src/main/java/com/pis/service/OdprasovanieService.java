@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pis.dao.OdprasovanieDao;
 import com.pis.model.Odprasovanie;
+import com.pis.model.Zamestnanec;
 
 @Service
 @Transactional
@@ -40,5 +41,41 @@ public class OdprasovanieService implements EntityService<Odprasovanie> {
 	public int getLastId() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void updateVelinar(Odprasovanie entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateStrojnik(Odprasovanie entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateVeduci(Odprasovanie entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Zamestnanec> getAllStrojnik() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Zamestnanec> getAllVelinar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Zamestnanec> getAllMajster() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

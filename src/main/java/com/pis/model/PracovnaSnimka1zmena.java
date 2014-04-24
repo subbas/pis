@@ -1,13 +1,13 @@
-package com.pis.model;
+/*package com.pis.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
 
-/**
+*//**
  * The persistent class for the pracovna_snimka_1zmena database table.
  * 
- */
+ *//*
 @Entity
 @Table(name="pracovna_snimka_1zmena")
 public class PracovnaSnimka1zmena implements Serializable {
@@ -145,4 +145,4 @@ public class PracovnaSnimka1zmena implements Serializable {
 		this.maerz = maerz;
 	}
 
-}
+}*/

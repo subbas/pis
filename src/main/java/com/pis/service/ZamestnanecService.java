@@ -41,4 +41,37 @@ public class ZamestnanecService implements EntityService<Zamestnanec> {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public void updateVelinar(Zamestnanec entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateStrojnik(Zamestnanec entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateVeduci(Zamestnanec entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Zamestnanec> getAllStrojnik() {
+		return entityDao.getAllStrojnik();
+	}
+
+	@Override
+	public List<Zamestnanec> getAllVelinar() {
+		return entityDao.getAllVelinar();
+	}
+
+	@Override
+	public List<Zamestnanec> getAllMajster() {
+		return entityDao.getAllMajster();
+	}
 }

@@ -16,7 +16,7 @@ body {
 }
 
 #hlavna-cast {
-	background-color: white; border: 2px solid rgb(253, 233, 35); width: 1203px; margin-left: auto; margin-right: auto; font-family: Arial, Verdana; font-size: 14px;
+	background-color: white; border: 2px solid rgb(253, 233, 35); width: 1223px; margin-left: auto; margin-right: auto; font-family: Arial, Verdana; font-size: 14px;
 }
 
 #header {
@@ -50,10 +50,10 @@ td {
 .vstup {
 	border: 2px solid rgb(132, 207, 132);
 }
+
 .vstupv {
 	border: 2px solid rgb(253, 233, 35);
 }
-
 
 .sirka1 {
 	width: 100px;
@@ -80,7 +80,7 @@ td {
 }
 
 .veduci {
-	background-color: rgb(0, 255, 255);
+	background-color: rgb(0, 255, 255); text-align:center;
 }
 
 .label {
@@ -112,7 +112,7 @@ td {
 }
 
 .druhy-stlpec {
-	width: 85px;
+	width: 105px;
 }
 
 .treti-stlpec {
@@ -154,7 +154,7 @@ td {
 		id = 1;
 		window.history.forward();
 	}
-	function vytvorDalsiZaznam(rola) {
+	/* function vytvorDalsiZaznam(rola) {
 		if (rola == 'strojnik') {
 			var tr = document.createElement("tr");
 			var t1 = document.createTextNode("text");
@@ -205,10 +205,7 @@ td {
 		if (rola == 'strojnik') {
 
 		}
-	}
-	function synch() {
-		location.reload();
-	}
+	} */
 </script>
 </head>
 <body onload="noBack();" onunload="">
@@ -224,7 +221,7 @@ td {
 				<table id="tabulka">
 					<tbody id="teloTabulky">
 						<tr>
-							<td id="prvy-stlpec"></td>
+							<td class="prvy-stlpec"></td>
 							<td colspan='3' style="font-size: 15px; color: white; background-color: rgb(153, 51, 0);">PIS - Prevádzkový informačný systém pece Maerz</td>
 							<td></td>
 							<td class="label" colspan='3' style="font-size: 18px;">Neodstránené poruchy</td>
@@ -249,16 +246,16 @@ td {
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Dátum:</td>
-							<td class="velinar oramovanie1">dnes</td>
+							<td class="velinar oramovanie1">${formular.datum}</td>
 							<td></td>
 							<td class="velinar" style="text-align: left;">Vypĺňa velinár</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Zmena:</td>
-							<td class="velinar oramovanie1"><form:select class="velinar druhy-stlpec vstupv" path="zamMaerz.zmena" items="${zmenaList}" /></td>
+							<td class="velinar oramovanie1">${formular.zmena}</td>
 							<td></td>
-							<td class="veduci">Vypĺňa vedúci vápenky</td>
+							<td class="veduci" style="text-align:left;">Vypĺňa vedúci vápenky</td>
 							<td></td>
 						</tr>
 
@@ -278,23 +275,23 @@ td {
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Majster:</td>
-							<td class="velinar oramovanie1">text</td>
-							<td class="velinar oramovanie1">text</td>
+							<td class="velinar oramovanie1"><form:select class="velinar vstupv druhy-stlpec" path="majster" items="${majsterList}" cssStyle="font-size:10px;"/></td>
+							<td class="velinar oramovanie1">${formular.majster}</td>
 							<td></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Velinár:</td>
-							<td class="velinar oramovanie1">text</td>
-							<td class="velinar oramovanie1">text</td>
+							<td class="velinar oramovanie1"><form:select class="velinar vstupv druhy-stlpec" path="velinar" items="${velinarList}" cssStyle="font-size:10px;"/></td>
+							<td class="velinar oramovanie1">${formular.velinar}</td>
 							<td></td>
 							<td></td>
 						</tr>
 
 						<tr>
 							<td class="oramovanie-right">Strojník:</td>
-							<td class="velinar oramovanie1">text</td>
-							<td class="velinar oramovanie1">text</td>
+							<td class="velinar oramovanie1"><form:select class="velinar vstupv druhy-stlpec" path="strojnik" items="${strojnikList}" cssStyle="font-size:10px;"/></td>
+							<td class="velinar oramovanie1">${formular.strojnik}</td>
 							<td></td>
 							<td></td>
 						</tr>
@@ -643,90 +640,44 @@ td {
 							<td colspan=4>druh činnosti</td>
 						</tr>
 						<tr>
-							<td class="velinar">text</td>
-							<td class="velinar">text</td>
-							<td class="velinar" colspan=2>text</td>
+							<td class="velinar" colspan=4 rowspan=26><form:textarea class="velinar" path="maerz.pracovnaSnimkaVelinar" cssStyle="border:2px solid rgb(253, 233,35);width:500px;height:100px;"/></td>
 							<td class="strojnik label" colspan=2>Kontrola ochranných krytov:</td>
 							<td class="strojnik" colspan=4>${formular.maerz.kontrolaOchrannychKrytov}</td>
 						</tr>
 
 						<tr>
-							<td class="velinar">text</td>
-							<td class="velinar">text</td>
-							<td class="velinar" colspan=2>text</td>
 							<td class="strojnik label" colspan=2>Stav potrubia vzduchotechniky:</td>
 							<td class="strojnik" colspan=4>${formular.maerz.stavPotrubiaVzduchotechniky}</td>
 						</tr>
 						<tr>
-							<td class="velinar">text</td>
-							<td class="velinar">text</td>
-							<td class="velinar" colspan=2>text</td>
 							<td class="strojnik label" colspan=2>Stav obežných kolies ventilátorov:</td>
 							<td class="strojnik" colspan=4>${formular.maerz.stavObeznychKoliesVentilatorov}</td>
 						</tr>
 						<tr>
-							<td class="velinar">text</td>
-							<td class="velinar">text</td>
-							<td class="velinar" colspan=2>text</td>
 							<td class="strojnik label" colspan=2>Stav izolátorov ventilov:</td>
 							<td class="strojnik" colspan=4>${formular.maerz.stavIzolatorovVentilatorov}</td>
 						</tr>
 						<tr>
-							<td class="velinar">text</td>
-							<td class="velinar">text</td>
-							<td class="velinar" colspan=2>text</td>
 							<td class="strojnik label" colspan=6>Výsledok kontroly technologického zariadenia na začiatku zmeny:</td>
 						</tr>
-
 						<tr>
-							<td class="velinar">text</td>
-							<td class="velinar">text</td>
-							<td class="velinar" colspan=2>text</td>
 							<td class="strojnik" colspan=6>${formular.maerz.vysledokKontrolyTechnologickehoZariadenia}</td>
 						</tr>
 
-						<%-- 	<tr>
-							<td class="velinar">text</td>
-							<td class="velinar">text</td>
-							<td class="velinar" colspan=2>text</td>
-							<td class="strojnik"><form:input class="strojnik vstup sirka3" path="pracovnaSnimkas[0].od"/></td>
-							<td class="strojnik"><input class="strojnik vstup sirka3" type="text" value="8:0:0"/></td>
-							<td class="strojnik" colspan=4><input class="strojnik vstup sirka2" type="text" value="popis"/></td>
-						</tr>  --%>
-
-
-						<!-- <tr>
-							<td class="velinar">text</td>
-							<td class="velinar">text</td>
-							<td class="velinar" colspan=2>text</td>
-							<td class="strojnik"><input class="strojnik vstup sirka3" type="text" value="8:0:0"/></td>
-							<td class="strojnik"><input class="strojnik vstup sirka3" type="text" value="8:0:0"/></td>
-							<td class="strojnik" colspan=4><input class="strojnik vstup sirka2" type="text" value="popis"/></td>
-						</tr>
-						<tr id="posledny">
-							<td class="velinar">text</td>
-							<td class="velinar">text</td>
-							<td class="velinar" colspan=2>text</td>
-							<td class="strojnik"><input type="button" value="Ďaľší záznam" onclick="vytvorDalsiZaznam('strojnik')" /></td>
-							<td class="strojnik" colspan=5></td>
-						</tr> -->
-
 						<tr>
-							<td class="velinar" colspan=4></td>
-							<td class="strojnik" colspan=6></td>
+							<td class="strojnik" colspan=6 rowspan=3>${formular.maerz.pracovnaSnimkaStrojnik}</td>
 						</tr>
+						<tr></tr>
+						<tr></tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik label" colspan=6 style="font-size: 18px; text-decoration: underline;">Kontrola zdrojov, ktoré sa odprašujú:</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik label" colspan=3>Filter Scheuch, výduch K4</td>
 							<td class="strojnik label" colspan=3>Filter M10, výduch V21</td>
 						</tr>
 
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
 							<td class="strojnik" colspan=2>${formular.odprasovanie.scheuchCas}</td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
@@ -734,7 +685,6 @@ td {
 						</tr>
 
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Otvárajú všetky membránové ventily</td>
 							<td class="strojnik" colspan=2>${formular.odprasovanie.scheuchMembranoveVentily}</td>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
@@ -742,7 +692,6 @@ td {
 						</tr>
 
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Fungujú šneky pre vynášanie prachu</td>
 							<td class="strojnik" colspan=2>${formular.odprasovanie.scheuchSneky}</td>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
@@ -750,89 +699,81 @@ td {
 						</tr>
 
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Diferenčný podtlak</td>
 							<td class="strojnik" colspan=2>${formular.odprasovanie.scheuchPodtlak}</td>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
 							<td class="strojnik" colspan=3>${formular.odprasovanie.m10_funkcnost_tesnost}</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik label" colspan=3>Filter M117.3, výduch V38</td>
 							<td class="strojnik label" colspan=3>Filter M116.1, výduch V39</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
 							<td class="strojnik" colspan=2>${formular.odprasovanie.m117_cas}</td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
 							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_cas}</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
 							<td class="strojnik" colspan=2>${formular.odprasovanie.m117_podtlak}</td>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
 							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_podtlak}</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
-							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
+					<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
 							<td class="strojnik" colspan=2>${formular.odprasovanie.m117_datum_zmeny_hadic}</td>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
 							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_datum_zmeny_hadic}</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
 							<td class="strojnik" colspan=2>${formular.odprasovanie.m117_funkcnost_tesnost}</td>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
 							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_funkcnost_tesnost}</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik label" colspan=3>Filter M12, výduch V40</td>
 							<td class="strojnik label" colspan=3>Filter M115, výduch V22</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
 							<td class="strojnik" colspan=2>${formular.odprasovanie.m12_cas}</td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
 							<td class="strojnik" colspan=3>${formular.odprasovanie.m115_cas}</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
 							<td class="strojnik" colspan=2>${formular.odprasovanie.m12_podtlak}</td>
 							<td class="strojnik odprasovanie-label">Funkčnosť oklepávacieho zariadenia</td>
 							<td class="strojnik" colspan=3>${formular.odprasovanie.m115_funkcnost_oklepavacieho_zariadenia}</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
 							<td class="strojnik" colspan=2>${formular.odprasovanie.m12_datum_zmeny_hadic}</td>
 							<td class="strojnik odprasovanie-label">Chod zberneho snekoveho dopravnika</td>
 							<td class="strojnik" colspan=3>${formular.odprasovanie.m115_chod_snekoveho_dopravnika}</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
 							<td class="strojnik" colspan=2>${formular.odprasovanie.m12_funkcnost_tesnost}</td>
 							<td class="strojnik odprasovanie-label">Funkcnost a celistvost filtra a potrubia</td>
 							<td class="strojnik" colspan=3>${formular.odprasovanie.m115_funkcnost_celistvost}</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
 							<td class="strojnik label" colspan=6>Filter Herding TLF D 1500, výduch V54</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
+							<td class="velinar label">Vstup tepla: </td>
+							<td class="velinar"><form:input class="velinar druhy-stlpec" path="maerz.vstupTepla"  cssStyle="border:2px solid rgb(253, 233, 35);"/></td>
+							<td class="velinar" colspan=2></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
 							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCas}</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4></td>
+							<td class="velinar label">Teplota pyrometra: </td>
+							<td class="velinar"><form:input class="velinar druhy-stlpec" path="maerz.teplotaPyrometra" cssStyle="border:2px solid rgb(253, 233, 35);"/></td>
+							<td class="velinar" colspan=2></td>
 							<td class="strojnik odprasovanie-label">Počuť čistiace impulzy</td>
 							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCistiaceImpulzy}</td>
 						</tr>

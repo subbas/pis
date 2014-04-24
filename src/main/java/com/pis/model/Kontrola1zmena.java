@@ -1,14 +1,14 @@
-package com.pis.model;
+/*package com.pis.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
 
 
-/**
+*//**
  * The persistent class for the kontrola_1zmena database table.
  * 
- */
+ *//*
 @Entity
 @Table(name="kontrola_1zmena")
 public class Kontrola1zmena implements Serializable {
@@ -281,4 +281,4 @@ public class Kontrola1zmena implements Serializable {
 		return pracovnaSnimka1zmenas8;
 	}
 
-}
+}*/

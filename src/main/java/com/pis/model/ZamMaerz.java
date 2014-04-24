@@ -30,8 +30,18 @@ public class ZamMaerz implements Serializable {
 
 	//bi-directional many-to-one association to Zamestnanec
 	@ManyToOne
-	@JoinColumn(name="id_zam")
-	private Zamestnanec zamestnanec;
+	@JoinColumn(name="id_velinar")
+	private Zamestnanec zamestnanec1;
+
+	//bi-directional many-to-one association to Zamestnanec
+	@ManyToOne
+	@JoinColumn(name="id_majster")
+	private Zamestnanec zamestnanec2;
+
+	//bi-directional many-to-one association to Zamestnanec
+	@ManyToOne
+	@JoinColumn(name="id_strojnik")
+	private Zamestnanec zamestnanec3;
 
 	public ZamMaerz() {
 	}
@@ -68,12 +78,28 @@ public class ZamMaerz implements Serializable {
 		this.maerz = maerz;
 	}
 
-	public Zamestnanec getZamestnanec() {
-		return this.zamestnanec;
+	public Zamestnanec getZamestnanec1() {
+		return this.zamestnanec1;
 	}
 
-	public void setZamestnanec(Zamestnanec zamestnanec) {
-		this.zamestnanec = zamestnanec;
+	public void setZamestnanec1(Zamestnanec zamestnanec1) {
+		this.zamestnanec1 = zamestnanec1;
+	}
+
+	public Zamestnanec getZamestnanec2() {
+		return this.zamestnanec2;
+	}
+
+	public void setZamestnanec2(Zamestnanec zamestnanec2) {
+		this.zamestnanec2 = zamestnanec2;
+	}
+
+	public Zamestnanec getZamestnanec3() {
+		return this.zamestnanec3;
+	}
+
+	public void setZamestnanec3(Zamestnanec zamestnanec3) {
+		this.zamestnanec3 = zamestnanec3;
 	}
 
 }

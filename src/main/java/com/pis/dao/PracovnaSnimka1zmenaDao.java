@@ -1,4 +1,4 @@
-package com.pis.dao;
+/*package com.pis.dao;
 
 import java.util.List;
 
@@ -53,4 +53,23 @@ public class PracovnaSnimka1zmenaDao implements Dao<PracovnaSnimka1zmena> {
 		return 0;
 	}
 
+	@Override
+	public void updateVelinar(PracovnaSnimka1zmena entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateStrojnik(PracovnaSnimka1zmena entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateVeduci(PracovnaSnimka1zmena entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
+*/

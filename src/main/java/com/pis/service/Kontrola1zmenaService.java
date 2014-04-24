@@ -1,4 +1,4 @@
-package com.pis.service;
+/*package com.pis.service;
 
 import java.util.List;
 
@@ -41,4 +41,23 @@ public class Kontrola1zmenaService implements EntityService<Kontrola1zmena> {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public void updateVelinar(Kontrola1zmena entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateStrojnik(Kontrola1zmena entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateVeduci(Kontrola1zmena entity) {
+		// TODO Auto-generated method stub
+		
+	}
 }
+*/

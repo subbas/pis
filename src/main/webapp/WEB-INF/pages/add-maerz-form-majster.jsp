@@ -1,440 +1,792 @@
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 <title>PIS Maerz</title>
 <style>
+body {
+	background-color: rgb(238, 222, 255);
+}
+
+#hlavna-cast {
+	background-color: white; border: 2px solid rgb(204, 153, 255); width: 1223px; margin-left: auto; margin-right: auto; font-family: Arial, Verdana; font-size: 14px;
+}
+
+#header {
+	height: 50px; background-color: rgb(238, 222, 255);
+}
+
+.ciara {
+	border: 1px solid rgb(204, 153, 255);
+}
+
+#obsah {
+	padding: 5px;
+}
+
 table {
 	border-collapse: collapse;
 }
 
-table,td,th {
-	border: 1px solid #CCFFCC;
+table,td {
+	border: 1px solid rgb(204, 255, 204);
 }
+
 tr {
 	height: 23px;
 }
+
 td {
 	padding: 3px;
+}
+
+.vstup {
+	border: 2px solid rgb(132, 207, 132);
+}
+
+.sirka1 {
+	width: 100px;
+}
+
+.sirka2 {
+	width: 308px;
+}
+
+.sirka3 {
+	width: 50px;
+}
+
+.velinar {
+	background-color: rgb(255, 255, 153); text-align: center; border-color: rgb(255, 255, 153);
+}
+
+.strojnik {
+	background-color: rgb(204, 255, 204);
+}
+
+.vzorec {
+	background-color: rgb(255, 204, 0); text-align: center;
+}
+
+.veduci {
+	background-color: rgb(0, 255, 255); text-align: center;
+}
+
+.label {
+	font-weight: bold;
+}
+
+.oramovanie-bottom {
+	border-bottom: 1px solid black;
+}
+
+.oramovanie-right {
+	border-right: 1px solid black;
+}
+
+.oramovanie1 {
+	border-color: black;
+}
+
+.lekarnicka {
+	background-color: rgb(204, 204, 255);
+}
+
+.odprasovanie-label {
+	font-size: 12px;
+}
+
+.prvy-stlpec {
+	width: 175px;
+}
+
+.druhy-stlpec {
+	width: 105px;
+}
+
+.treti-stlpec {
+	width: 95px;
+}
+
+.stvrty-stlpec {
+	width: 170px;
+}
+
+.piaty-stlpec {
+	width: 140px;
+}
+
+.siesty-stlpec {
+	width: 80px;
+}
+
+.siedmy-stlpec {
+	width: 80px;
+}
+
+.osmy-stlpec {
+	width: 140px;
+}
+
+.deviaty-stlpec {
+	width: 80px;
+}
+
+.desiaty-stlpec {
+	width: 80px;
 }
 </style>
 <script type="text/javascript">
 	window.history.forward();
+	var id = 0;
 	function noBack() {
+		id = 1;
 		window.history.forward();
 	}
-	function vytvorDalsiZaznam(rola){
-		if(rola=='velinar'){
+	/* function vytvorDalsiZaznam(rola) {
+		if (rola == 'strojnik') {
 			var tr = document.createElement("tr");
+			var t1 = document.createTextNode("text");
+			var t2 = document.createTextNode("text");
+			var t3 = document.createTextNode("text");
 			var td1 = document.createElement("td");
 			var td2 = document.createElement("td");
 			var td3 = document.createElement("td");
 			var td4 = document.createElement("td");
 			var td5 = document.createElement("td");
 			var td6 = document.createElement("td");
-			var td7 = document.createElement("td");
 			var odkedy = document.createElement("input");
-			odkedy.setAttribute("type","text");
 			var dokedy = document.createElement("input");
-			dokedy.setAttribute("type","text");
 			var popis = document.createElement("input");
-			popis.setAttribute("type","text");
-			td3.appendChild(popis);
-			td2.appendChild(dokedy);
-			td1.appendChild(odkedy);
+			var posledny = document.getElementById("posledny");
+			var teloTabulky = document.getElementById("teloTabulky");
+
+			td1.setAttribute("class","velinar");
+			td2.setAttribute("class","velinar");
+			td3.setAttribute("class","velinar");
+			td3.setAttribute("colspan", "2");
+			td4.setAttribute("class", "strojnik");
+			td5.setAttribute("class", "strojnik");
+			td6.setAttribute("colspan", "4");
+			td6.setAttribute("class", "strojnik");
+			odkedy.setAttribute("type", "text");
+			odkedy.setAttribute("class","strojnik sirka3 vstup");
+			dokedy.setAttribute("type", "text");
+			dokedy.setAttribute("class","strojnik sirka3 vstup");
+			popis.setAttribute("type", "text");
+			popis.setAttribute("class","strojnik sirka2 vstup");
+
+			td1.appendChild(t1);
+			td2.appendChild(t2);
+			td3.appendChild(t3);
+			td6.appendChild(popis);
+			td5.appendChild(dokedy);
+			td4.appendChild(odkedy);
 			tr.appendChild(td1);
 			tr.appendChild(td2);
 			tr.appendChild(td3);
 			tr.appendChild(td4);
 			tr.appendChild(td5);
 			tr.appendChild(td6);
-			tr.appendChild(td7);
-			var posledny = document.getElementById("posledny");
-			var teloTabulky = document.getElementById("teloTabulky");
-	 		teloTabulky.insertBefore(tr,posledny);
+
+			teloTabulky.insertBefore(tr, posledny);
 		}
-	 	
-}
+		if (rola == 'strojnik') {
+
+		} */
 </script>
 </head>
 <body onload="noBack();" onunload="">
+	<div id="hlavna-cast">
 
-	<h1>PIS pece Maerz</h1>
-	<br />
-	<a href="<c:url value="/j_spring_security_logout" />"> Logout</a>
-	<form:form method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-majster.html">
-		<table id="tabulka">
-			<tbody id="teloTabulky">
-				<tr>
-					<td></td>
-					<td colspan='3'>PIS - Prevádzkový informačný systém pece Maerz</td>
-					<td></td>
-					<td colspan='3'>Neodstranene poruchy</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td colspan='5' rowspan='11'><form:textarea path="maerz.neodstranenePoruchy" /></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td>Vyplna strojnik</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Datum</td>
-					<td>dnes</td>
-					<td></td>
-					<td>Vyplna velinar</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Zmena</td>
-					<td><form:select path="zamMaerz.zmena" items="${zmenaList}" /></td>
-					<td></td>
-					<td>Vyplna veduci vapenky</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td>Zásoby</td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>Druh</td>
-					<td>Plnenie v %</td>
-					<td>Prepocet na tony</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Zásobník č.1:</td>
-					<td><form:input path="maerz.zasobnik1Druh" /></td>
-					<td><form:input path="maerz.zasobnik1Plnenie" /></td>
-					<td>text</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Zásobník č.2:</td>
-					<td><form:input path="maerz.zasobnik2Druh" /></td>
-					<td><form:input path="maerz.zasobnik2Plnenie" /></td>
-					<td>text</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Zásobník č.5:</td>
-					<td><form:input path="maerz.zasobnik5Druh" /></td>
-					<td><form:input path="maerz.zasobnik5Plnenie" /></td>
-					<td>text</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Zásobník nová lanovka:</td>
-					<td><form:input path="maerz.zasobnikNovaLanovkaDruh" /></td>
-					<td><form:input path="maerz.zasobnikNovaLanovkaPlnenie" /></td>
-					<td>text</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td>Výroba</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>Plán</td>
-					<td>Skutočnosť</td>
-					<td>Percentualne plnenie</td>
-					<td>Frakcia 0/16</td>
-					<td>Frakcia 10/50</td>
-					<td>Od zaciatku mesiaca</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Vápna 6% v to:</td>
-					<td><form:input path="maerz.vyrobaVapno6Plan" /></td>
-					<td><form:input path="maerz.vyrobaVapno6Skut" /></td>
-					<td>text</td>
-					<td>text</td>
-					<td>text</td>
-					<td>text</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Vápna 17% v to:</td>
-					<td><form:input path="maerz.vyrobaVapno17Plan" /></td>
-					<td><form:input path="maerz.vyrobaVapno17Skut" /></td>
-					<td>text</td>
-					<td>text</td>
-					<td>text</td>
-					<td>text</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Vápna 35% v to:</td>
-					<td><form:input path="maerz.vyrobaVapno35Plan" /></td>
-					<td><form:input path="maerz.vyrobaVapno35Skut" /></td>
-					<td>text</td>
-					<td>text</td>
-					<td>text</td>
-					<td>text</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Vápno spolu v to:</td>
-					<td>text</td>
-					<td>text</td>
-					<td>text</td>
-					<td></td>
-					<td></td>
-					<td>text</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td>Skutočnosť</td>
-					<td>Frakcia vápenca</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Vápenec vsádzka 6% v to:</td>
-					<td>text</td>
-					<td><form:input path="maerz.vyrobaVapenecVsadzka6Skut" /></td>
-					<td><form:input path="maerz.vyrobaVapenecVsadzka6FrakciaVapenca" /></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Vápenec vsádzka 17% v to:</td>
-					<td>text</td>
-					<td><form:input path="maerz.vyrobaVapenecVsadzka17Skut" /></td>
-					<td><form:input path="maerz.vyrobaVapenecVsadzka17FrakciaVapenca" /></td>
-					<td></td>
-					<td colspan=2>Briketizacna linka:</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Vápenec vsádzka 35% v to:</td>
-					<td></td>
-					<td><form:input path="maerz.vyrobaVapenecVsadzka35Skut" /></td>
-					<td><form:input path="maerz.vyrobaVapenecVsadzka35FrakciaVapenca" /></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Vapenec spolu</td>
-					<td></td>
-					<td>text</td>
-					<td></td>
-					<td></td>
-					<td>Briketizacka</td>
-					<td>Filter M20</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td>Pociatocny stav</td>
-					<td><form:input path="maerz.briketizackaPocStav" /></td>
-					<td><form:input path="maerz.filter_M20_poc_stav" /></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td>V hodinách</td>
-					<td></td>
-					<td></td>
-					<td>Konecny stav</td>
-					<td><form:input path="maerz.briketizackaKonStav" /></td>
-					<td><form:input path="maerz.filter_M20_kon_stav" /></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Chod pece:</td>
-					<td><form:input path="maerz.chodPece" /></td>
-					<td></td>
-					<td></td>
-					<td>Chod zariadenia</td>
-					<td>text</td>
-					<td>text</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Prestoje spolu v hod:</td>
-					<td>text</td>
-					<td></td>
-					<td></td>
-					<td>za mesiac</td>
-					<td>text</td>
-					<td>text</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Stav lekarnicky</td>
-					<td>text</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td colspan=2>Pracovna snimka dna</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>VELINAR</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td>STROJNIK</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>Od</td>
-					<td>Do</td>
-					<td colspan=2>druh cinnosti (kotrola,zavada,odstranenie poruch a pod.)</td>
-					<td>Od</td>
-					<td>Do</td>
-					<td colspan=5>druh cinnosti (kontrola, udrzba, mazanie, opravy a pod.)</td>
-				</tr>
-				<tr>
-				<!-- 	<td><input type="text"/></td>
-					<td><input type="text"/></td>
-					<td colspan=2><input type="text"/></td> -->
-					<%-- <td colspan=3>Kontrola ochrannych krytov :</td>
-					<td colspan=4><form:input path="maerz.kontrolaOchrannychKrytov" /></td> --%>
-				</tr>
-				<tr id="posledny">
-					<td><input type="button" value="dalsi zaznam" onclick="vytvorDalsiZaznam('velinar')"/></td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr >
-					<td><input type="submit" value="Pridať" /></td>
-					<td></td>
-				</tr>
-			</tfoot>
-		</table>
-	</form:form>
-	<p>${message}</p>
-	<p>
-		<a href="${pageContext.request.contextPath}/index.html">Domov</a>
-	</p>
+		<form:form method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-majster.html">
+			<div id="header">
+				<!-- <input type="submit" value="Uložiť" /> -->
+				<a href="${pageContext.request.contextPath}/synchStrojnik.html">Synchronizovat</a> <a href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a>
+				${message}
+			</div>
+			<div class="ciara"></div>
+			<div id="obsah">
+				<table id="tabulka">
+					<tbody id="teloTabulky">
+						<tr>
+							<td class="prvy-stlpec"></td>
+							<td colspan='3' style="font-size: 15px; color: white; background-color: rgb(153, 51, 0);">PIS - Prevádzkový informačný systém pece Maerz</td>
+							<td></td>
+							<td class="label" colspan='3' style="font-size: 18px;">Neodstránené poruchy</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="druhy-stlpec"></td>
+							<td class="treti-stlpec"></td>
+							<td class="stvrty-stlpec"></td>
+							<td class="piaty-stlpec"></td>
+							<td class="strojnik" colspan='5' rowspan='18'>${formular.maerz.neodstranenePoruchy}</td>
+
+						</tr>
+						<tr>
+							<td></td>
+							<td class="oramovanie-bottom"></td>
+							<td></td>
+							<td class="strojnik">Vypĺňa strojník</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie-right">Dátum:</td>
+							<td class="velinar oramovanie1">${formular.datum}</td>
+							<td></td>
+							<td class="velinar" style="text-align: left;">Vypĺňa velinár</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie-right">Zmena:</td>
+							<td class="velinar oramovanie1">${formular.zmena}</td>
+							<td></td>
+							<td class="veduci" style="text-align: left;">Vypĺňa vedúci vápenky</td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="vzorec" style="text-align: left;">Vzorce</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="oramovanie-bottom">Meno</td>
+							<td class="oramovanie-bottom">Osobné č.</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie-right">Majster:</td>
+							<td class="velinar oramovanie1">${formular.majster}</td>
+							<td class="velinar oramovanie1"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie-right">Velinár:</td>
+							<td class="velinar oramovanie1">${formular.velinar}</td>
+							<td class="velinar oramovanie1"></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td class="oramovanie-right">Strojník:</td>
+							<td class="velinar oramovanie1">${formular.strojnik}</td>
+							<td class="velinar oramovanie1"></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>Zásoby</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="oramovanie-bottom"></td>
+							<td class="oramovanie-bottom"></td>
+							<td class="oramovanie-bottom"></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td class="oramovanie-bottom oramovanie-right"></td>
+							<td class="oramovanie1">Druh</td>
+							<td class="oramovanie1">Plnenie v %</td>
+							<td class="oramovanie1">Prepočet na tony</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie1">Zásobník č.1</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik1Druh}</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik1Plnenie}</td>
+							<td class="vzorec oramovanie1">${D16}</td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td class="oramovanie1">Zásobník č.2</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik2Druh}</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik2Plnenie}</td>
+							<td class="vzorec oramovanie1">${D17}</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie1">Zásobník č.5</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik5Druh}</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik5Plnenie}</td>
+							<td class="vzorec oramovanie1">${D18}</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie1">Zásobník nová lanovka</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnikNovaLanovkaDruh}</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnikNovaLanovkaPlnenie}</td>
+							<td class="vzorec oramovanie1"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+
+						</tr>
+						<tr>
+							<td></td>
+							<td class="oramovanie-bottom"></td>
+							<td class="oramovanie-bottom">Výroba</td>
+							<td class="oramovanie-bottom"></td>
+							<td class="oramovanie-bottom"></td>
+							<td class="siesty-stlpec oramovanie-bottom"></td>
+							<td class="siedmy-stlpec oramovanie-bottom"></td>
+							<td class="osmy-stlpec"></td>
+							<td class="deviaty-stlpec"></td>
+							<td class="desiaty-stlpec"></td>
+
+						</tr>
+						<tr>
+							<td class="oramovanie-bottom oramovanie-right"></td>
+							<td class="oramovanie1">Plán</td>
+							<td class="oramovanie1">Skutočnosť</td>
+							<td class="oramovanie1">Percentuálne plnenie</td>
+							<td class="oramovanie1">Frakcia 0/16</td>
+							<td class="oramovanie1">Frakcia 10/50</td>
+							<td class="oramovanie1">Od začiatku mesiaca</td>
+							<td></td>
+							<td></td>
+							<td></td>
+
+						</tr>
+
+						<tr>
+							<td class="oramovanie1">Vápna 6% v to</td>
+							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno6Plan}</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno6Skut}</td>
+							<td class="oramovanie1"></td>
+							<td class="vzorec oramovanie1">${E23 }</td>
+							<td class="vzorec oramovanie1">${F23 }</td>
+							<td class="vzorec oramovanie1">${G23 }</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie1">Vápna 17% v to</td>
+							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno17Plan}</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno17Skut}</td>
+							<td class="oramovanie1"></td>
+							<td class="vzorec oramovanie1">${E24 }</td>
+							<td class="vzorec oramovanie1">${F24 }</td>
+							<td class="vzorec oramovanie1">${G24 }</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie1">Vápna 35% v to</td>
+							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno35Plan}</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno35Skut}</td>
+							<td class="oramovanie1"></td>
+							<td class="vzorec oramovanie1">${E25 }</td>
+							<td class="vzorec oramovanie1">${F25 }</td>
+							<td class="vzorec oramovanie1">${G25 }</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie1">Vápno spolu v to</td>
+							<td class="vzorec oramovanie1">${B26 }</td>
+							<td class="vzorec oramovanie1">${C26 }</td>
+							<td class="vzorec oramovanie1">${D26 }</td>
+							<td></td>
+							<td class="oramovanie-right"></td>
+							<td class="vzorec oramovanie1">${G26 }</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="oramovanie-bottom"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie-bottom"></td>
+							<td class="oramovanie-bottom"></td>
+							<td class="oramovanie-bottom oramovanie-right"></td>
+							<td class="oramovanie1">Frakcia vápenca</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td class="oramovanie1">Vápenec vsádzka 6% v to</td>
+							<td class="vzorec oramovanie1">${B29 }</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka6Skut}</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka6FrakciaVapenca}</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie1">Vápenec vsádzka 17% v to</td>
+							<td class="vzorec oramovanie1">${B30 }</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka17Skut}</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka17FrakciaVapenca}</td>
+							<td></td>
+							<td colspan=2>Briketizačná linka</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie1">Vápenec vsádzka 35% v to</td>
+							<td class="vzorec oramovanie1">${B31 }</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka35Skut}</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka35FrakciaVapenca}</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie1">Vápenec spolu</td>
+							<td class="oramovanie1"></td>
+							<td class="vzorec oramovanie1">${C32 }</td>
+							<td></td>
+							<td></td>
+							<td class="label oramovanie-bottom">Briketizačka</td>
+							<td class="label oramovanie-bottom">Filter M20</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="oramovanie-bottom"></td>
+							<td></td>
+							<td colspan=2 class="oramovanie-right" style="text-align: right;">Počiatočný stav</td>
+							<td class="velinar oramovanie1">${formular.maerz.briketizackaPocStav}</td>
+							<td class="velinar oramovanie1">${formular.maerz.filter_M20_poc_stav}</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie-bottom oramovanie-right"></td>
+							<td class="oramovanie1">V hodinách</td>
+							<td></td>
+							<td></td>
+							<td class="oramovanie-right" style="text-align: right;">Konečný stav</td>
+							<td class="velinar oramovanie1">${formular.maerz.briketizackaKonStav}</td>
+							<td class="velinar oramovanie1">${formular.maerz.filter_M20_kon_stav}</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie1">Chod pece</td>
+							<td class="velinar oramovanie1">${formular.maerz.chodPece}</td>
+							<td></td>
+							<td colspan=2 class="oramovanie-right" style="text-align: right;">Chod zariadenia</td>
+							<td class="vzorec oramovanie1">${F35 }</td>
+							<td class="vzorec oramovanie1">${G35 }</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+
+						<tr>
+							<td class="oramovanie1">Prestoje spolu v hod</td>
+							<td class="vzorec oramovanie1">${B36 }</td>
+							<td></td>
+							<td></td>
+							<td class="oramovanie-right" style="text-align: right;">za mesiac</td>
+							<td class="vzorec oramovanie1">${F36 }</td>
+							<td class="vzorec oramovanie1">${G36 }</td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="oramovanie1 lekarnicka">Stav lekárničky</td>
+							<td class="lekarnicka oramovanie1"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td colspan=2>Pracovná snímka dňa</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+
+						</tr>
+						<tr>
+							<td>VELINÁR</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>STROJNÍK</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+
+						</tr>
+						<tr>
+							<td>Od</td>
+							<td>Do</td>
+							<td colspan=2>druh činnosti</td>
+							<td>Od</td>
+							<td>Do</td>
+							<td colspan=4>druh činnosti</td>
+						</tr>
+						<tr>
+							<td class="velinar" colspan=4 rowspan=26 style="text-align: left;">${formular.maerz.pracovnaSnimkaVelinar}</td>
+							<td class="strojnik label" colspan=2>Kontrola ochranných krytov:</td>
+							<td class="strojnik" colspan=4>${formular.maerz.kontrolaOchrannychKrytov}</td>
+						</tr>
+
+						<tr>
+							<td class="strojnik label" colspan=2>Stav potrubia vzduchotechniky:</td>
+							<td class="strojnik" colspan=4>${formular.maerz.stavPotrubiaVzduchotechniky}</td>
+						</tr>
+						<tr>
+							<td class="strojnik label" colspan=2>Stav obežných kolies ventilátorov:</td>
+							<td class="strojnik" colspan=4>${formular.maerz.stavObeznychKoliesVentilatorov}</td>
+						</tr>
+						<tr>
+							<td class="strojnik label" colspan=2>Stav izolátorov ventilov:</td>
+							<td class="strojnik" colspan=4>${formular.maerz.stavIzolatorovVentilatorov}</td>
+						</tr>
+						<tr>
+							<td class="strojnik label" colspan=6>Výsledok kontroly technologického zariadenia na začiatku zmeny:</td>
+						</tr>
+						<tr>
+							<td class="strojnik" colspan=6>${formular.maerz.vysledokKontrolyTechnologickehoZariadenia}</td>
+						</tr>
+
+						<tr>
+							<td class="strojnik" colspan=6 rowspan=3>${formular.maerz.pracovnaSnimkaStrojnik}</td>
+						</tr>
+						<tr></tr>
+						<tr></tr>
+						<tr>
+							<td class="strojnik label" colspan=6 style="font-size: 18px; text-decoration: underline;">Kontrola zdrojov, ktoré sa odprašujú:</td>
+						</tr>
+						<tr>
+							<td class="strojnik label" colspan=3>Filter Scheuch, výduch K4</td>
+							<td class="strojnik label" colspan=3>Filter M10, výduch V21</td>
+						</tr>
+
+						<tr>
+							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
+							<td class="strojnik" colspan=2>${formular.odprasovanie.scheuchCas}</td>
+							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
+							<td class="strojnik" colspan=3>${formular.odprasovanie.m10_cas}</td>
+						</tr>
+
+						<tr>
+							<td class="strojnik odprasovanie-label">Otvárajú všetky membránové ventily</td>
+							<td class="strojnik" colspan=2>${formular.odprasovanie.scheuchMembranoveVentily}</td>
+							<td class="strojnik odprasovanie-label">Podtlak</td>
+							<td class="strojnik" colspan=3>${formular.odprasovanie.m10_podtlak}</td>
+						</tr>
+
+						<tr>
+							<td class="strojnik odprasovanie-label">Fungujú šneky pre vynášanie prachu</td>
+							<td class="strojnik" colspan=2>${formular.odprasovanie.scheuchSneky}</td>
+							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
+							<td class="strojnik" colspan=3>${formular.odprasovanie.m10_datum_zmeny_hadic}</td>
+						</tr>
+
+						<tr>
+							<td class="strojnik odprasovanie-label">Diferenčný podtlak</td>
+							<td class="strojnik" colspan=2>${formular.odprasovanie.scheuchPodtlak}</td>
+							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
+							<td class="strojnik" colspan=3>${formular.odprasovanie.m10_funkcnost_tesnost}</td>
+						</tr>
+						<tr>
+							<td class="strojnik label" colspan=3>Filter M117.3, výduch V38</td>
+							<td class="strojnik label" colspan=3>Filter M116.1, výduch V39</td>
+						</tr>
+						<tr>
+							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
+							<td class="strojnik" colspan=2>${formular.odprasovanie.m117_cas}</td>
+							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
+							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_cas}</td>
+						</tr>
+						<tr>
+							<td class="strojnik odprasovanie-label">Podtlak</td>
+							<td class="strojnik" colspan=2>${formular.odprasovanie.m117_podtlak}</td>
+							<td class="strojnik odprasovanie-label">Podtlak</td>
+							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_podtlak}</td>
+						</tr>
+						<tr>
+							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
+							<td class="strojnik" colspan=2>${formular.odprasovanie.m117_datum_zmeny_hadic}</td>
+							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
+							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_datum_zmeny_hadic}</td>
+						</tr>
+						<tr>
+							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
+							<td class="strojnik" colspan=2>${formular.odprasovanie.m117_funkcnost_tesnost}</td>
+							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
+							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_funkcnost_tesnost}</td>
+						</tr>
+						<tr>
+							<td class="strojnik label" colspan=3>Filter M12, výduch V40</td>
+							<td class="strojnik label" colspan=3>Filter M115, výduch V22</td>
+						</tr>
+						<tr>
+							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
+							<td class="strojnik" colspan=2>${formular.odprasovanie.m12_cas}</td>
+							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
+							<td class="strojnik" colspan=3>${formular.odprasovanie.m115_cas}</td>
+						</tr>
+						<tr>
+							<td class="strojnik odprasovanie-label">Podtlak</td>
+							<td class="strojnik" colspan=2>${formular.odprasovanie.m12_podtlak}</td>
+							<td class="strojnik odprasovanie-label">Funkčnosť oklepávacieho zariadenia</td>
+							<td class="strojnik" colspan=3>${formular.odprasovanie.m115_funkcnost_oklepavacieho_zariadenia}</td>
+						</tr>
+						<tr>
+							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
+							<td class="strojnik" colspan=2>${formular.odprasovanie.m12_datum_zmeny_hadic}</td>
+							<td class="strojnik odprasovanie-label">Chod zberneho snekoveho dopravnika</td>
+							<td class="strojnik" colspan=3>${formular.odprasovanie.m115_chod_snekoveho_dopravnika}</td>
+						</tr>
+						<tr>
+							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
+							<td class="strojnik" colspan=2>${formular.odprasovanie.m12_funkcnost_tesnost}</td>
+							<td class="strojnik odprasovanie-label">Funkcnost a celistvost filtra a potrubia</td>
+							<td class="strojnik" colspan=3>${formular.odprasovanie.m115_funkcnost_celistvost}</td>
+						</tr>
+						<tr>
+							<td class="strojnik label" colspan=6>Filter Herding TLF D 1500, výduch V54</td>
+						</tr>
+						<tr>
+							<td class="velinar label">Vstup tepla:</td>
+							<td class="velinar">${formular.maerz.vstupTepla}</td>
+							<td class="velinar" colspan=2></td>
+							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
+							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCas}</td>
+						</tr>
+						<tr>
+							<td class="velinar label">Teplota pyrometra:</td>
+							<td class="velinar">${formular.maerz.teplotaPyrometra}</td>
+							<td class="velinar" colspan=2></td>
+							<td class="strojnik odprasovanie-label">Počuť čistiace impulzy</td>
+							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCistiaceImpulzy}</td>
+						</tr>
+						<tr>
+							<td class="velinar" colspan=4></td>
+							<td class="strojnik odprasovanie-label">Chod vyprázdňovacieho zariadenia</td>
+							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingChodVyprazdnovaciehoZariadenia}</td>
+						</tr>
+
+					</tbody>
+
+				</table>
+			</div>
+
+		</form:form>
+
+	</div>
 
 </body>
 </html>

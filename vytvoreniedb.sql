@@ -2,7 +2,7 @@ CREATE TABLE rola(
 	id INT NOT NULL AUTO_INCREMENT,
 	nazov VARCHAR(30),
 	PRIMARY KEY(id)
-)ENGINE=INNODB;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 CREATE TABLE zamestnanec (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -12,15 +12,16 @@ CREATE TABLE zamestnanec (
 	aktivny INT,
 	login VARCHAR(100),
 	heslo VARCHAR(200),
+	osobne_cislo INT,
 	PRIMARY KEY (id),
 	FOREIGN KEY (rola)
 		REFERENCES rola(id)
-)ENGINE=INNODB;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE maerz (
 	id INT NOT NULL AUTO_INCREMENT,
-	neodstranene_poruchy VARCHAR(20000),
+	neodstranene_poruchy VARCHAR(1000),
 	-- zasoby
 	zasobnik_1_druh INT,
 	zasobnik_1_plnenie INT,
@@ -56,39 +57,50 @@ CREATE TABLE maerz (
 	stav_obeznych_kolies_ventilatorov VARCHAR(50),
 	stav_izolatorov_ventilatorov VARCHAR(50),
 	vysledok_kontroly_technologickeho_zariadenia VARCHAR(300),
-	//vstup_tepla VARCHAR(100);
+	
+	vstup_tepla VARCHAR(100),
+	teplota_pyrometra VARCHAR(100),
+	
+	pracovna_snimka_strojnik VARCHAR(1000),
+	pracovna_snimka_velinar VARCHAR(1000),
 	
 	stav_lekarnicky VARCHAR(300),
 	
 	PRIMARY KEY (id)
-)ENGINE=INNODB;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 CREATE TABLE zam_maerz(
 	id INT NOT NULL AUTO_INCREMENT,
 	datum DATE,
 	zmena INT,
-	id_zam INT NOT NULL,
-	FOREIGN KEY (id_zam)
+	id_velinar INT,
+	FOREIGN KEY (id_velinar)
+		REFERENCES zamestnanec(id),
+	id_majster INT,
+	FOREIGN KEY (id_majster)
+		REFERENCES zamestnanec(id),
+	id_strojnik INT,
+	FOREIGN KEY (id_strojnik)
 		REFERENCES zamestnanec(id),
 	id_maerz INT NOT NULL,
 	FOREIGN KEY (id_maerz)
 		REFERENCES maerz(id),
 	PRIMARY KEY(id)
-)ENGINE=INNODB;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
-CREATE TABLE pracovna_snimka(
-	id INT NOT NULL AUTO_INCREMENT,
-	odkedy TIME,
-	dokedy TIME,
-    popis VARCHAR(1000),
-	id_maerz INT NOT NULL,
-	FOREIGN KEY (id_maerz)
-		REFERENCES maerz(id),
-	id_rola INT NOT NULL,
-	FOREIGN KEY (id_rola)
-		REFERENCES rola(id),
-	PRIMARY KEY(id)
-)ENGINE=INNODB;
+--CREATE TABLE pracovna_snimka(
+--	id INT NOT NULL AUTO_INCREMENT,
+--	odkedy TIME,
+--	dokedy TIME,
+--    popis VARCHAR(1000),
+--	id_maerz INT NOT NULL,
+--	FOREIGN KEY (id_maerz)
+--		REFERENCES maerz(id),
+--	id_rola INT NOT NULL,
+--	FOREIGN KEY (id_rola)
+--		REFERENCES rola(id),
+--	PRIMARY KEY(id)
+--)ENGINE=INNODB;
 
 CREATE TABLE odprasovanie (
 	id INT NOT NULL AUTO_INCREMENT,
@@ -131,47 +143,47 @@ CREATE TABLE odprasovanie (
 	herding_chod_vyprazdnovacieho_zariadenia VARCHAR(50),	
 	
 	PRIMARY KEY(id)
-)ENGINE=INNODB;
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
 
-CREATE TABLE kontrola_1zmena (
-	id INT NOT NULL AUTO_INCREMENT,
-	poistny_ventil_kontrola INT,
-	poistny_ventil_zavada INT,
-	tlakomer_kontrola INT,
-	tlakomer_zavada INT,
-	PRIMARY KEY (id)
-)ENGINE=INNODB;
-
-CREATE TABLE pracovna_snimka_1zmena(
-	id INT NOT NULL AUTO_INCREMENT,
-	id_maerz INT NOT NULL,
-	FOREIGN KEY (id_maerz)
-		REFERENCES maerz(id),
-	tlak_nadoba_62384 INT,
-	FOREIGN KEY (tlak_nadoba_62384)
-		REFERENCES kontrola_1zmena(id),
-	tlak_nadoba_62400 INT,
-	FOREIGN KEY (tlak_nadoba_62400)
-		REFERENCES kontrola_1zmena(id),
-	tlak_nadoba_susica INT,
-	FOREIGN KEY (tlak_nadoba_susica)
-		REFERENCES kontrola_1zmena(id),
-	tlak_nadoba_vs_776 INT,
-	FOREIGN KEY (tlak_nadoba_vs_776)
-		REFERENCES kontrola_1zmena(id),
-	tlak_nadoba_vzduch_delo_5269 INT,
-	FOREIGN KEY (tlak_nadoba_vzduch_delo_5269)
-		REFERENCES kontrola_1zmena(id),
-	tlak_nadoba_vzduch_delo_5270 INT,
-	FOREIGN KEY (tlak_nadoba_vzduch_delo_5270)
-		REFERENCES kontrola_1zmena(id),
-	tlak_nadoba_vzduch_delo_5271 INT,
-	FOREIGN KEY (tlak_nadoba_vzduch_delo_5271)
-		REFERENCES kontrola_1zmena(id),
-	tlak_nadoba_vzduch_delo_5272 INT,
-	FOREIGN KEY (tlak_nadoba_vzduch_delo_5272)
-		REFERENCES kontrola_1zmena(id),
-	PRIMARY KEY(id)
-)ENGINE=INNODB;
+--CREATE TABLE kontrola_1zmena (
+--	id INT NOT NULL AUTO_INCREMENT,
+--	poistny_ventil_kontrola INT,
+--	poistny_ventil_zavada INT,
+--	tlakomer_kontrola INT,
+--	tlakomer_zavada INT,
+--	PRIMARY KEY (id)
+--)ENGINE=INNODB;
+--
+--CREATE TABLE pracovna_snimka_1zmena(
+--	id INT NOT NULL AUTO_INCREMENT,
+--	id_maerz INT NOT NULL,
+--	FOREIGN KEY (id_maerz)
+--		REFERENCES maerz(id),
+--	tlak_nadoba_62384 INT,
+--	FOREIGN KEY (tlak_nadoba_62384)
+--		REFERENCES kontrola_1zmena(id),
+--	tlak_nadoba_62400 INT,
+--	FOREIGN KEY (tlak_nadoba_62400)
+--		REFERENCES kontrola_1zmena(id),
+--	tlak_nadoba_susica INT,
+--	FOREIGN KEY (tlak_nadoba_susica)
+--		REFERENCES kontrola_1zmena(id),
+--	tlak_nadoba_vs_776 INT,
+--	FOREIGN KEY (tlak_nadoba_vs_776)
+--		REFERENCES kontrola_1zmena(id),
+--	tlak_nadoba_vzduch_delo_5269 INT,
+--	FOREIGN KEY (tlak_nadoba_vzduch_delo_5269)
+--		REFERENCES kontrola_1zmena(id),
+--	tlak_nadoba_vzduch_delo_5270 INT,
+--	FOREIGN KEY (tlak_nadoba_vzduch_delo_5270)
+--		REFERENCES kontrola_1zmena(id),
+--	tlak_nadoba_vzduch_delo_5271 INT,
+--	FOREIGN KEY (tlak_nadoba_vzduch_delo_5271)
+--		REFERENCES kontrola_1zmena(id),
+--	tlak_nadoba_vzduch_delo_5272 INT,
+--	FOREIGN KEY (tlak_nadoba_vzduch_delo_5272)
+--		REFERENCES kontrola_1zmena(id),
+--	PRIMARY KEY(id)
+--)ENGINE=INNODB;
 
 
