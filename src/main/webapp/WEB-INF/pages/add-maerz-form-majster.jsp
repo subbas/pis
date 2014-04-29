@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
 <title>PIS Maerz</title>
 <style>
 body {
@@ -26,121 +26,6 @@ body {
 .ciara {
 	border: 1px solid rgb(204, 153, 255);
 }
-
-#obsah {
-	padding: 5px;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table,td {
-	border: 1px solid rgb(204, 255, 204);
-}
-
-tr {
-	height: 23px;
-}
-
-td {
-	padding: 3px;
-}
-
-.vstup {
-	border: 2px solid rgb(132, 207, 132);
-}
-
-.sirka1 {
-	width: 100px;
-}
-
-.sirka2 {
-	width: 308px;
-}
-
-.sirka3 {
-	width: 50px;
-}
-
-.velinar {
-	background-color: rgb(255, 255, 153); text-align: center; border-color: rgb(255, 255, 153);
-}
-
-.strojnik {
-	background-color: rgb(204, 255, 204);
-}
-
-.vzorec {
-	background-color: rgb(255, 204, 0); text-align: center;
-}
-
-.veduci {
-	background-color: rgb(0, 255, 255); text-align: center;
-}
-
-.label {
-	font-weight: bold;
-}
-
-.oramovanie-bottom {
-	border-bottom: 1px solid black;
-}
-
-.oramovanie-right {
-	border-right: 1px solid black;
-}
-
-.oramovanie1 {
-	border-color: black;
-}
-
-.lekarnicka {
-	background-color: rgb(204, 204, 255);
-}
-
-.odprasovanie-label {
-	font-size: 12px;
-}
-
-.prvy-stlpec {
-	width: 175px;
-}
-
-.druhy-stlpec {
-	width: 105px;
-}
-
-.treti-stlpec {
-	width: 95px;
-}
-
-.stvrty-stlpec {
-	width: 170px;
-}
-
-.piaty-stlpec {
-	width: 140px;
-}
-
-.siesty-stlpec {
-	width: 80px;
-}
-
-.siedmy-stlpec {
-	width: 80px;
-}
-
-.osmy-stlpec {
-	width: 140px;
-}
-
-.deviaty-stlpec {
-	width: 80px;
-}
-
-.desiaty-stlpec {
-	width: 80px;
 }
 </style>
 <script type="text/javascript">
@@ -209,7 +94,7 @@ td {
 		<form:form method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-majster.html">
 			<div id="header">
 				<!-- <input type="submit" value="Uložiť" /> -->
-				<a href="${pageContext.request.contextPath}/synchStrojnik.html">Synchronizovat</a> <a href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a>
+				<a href="${pageContext.request.contextPath}/synchMajster.html">Synchronizovat</a> <a href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a>
 				${message}
 			</div>
 			<div class="ciara"></div>

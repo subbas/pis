@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,26 +12,27 @@
 <title>PIS Maerz</title>
 <style>
 body {
-	background-color: rgb(255, 255, 153);
+	background-color: rgb(200, 255, 255);
 }
 
 #hlavna-cast {
-	background-color: white; border: 2px solid rgb(253, 233, 35); width: 1223px; margin-left: auto; margin-right: auto; font-family: Arial, Verdana; font-size: 14px;
+	background-color: white; border: 2px solid rgb(0,217,217); width: 1223px; margin-left: auto; margin-right: auto; font-family: Arial, Verdana; font-size: 14px;
 }
 
 #header {
-	height: 50px; background-color: rgb(255, 255, 153);
+	height: 50px;background-color: rgb(200, 255, 255);
 }
 
 .ciara {
-	border: 1px solid rgb(253, 233, 35);
+	border: 1px solid rgb(0,217,217);
 }
+
 </style>
 <script type="text/javascript">
 	window.history.forward();
-	var id = 0;
+	var id=0;
 	function noBack() {
-		id = 1;
+		id=1;
 		window.history.forward();
 	}
 	/* function vytvorDalsiZaznam(rola) {
@@ -52,20 +53,20 @@ body {
 			var posledny = document.getElementById("posledny");
 			var teloTabulky = document.getElementById("teloTabulky");
 
-			td1.setAttribute("class", "velinar");
-			td2.setAttribute("class", "velinar");
-			td3.setAttribute("class", "velinar");
+			td1.setAttribute("class","velinar");
+			td2.setAttribute("class","velinar");
+			td3.setAttribute("class","velinar");
 			td3.setAttribute("colspan", "2");
 			td4.setAttribute("class", "strojnik");
 			td5.setAttribute("class", "strojnik");
 			td6.setAttribute("colspan", "4");
 			td6.setAttribute("class", "strojnik");
 			odkedy.setAttribute("type", "text");
-			odkedy.setAttribute("class", "strojnik sirka3 vstup");
+			odkedy.setAttribute("class","strojnik sirka3 vstup");
 			dokedy.setAttribute("type", "text");
-			dokedy.setAttribute("class", "strojnik sirka3 vstup");
+			dokedy.setAttribute("class","strojnik sirka3 vstup");
 			popis.setAttribute("type", "text");
-			popis.setAttribute("class", "strojnik sirka2 vstup");
+			popis.setAttribute("class","strojnik sirka2 vstup");
 
 			td1.appendChild(t1);
 			td2.appendChild(t2);
@@ -84,17 +85,18 @@ body {
 		}
 		if (rola == 'strojnik') {
 
-		}
-	} */
+		} */
 </script>
 </head>
 <body onload="noBack();" onunload="">
 	<div id="hlavna-cast">
 
-		<form:form method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-velinar.html">
+		<form:form method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-veduci.html">
 			<div id="header">
-				<input type="submit" value="Uložiť" /> <a href="${pageContext.request.contextPath}/synchVelinar.html">Synchronizovat</a> <a
-					href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a> ${message}
+			<!-- <input type="submit" value="Uložiť" /> -->
+			<a href="${pageContext.request.contextPath}/synchVeduci.html">Synchronizovat</a>
+			<a href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a>
+			${message}
 			</div>
 			<div class="ciara"></div>
 			<div id="obsah">
@@ -138,7 +140,7 @@ body {
 							<td class="veduci" style="text-align:left;">Vypĺňa vedúci vápenky</td>
 							<td></td>
 						</tr>
-
+						 
 						<tr>
 							<td></td>
 							<td></td>
@@ -155,23 +157,23 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Majster:</td>
-							<td class="velinar oramovanie1"><form:select class="velinar vstupv druhy-stlpec" path="majster" items="${majsterList}" cssStyle="font-size:10px;"/></td>
 							<td class="velinar oramovanie1">${formular.majster}</td>
+							<td class="velinar oramovanie1"></td>
 							<td></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Velinár:</td>
-							<td class="velinar oramovanie1"><form:select class="velinar vstupv druhy-stlpec" path="velinar" items="${velinarList}" cssStyle="font-size:10px;"/></td>
 							<td class="velinar oramovanie1">${formular.velinar}</td>
+							<td class="velinar oramovanie1"></td>
 							<td></td>
 							<td></td>
 						</tr>
-
+						
 						<tr>
 							<td class="oramovanie-right">Strojník:</td>
-							<td class="velinar oramovanie1"><form:select class="velinar vstupv druhy-stlpec" path="strojnik" items="${strojnikList}" cssStyle="font-size:10px;"/></td>
 							<td class="velinar oramovanie1">${formular.strojnik}</td>
+							<td class="velinar oramovanie1"></td>
 							<td></td>
 							<td></td>
 						</tr>
@@ -213,31 +215,31 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie1">Zásobník č.1</td>
-							<td class="velinar oramovanie1"><form:input class="velinar druhy-stlpec vstupv" path="maerz.zasobnik1Druh" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.zasobnik1Plnenie" /></td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik1Druh}</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik1Plnenie}</td>
+							<td class="vzorec oramovanie1">${D16}</td>
 							<td></td>
 						</tr>
-
+						
 						<tr>
 							<td class="oramovanie1">Zásobník č.2</td>
-							<td class="velinar oramovanie1"><form:input class="velinar druhy-stlpec vstupv" path="maerz.zasobnik2Druh" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.zasobnik2Plnenie" /></td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik2Druh}</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik2Plnenie}</td>
+							<td class="vzorec oramovanie1">${D17}</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie1">Zásobník č.5</td>
-							<td class="velinar oramovanie1"><form:input class="velinar druhy-stlpec vstupv" path="maerz.zasobnik5Druh" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.zasobnik5Plnenie" /></td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik5Druh}</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik5Plnenie}</td>
+							<td class="vzorec oramovanie1">${D18}</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie1">Zásobník nová lanovka</td>
-							<td class="velinar oramovanie1"><form:input class="velinar druhy-stlpec vstupv" path="maerz.zasobnikNovaLanovkaDruh" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.zasobnikNovaLanovkaPlnenie" /></td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnikNovaLanovkaDruh}</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnikNovaLanovkaPlnenie}</td>
+							<td class="vzorec oramovanie1"></td>
 							<td></td>
 						</tr>
 						<tr>
@@ -279,15 +281,15 @@ body {
 							<td></td>
 
 						</tr>
-
+						
 						<tr>
 							<td class="oramovanie1">Vápna 6% v to</td>
 							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno6Plan}</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapno6Skut" /></td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno6Skut}</td>
 							<td class="oramovanie1"></td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${E23 }</td>
+							<td class="vzorec oramovanie1">${F23 }</td>
+							<td class="vzorec oramovanie1">${G23 }</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -295,11 +297,11 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápna 17% v to</td>
 							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno17Plan}</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapno17Skut" /></td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno17Skut}</td>
 							<td class="oramovanie1"></td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${E24 }</td>
+							<td class="vzorec oramovanie1">${F24 }</td>
+							<td class="vzorec oramovanie1">${G24 }</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -307,23 +309,23 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápna 35% v to</td>
 							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno35Plan}</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapno35Skut" /></td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno35Skut}</td>
 							<td class="oramovanie1"></td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${E25 }</td>
+							<td class="vzorec oramovanie1">${F25 }</td>
+							<td class="vzorec oramovanie1">${G25 }</td>
 							<td></td>
 							<td></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie1">Vápno spolu v to</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${B26 }</td>
+							<td class="vzorec oramovanie1">${C26 }</td>
+							<td class="vzorec oramovanie1">${D26 }</td>
 							<td></td>
 							<td class="oramovanie-right"></td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${G26 }</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -352,12 +354,12 @@ body {
 							<td></td>
 							<td></td>
 						</tr>
-
+						
 						<tr>
 							<td class="oramovanie1">Vápenec vsádzka 6% v to</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka6Skut" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar stvrty-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka6FrakciaVapenca" /></td>
+							<td class="vzorec oramovanie1">${B29 }</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka6Skut}</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka6FrakciaVapenca}</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -367,9 +369,9 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie1">Vápenec vsádzka 17% v to</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka17Skut" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar stvrty-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka17FrakciaVapenca" /></td>
+							<td class="vzorec oramovanie1">${B30 }</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka17Skut}</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka17FrakciaVapenca}</td>
 							<td></td>
 							<td colspan=2>Briketizačná linka</td>
 							<td></td>
@@ -378,9 +380,9 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie1">Vápenec vsádzka 35% v to</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka35Skut" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar stvrty-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka35FrakciaVapenca" /></td>
+							<td class="vzorec oramovanie1">${B31 }</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka35Skut}</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka35FrakciaVapenca}</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -391,7 +393,7 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápenec spolu</td>
 							<td class="oramovanie1"></td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${C32 }</td>
 							<td></td>
 							<td></td>
 							<td class="label oramovanie-bottom">Briketizačka</td>
@@ -405,8 +407,8 @@ body {
 							<td class="oramovanie-bottom"></td>
 							<td></td>
 							<td colspan=2 class="oramovanie-right" style="text-align: right;">Počiatočný stav</td>
-							<td class="velinar oramovanie1"><form:input class="velinar siesty-stlpec vstupv" path="maerz.briketizackaPocStav" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar siedmy-stlpec vstupv" path="maerz.filter_M20_poc_stav" /></td>
+							<td class="velinar oramovanie1">${formular.maerz.briketizackaPocStav}</td>
+							<td class="velinar oramovanie1">${formular.maerz.filter_M20_poc_stav}</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -417,32 +419,32 @@ body {
 							<td></td>
 							<td></td>
 							<td class="oramovanie-right" style="text-align: right;">Konečný stav</td>
-							<td class="velinar oramovanie1"><form:input class="velinar siesty-stlpec vstupv" path="maerz.briketizackaKonStav" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar siedmy-stlpec vstupv" path="maerz.filter_M20_kon_stav" /></td>
+							<td class="velinar oramovanie1">${formular.maerz.briketizackaKonStav}</td>
+							<td class="velinar oramovanie1">${formular.maerz.filter_M20_kon_stav}</td>
 							<td></td>
 							<td></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie1">Chod pece</td>
-							<td class="velinar oramovanie1"><form:input class="velinar druhy-stlpec vstupv" path="maerz.chodPece" /></td>
+							<td class="velinar oramovanie1">${formular.maerz.chodPece}</td>
 							<td></td>
 							<td colspan=2 class="oramovanie-right" style="text-align: right;">Chod zariadenia</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${F35 }</td>
+							<td class="vzorec oramovanie1">${G35 }</td>
 							<td></td>
 							<td></td>
 							<td></td>
 						</tr>
-
+						
 						<tr>
 							<td class="oramovanie1">Prestoje spolu v hod</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${B36 }</td>
 							<td></td>
 							<td></td>
 							<td class="oramovanie-right" style="text-align: right;">za mesiac</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${F36 }</td>
+							<td class="vzorec oramovanie1">${G36 }</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -520,7 +522,7 @@ body {
 							<td colspan=4>druh činnosti</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4 rowspan=26><form:textarea class="velinar" path="maerz.pracovnaSnimkaVelinar" cssStyle="border:2px solid rgb(253, 233,35);width:500px;height:100px;"/></td>
+							<td class="velinar" colspan=4 rowspan=26 style="text-align:left;">${formular.maerz.pracovnaSnimkaVelinar}</td>
 							<td class="strojnik label" colspan=2>Kontrola ochranných krytov:</td>
 							<td class="strojnik" colspan=4>${formular.maerz.kontrolaOchrannychKrytov}</td>
 						</tr>
@@ -645,14 +647,14 @@ body {
 						</tr>
 						<tr>
 							<td class="velinar label">Vstup tepla: </td>
-							<td class="velinar"><form:input class="velinar druhy-stlpec" path="maerz.vstupTepla"  cssStyle="border:2px solid rgb(253, 233, 35);"/></td>
+							<td class="velinar">${formular.maerz.vstupTepla}</td>
 							<td class="velinar" colspan=2></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
 							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCas}</td>
 						</tr>
 						<tr>
 							<td class="velinar label">Teplota pyrometra: </td>
-							<td class="velinar"><form:input class="velinar druhy-stlpec" path="maerz.teplotaPyrometra" cssStyle="border:2px solid rgb(253, 233, 35);"/></td>
+							<td class="velinar">${formular.maerz.teplotaPyrometra}</td>
 							<td class="velinar" colspan=2></td>
 							<td class="strojnik odprasovanie-label">Počuť čistiace impulzy</td>
 							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCistiaceImpulzy}</td>
@@ -664,10 +666,10 @@ body {
 						</tr>
 
 					</tbody>
-
+				
 				</table>
 			</div>
-
+			
 		</form:form>
 
 	</div>

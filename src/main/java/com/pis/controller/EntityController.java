@@ -66,6 +66,20 @@ public class EntityController {
 		modelAndView.addObject("formular", formular);
 		return modelAndView;
 	}
+	@RequestMapping(value = "/synchMajster", method = RequestMethod.GET)
+	public ModelAndView synchMajster() {
+		ModelAndView modelAndView = new ModelAndView("add-maerz-form-majster");
+		modelAndView = vzorce(modelAndView);
+		modelAndView.addObject("formular", formular);
+		return modelAndView;
+	}
+	@RequestMapping(value = "/synchVeduci", method = RequestMethod.GET)
+	public ModelAndView synchVeduci() {
+		ModelAndView modelAndView = new ModelAndView("add-maerz-form-veduci");
+		modelAndView = vzorce(modelAndView);
+		modelAndView.addObject("formular", formular);
+		return modelAndView;
+	}
 
 	@RequestMapping(value = "/synchVelinar", method = RequestMethod.GET)
 	public ModelAndView synchVelinar() {
@@ -102,7 +116,7 @@ public class EntityController {
 	public ModelAndView addingMaerzStrojnik(@ModelAttribute Formular form) {
 		ModelAndView modelAndView = new ModelAndView("add-maerz-form-strojnik");
 		form.getMaerz().setId(maerzLastId);
-		formular = Formular.getInstance();
+		//formular = Formular.getInstance();
 		if (vytvor == true) {
 			maerzService.add(form.getMaerz());
 			vytvor = false;
@@ -118,7 +132,7 @@ public class EntityController {
 	}
 
 	@RequestMapping(value = "/add-maerz-form-velinar", method = RequestMethod.GET)
-	public ModelAndView addMaerzPageVelinar(@ModelAttribute Formular formular) {
+	public ModelAndView addMaerzPageVelinar(@ModelAttribute Formular form) {
 		ModelAndView modelAndView = new ModelAndView("add-maerz-form-velinar");
 		nastavZmenu();
 		if (jeNovaZmena()) {
@@ -156,7 +170,7 @@ public class EntityController {
 	public ModelAndView addingMaerzVelinar(@ModelAttribute Formular form) {
 		ModelAndView modelAndView = new ModelAndView("add-maerz-form-velinar");
 		form.getMaerz().setId(maerzLastId);
-		formular = Formular.getInstance();
+		//formular = Formular.getInstance();
 		if (vytvor == true) {
 			// MAERZ
 			maerzService.add(form.getMaerz());
@@ -185,7 +199,7 @@ public class EntityController {
 	}
 
 	@RequestMapping(value = "/add-maerz-form-veduci", method = RequestMethod.GET)
-	public ModelAndView addingMaerzVeduci(@ModelAttribute Formular formular) {
+	public ModelAndView addingMaerzVeduci(@ModelAttribute Formular form) {
 		ModelAndView modelAndView = new ModelAndView("add-maerz-form-veduci");
 		nastavZmenu();
 		if (jeNovaZmena()) {

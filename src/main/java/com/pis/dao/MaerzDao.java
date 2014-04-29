@@ -114,7 +114,7 @@ public class MaerzDao implements Dao<Maerz> {
 		maerzToUpdate.setZasobnik5Plnenie(maerz.getZasobnik5Plnenie());
 		maerzToUpdate.setZasobnikNovaLanovkaDruh(maerz.getZasobnikNovaLanovkaDruh());
 		maerzToUpdate.setZasobnikNovaLanovkaPlnenie(maerz.getZasobnikNovaLanovkaPlnenie());
-		maerzToUpdate.setPracovnaSnimkaVelinar(maerz.getPracovnaSnimkaVelinar());
+		maerzToUpdate.setPracovnaSnimkaVelinar(maerz.getPracovnaSnimkaVelinar().replaceAll("\n", "<br/>"));
 		getCurrentSession().update(maerzToUpdate);
 		
 		

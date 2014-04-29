@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,26 +12,26 @@
 <title>PIS Maerz</title>
 <style>
 body {
-	background-color: rgb(255, 255, 153);
+	background-color: rgb(204, 255, 204);
 }
 
 #hlavna-cast {
-	background-color: white; border: 2px solid rgb(253, 233, 35); width: 1223px; margin-left: auto; margin-right: auto; font-family: Arial, Verdana; font-size: 14px;
+	background-color: white; border: 2px solid rgb(132, 207, 132); width: 1223px; margin-left: auto; margin-right: auto; font-family: Arial, Verdana; font-size: 14px;
 }
 
 #header {
-	height: 50px; background-color: rgb(255, 255, 153);
+	height: 50px; background-color: rgb(204, 255, 204);
 }
 
 .ciara {
-	border: 1px solid rgb(253, 233, 35);
+	border: 1px solid rgb(132, 207, 132);
 }
 </style>
 <script type="text/javascript">
 	window.history.forward();
-	var id = 0;
+	var id=0;
 	function noBack() {
-		id = 1;
+		id=1;
 		window.history.forward();
 	}
 	/* function vytvorDalsiZaznam(rola) {
@@ -52,20 +52,20 @@ body {
 			var posledny = document.getElementById("posledny");
 			var teloTabulky = document.getElementById("teloTabulky");
 
-			td1.setAttribute("class", "velinar");
-			td2.setAttribute("class", "velinar");
-			td3.setAttribute("class", "velinar");
+			td1.setAttribute("class","velinar");
+			td2.setAttribute("class","velinar");
+			td3.setAttribute("class","velinar");
 			td3.setAttribute("colspan", "2");
 			td4.setAttribute("class", "strojnik");
 			td5.setAttribute("class", "strojnik");
 			td6.setAttribute("colspan", "4");
 			td6.setAttribute("class", "strojnik");
 			odkedy.setAttribute("type", "text");
-			odkedy.setAttribute("class", "strojnik sirka3 vstup");
+			odkedy.setAttribute("class","strojnik sirka3 vstup");
 			dokedy.setAttribute("type", "text");
-			dokedy.setAttribute("class", "strojnik sirka3 vstup");
+			dokedy.setAttribute("class","strojnik sirka3 vstup");
 			popis.setAttribute("type", "text");
-			popis.setAttribute("class", "strojnik sirka2 vstup");
+			popis.setAttribute("class","strojnik sirka2 vstup");
 
 			td1.appendChild(t1);
 			td2.appendChild(t2);
@@ -84,17 +84,18 @@ body {
 		}
 		if (rola == 'strojnik') {
 
-		}
-	} */
+		} */
 </script>
 </head>
 <body onload="noBack();" onunload="">
 	<div id="hlavna-cast">
 
-		<form:form method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-velinar.html">
+		<form:form method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-strojnik.html">
 			<div id="header">
-				<input type="submit" value="Uložiť" /> <a href="${pageContext.request.contextPath}/synchVelinar.html">Synchronizovat</a> <a
-					href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a> ${message}
+			<input type="submit" value="Uložiť" />
+			<a href="${pageContext.request.contextPath}/synchStrojnik.html">Synchronizovat</a>
+			<a href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a>
+			${message}
 			</div>
 			<div class="ciara"></div>
 			<div id="obsah">
@@ -114,7 +115,8 @@ body {
 							<td class="treti-stlpec"></td>
 							<td class="stvrty-stlpec"></td>
 							<td class="piaty-stlpec"></td>
-							<td class="strojnik" colspan='5' rowspan='18'>${formular.maerz.neodstranenePoruchy}</td>
+							<td class="strojnik" colspan='5' rowspan='18'><form:textarea class="strojnik" path="maerz.neodstranenePoruchy"
+									cssStyle="width:489px;height:415px;" /></td>
 
 						</tr>
 						<tr>
@@ -138,7 +140,7 @@ body {
 							<td class="veduci" style="text-align:left;">Vypĺňa vedúci vápenky</td>
 							<td></td>
 						</tr>
-
+						 
 						<tr>
 							<td></td>
 							<td></td>
@@ -155,23 +157,23 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Majster:</td>
-							<td class="velinar oramovanie1"><form:select class="velinar vstupv druhy-stlpec" path="majster" items="${majsterList}" cssStyle="font-size:10px;"/></td>
 							<td class="velinar oramovanie1">${formular.majster}</td>
+							<td class="velinar oramovanie1"></td>
 							<td></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Velinár:</td>
-							<td class="velinar oramovanie1"><form:select class="velinar vstupv druhy-stlpec" path="velinar" items="${velinarList}" cssStyle="font-size:10px;"/></td>
 							<td class="velinar oramovanie1">${formular.velinar}</td>
+							<td class="velinar oramovanie1"></td>
 							<td></td>
 							<td></td>
 						</tr>
-
+						
 						<tr>
 							<td class="oramovanie-right">Strojník:</td>
-							<td class="velinar oramovanie1"><form:select class="velinar vstupv druhy-stlpec" path="strojnik" items="${strojnikList}" cssStyle="font-size:10px;"/></td>
 							<td class="velinar oramovanie1">${formular.strojnik}</td>
+							<td class="velinar oramovanie1"></td>
 							<td></td>
 							<td></td>
 						</tr>
@@ -213,31 +215,31 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie1">Zásobník č.1</td>
-							<td class="velinar oramovanie1"><form:input class="velinar druhy-stlpec vstupv" path="maerz.zasobnik1Druh" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.zasobnik1Plnenie" /></td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik1Druh}</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik1Plnenie}</td>
+							<td class="vzorec oramovanie1">${D16}</td>
 							<td></td>
 						</tr>
-
+						
 						<tr>
 							<td class="oramovanie1">Zásobník č.2</td>
-							<td class="velinar oramovanie1"><form:input class="velinar druhy-stlpec vstupv" path="maerz.zasobnik2Druh" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.zasobnik2Plnenie" /></td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik2Druh}</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik2Plnenie}</td>
+							<td class="vzorec oramovanie1">${D17}</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie1">Zásobník č.5</td>
-							<td class="velinar oramovanie1"><form:input class="velinar druhy-stlpec vstupv" path="maerz.zasobnik5Druh" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.zasobnik5Plnenie" /></td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik5Druh}</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnik5Plnenie}</td>
+							<td class="vzorec oramovanie1">${D18}</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie1">Zásobník nová lanovka</td>
-							<td class="velinar oramovanie1"><form:input class="velinar druhy-stlpec vstupv" path="maerz.zasobnikNovaLanovkaDruh" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.zasobnikNovaLanovkaPlnenie" /></td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnikNovaLanovkaDruh}</td>
+							<td class="velinar oramovanie1">${formular.maerz.zasobnikNovaLanovkaPlnenie}</td>
+							<td class="vzorec oramovanie1"></td>
 							<td></td>
 						</tr>
 						<tr>
@@ -279,15 +281,15 @@ body {
 							<td></td>
 
 						</tr>
-
+						
 						<tr>
 							<td class="oramovanie1">Vápna 6% v to</td>
 							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno6Plan}</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapno6Skut" /></td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno6Skut}</td>
 							<td class="oramovanie1"></td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${E23 }</td>
+							<td class="vzorec oramovanie1">${F23 }</td>
+							<td class="vzorec oramovanie1">${G23 }</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -295,11 +297,11 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápna 17% v to</td>
 							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno17Plan}</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapno17Skut" /></td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno17Skut}</td>
 							<td class="oramovanie1"></td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${E24 }</td>
+							<td class="vzorec oramovanie1">${F24 }</td>
+							<td class="vzorec oramovanie1">${G24 }</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -307,23 +309,23 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápna 35% v to</td>
 							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno35Plan}</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapno35Skut" /></td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno35Skut}</td>
 							<td class="oramovanie1"></td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${E25 }</td>
+							<td class="vzorec oramovanie1">${F25 }</td>
+							<td class="vzorec oramovanie1">${G25 }</td>
 							<td></td>
 							<td></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie1">Vápno spolu v to</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${B26 }</td>
+							<td class="vzorec oramovanie1">${C26 }</td>
+							<td class="vzorec oramovanie1">${D26 }</td>
 							<td></td>
 							<td class="oramovanie-right"></td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${G26 }</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -352,12 +354,12 @@ body {
 							<td></td>
 							<td></td>
 						</tr>
-
+						
 						<tr>
 							<td class="oramovanie1">Vápenec vsádzka 6% v to</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka6Skut" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar stvrty-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka6FrakciaVapenca" /></td>
+							<td class="vzorec oramovanie1">${B29 }</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka6Skut}</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka6FrakciaVapenca}</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -367,9 +369,9 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie1">Vápenec vsádzka 17% v to</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka17Skut" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar stvrty-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka17FrakciaVapenca" /></td>
+							<td class="vzorec oramovanie1">${B30 }</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka17Skut}</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka17FrakciaVapenca}</td>
 							<td></td>
 							<td colspan=2>Briketizačná linka</td>
 							<td></td>
@@ -378,9 +380,9 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie1">Vápenec vsádzka 35% v to</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka35Skut" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar stvrty-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka35FrakciaVapenca" /></td>
+							<td class="vzorec oramovanie1">${B31 }</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka35Skut}</td>
+							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka35FrakciaVapenca}</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -391,7 +393,7 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápenec spolu</td>
 							<td class="oramovanie1"></td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${C32 }</td>
 							<td></td>
 							<td></td>
 							<td class="label oramovanie-bottom">Briketizačka</td>
@@ -405,8 +407,8 @@ body {
 							<td class="oramovanie-bottom"></td>
 							<td></td>
 							<td colspan=2 class="oramovanie-right" style="text-align: right;">Počiatočný stav</td>
-							<td class="velinar oramovanie1"><form:input class="velinar siesty-stlpec vstupv" path="maerz.briketizackaPocStav" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar siedmy-stlpec vstupv" path="maerz.filter_M20_poc_stav" /></td>
+							<td class="velinar oramovanie1">${formular.maerz.briketizackaPocStav}</td>
+							<td class="velinar oramovanie1">${formular.maerz.filter_M20_poc_stav}</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -417,32 +419,32 @@ body {
 							<td></td>
 							<td></td>
 							<td class="oramovanie-right" style="text-align: right;">Konečný stav</td>
-							<td class="velinar oramovanie1"><form:input class="velinar siesty-stlpec vstupv" path="maerz.briketizackaKonStav" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar siedmy-stlpec vstupv" path="maerz.filter_M20_kon_stav" /></td>
+							<td class="velinar oramovanie1">${formular.maerz.briketizackaKonStav}</td>
+							<td class="velinar oramovanie1">${formular.maerz.filter_M20_kon_stav}</td>
 							<td></td>
 							<td></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie1">Chod pece</td>
-							<td class="velinar oramovanie1"><form:input class="velinar druhy-stlpec vstupv" path="maerz.chodPece" /></td>
+							<td class="velinar oramovanie1">${formular.maerz.chodPece}</td>
 							<td></td>
 							<td colspan=2 class="oramovanie-right" style="text-align: right;">Chod zariadenia</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${F35 }</td>
+							<td class="vzorec oramovanie1">${G35 }</td>
 							<td></td>
 							<td></td>
 							<td></td>
 						</tr>
-
+						
 						<tr>
 							<td class="oramovanie1">Prestoje spolu v hod</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${B36 }</td>
 							<td></td>
 							<td></td>
 							<td class="oramovanie-right" style="text-align: right;">za mesiac</td>
-							<td class="vzorec oramovanie1">text</td>
-							<td class="vzorec oramovanie1">text</td>
+							<td class="vzorec oramovanie1">${F36 }</td>
+							<td class="vzorec oramovanie1">${G36 }</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -520,35 +522,39 @@ body {
 							<td colspan=4>druh činnosti</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4 rowspan=26><form:textarea class="velinar" path="maerz.pracovnaSnimkaVelinar" cssStyle="border:2px solid rgb(253, 233,35);width:500px;height:100px;"/></td>
+							<td class="velinar" colspan=4 rowspan=27 style="text-align:left;">${formular.maerz.pracovnaSnimkaVelinar}</td>
 							<td class="strojnik label" colspan=2>Kontrola ochranných krytov:</td>
-							<td class="strojnik" colspan=4>${formular.maerz.kontrolaOchrannychKrytov}</td>
+							<td class="strojnik" colspan=4><form:input class="strojnik vstup sirka2" path="maerz.kontrolaOchrannychKrytov"/></td>
 						</tr>
-
+						
 						<tr>
 							<td class="strojnik label" colspan=2>Stav potrubia vzduchotechniky:</td>
-							<td class="strojnik" colspan=4>${formular.maerz.stavPotrubiaVzduchotechniky}</td>
+							<td class="strojnik" colspan=4><form:input class="strojnik vstup sirka2" path="maerz.stavPotrubiaVzduchotechniky"/></td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=2>Stav obežných kolies ventilátorov:</td>
-							<td class="strojnik" colspan=4>${formular.maerz.stavObeznychKoliesVentilatorov}</td>
+							<td class="strojnik" colspan=4><form:input class="strojnik vstup sirka2" path="maerz.stavObeznychKoliesVentilatorov"/></td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=2>Stav izolátorov ventilov:</td>
-							<td class="strojnik" colspan=4>${formular.maerz.stavIzolatorovVentilatorov}</td>
+							<td class="strojnik" colspan=4><form:input class="strojnik vstup sirka2" path="maerz.stavIzolatorovVentilatorov"/></td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=6>Výsledok kontroly technologického zariadenia na začiatku zmeny:</td>
 						</tr>
+						
 						<tr>
-							<td class="strojnik" colspan=6>${formular.maerz.vysledokKontrolyTechnologickehoZariadenia}</td>
+							<td class="strojnik" colspan=6><form:input class="strojnik vstup" path="maerz.vysledokKontrolyTechnologickehoZariadenia"
+									cssStyle="width:545px;" /></td>
 						</tr>
-
 						<tr>
-							<td class="strojnik" colspan=6 rowspan=3>${formular.maerz.pracovnaSnimkaStrojnik}</td>
+							<td class="strojnik" colspan=6 rowspan=3><form:textarea class="strojnik vstup" path="maerz.pracovnaSnimkaStrojnik" cssStyle="width:545px;"/></td>
 						</tr>
 						<tr></tr>
 						<tr></tr>
+						<tr>
+							<td class="strojnik" colspan=6></td>
+						</tr>
 						<tr>
 							<td class="strojnik label" colspan=6 style="font-size: 18px; text-decoration: underline;">Kontrola zdrojov, ktoré sa odprašujú:</td>
 						</tr>
@@ -556,33 +562,34 @@ body {
 							<td class="strojnik label" colspan=3>Filter Scheuch, výduch K4</td>
 							<td class="strojnik label" colspan=3>Filter M10, výduch V21</td>
 						</tr>
-
+						
 						<tr>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=2>${formular.odprasovanie.scheuchCas}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.scheuchCas" /></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=3>${formular.odprasovanie.m10_cas}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m10_cas" /></td>
 						</tr>
-
+						
 						<tr>
 							<td class="strojnik odprasovanie-label">Otvárajú všetky membránové ventily</td>
-							<td class="strojnik" colspan=2>${formular.odprasovanie.scheuchMembranoveVentily}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.scheuchMembranoveVentily" /></td>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
-							<td class="strojnik" colspan=3>${formular.odprasovanie.m10_podtlak}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m10_podtlak" /></td>
 						</tr>
-
+						
 						<tr>
 							<td class="strojnik odprasovanie-label">Fungujú šneky pre vynášanie prachu</td>
-							<td class="strojnik" colspan=2>${formular.odprasovanie.scheuchSneky}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.scheuchSneky" /></td>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
-							<td class="strojnik" colspan=3>${formular.odprasovanie.m10_datum_zmeny_hadic}</td>
+							
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m10_datum_zmeny_hadic" value="01.01.2014"/></td>
 						</tr>
-
+						
 						<tr>
 							<td class="strojnik odprasovanie-label">Diferenčný podtlak</td>
-							<td class="strojnik" colspan=2>${formular.odprasovanie.scheuchPodtlak}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.scheuchPodtlak" /></td>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
-							<td class="strojnik" colspan=3>${formular.odprasovanie.m10_funkcnost_tesnost}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m10_funkcnost_tesnost" /></td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=3>Filter M117.3, výduch V38</td>
@@ -590,27 +597,27 @@ body {
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=2>${formular.odprasovanie.m117_cas}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m117_cas" /></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_cas}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m116_cas" /></td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
-							<td class="strojnik" colspan=2>${formular.odprasovanie.m117_podtlak}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m117_podtlak" /></td>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
-							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_podtlak}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m116_podtlak" /></td>
 						</tr>
 						<tr>
-					<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
-							<td class="strojnik" colspan=2>${formular.odprasovanie.m117_datum_zmeny_hadic}</td>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
-							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_datum_zmeny_hadic}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m117_datum_zmeny_hadic"  value="01.01.2014" /></td>
+							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m116_datum_zmeny_hadic"  value="01.01.2014"/></td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
-							<td class="strojnik" colspan=2>${formular.odprasovanie.m117_funkcnost_tesnost}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m117_funkcnost_tesnost" /></td>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
-							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_funkcnost_tesnost}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m116_funkcnost_tesnost" /></td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=3>Filter M12, výduch V40</td>
@@ -618,56 +625,56 @@ body {
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=2>${formular.odprasovanie.m12_cas}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m12_cas" /></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=3>${formular.odprasovanie.m115_cas}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m115_cas" /></td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
-							<td class="strojnik" colspan=2>${formular.odprasovanie.m12_podtlak}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m12_podtlak" /></td>
 							<td class="strojnik odprasovanie-label">Funkčnosť oklepávacieho zariadenia</td>
-							<td class="strojnik" colspan=3>${formular.odprasovanie.m115_funkcnost_oklepavacieho_zariadenia}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m115_funkcnost_oklepavacieho_zariadenia" /></td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
-							<td class="strojnik" colspan=2>${formular.odprasovanie.m12_datum_zmeny_hadic}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m12_datum_zmeny_hadic"  value="01.01.2014"/></td>
 							<td class="strojnik odprasovanie-label">Chod zberneho snekoveho dopravnika</td>
-							<td class="strojnik" colspan=3>${formular.odprasovanie.m115_chod_snekoveho_dopravnika}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m115_chod_snekoveho_dopravnika" /></td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
-							<td class="strojnik" colspan=2>${formular.odprasovanie.m12_funkcnost_tesnost}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m12_funkcnost_tesnost" /></td>
 							<td class="strojnik odprasovanie-label">Funkcnost a celistvost filtra a potrubia</td>
-							<td class="strojnik" colspan=3>${formular.odprasovanie.m115_funkcnost_celistvost}</td>
+							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m115_funkcnost_celistvost" /></td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=6>Filter Herding TLF D 1500, výduch V54</td>
 						</tr>
 						<tr>
 							<td class="velinar label">Vstup tepla: </td>
-							<td class="velinar"><form:input class="velinar druhy-stlpec" path="maerz.vstupTepla"  cssStyle="border:2px solid rgb(253, 233, 35);"/></td>
+							<td class="velinar">${formular.maerz.vstupTepla}</td>
 							<td class="velinar" colspan=2></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCas}</td>
+							<td class="strojnik" colspan=5><form:input class="strojnik vstup sirka1" path="odprasovanie.herdingCas" /></td>
 						</tr>
 						<tr>
 							<td class="velinar label">Teplota pyrometra: </td>
-							<td class="velinar"><form:input class="velinar druhy-stlpec" path="maerz.teplotaPyrometra" cssStyle="border:2px solid rgb(253, 233, 35);"/></td>
+							<td class="velinar">${formular.maerz.teplotaPyrometra}</td>
 							<td class="velinar" colspan=2></td>
 							<td class="strojnik odprasovanie-label">Počuť čistiace impulzy</td>
-							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCistiaceImpulzy}</td>
+							<td class="strojnik" colspan=5><form:input class="strojnik vstup sirka1" path="odprasovanie.herdingCistiaceImpulzy" /></td>
 						</tr>
 						<tr>
 							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Chod vyprázdňovacieho zariadenia</td>
-							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingChodVyprazdnovaciehoZariadenia}</td>
+							<td class="strojnik" colspan=5><form:input class="strojnik vstup sirka1" path="odprasovanie.herdingChodVyprazdnovaciehoZariadenia" /></td>
 						</tr>
 
 					</tbody>
-
+				
 				</table>
 			</div>
-
+			
 		</form:form>
 
 	</div>
