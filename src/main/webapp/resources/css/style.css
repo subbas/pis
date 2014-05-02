@@ -22,6 +22,14 @@ td {
 	border: 2px solid rgb(132, 207, 132);
 }
 
+.vstupv {
+	border: 2px solid rgb(255, 255, 153);
+}
+
+.sirka-velinar {
+	width: 50px;
+}
+
 .sirka1 {
 	width: 100px;
 }
@@ -35,7 +43,7 @@ td {
 }
 
 .velinar {
-	background-color: rgb(255, 255, 153); text-align: center; border-color: rgb(255, 255, 153);
+	background-color: rgb(255, 255, 153); text-align: center; 
 }
 
 .strojnik {

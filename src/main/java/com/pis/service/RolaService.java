@@ -78,4 +78,12 @@ public class RolaService implements EntityService<Rola> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
+
+	@Override
+	public Rola getEntity(String meno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

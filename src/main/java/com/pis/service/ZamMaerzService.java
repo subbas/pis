@@ -39,8 +39,7 @@ public class ZamMaerzService implements EntityService<ZamMaerz> {
 
 	@Override
 	public int getLastId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return entityDao.getLastId();
 	}
 
 	@Override
@@ -75,6 +74,13 @@ public class ZamMaerzService implements EntityService<ZamMaerz> {
 
 	@Override
 	public List<Zamestnanec> getAllMajster() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	@Override
+	public ZamMaerz getEntity(String meno) {
 		// TODO Auto-generated method stub
 		return null;
 	}

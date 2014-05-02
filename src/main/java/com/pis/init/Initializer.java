@@ -9,7 +9,8 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-public class Initializer implements WebApplicationInitializer {
+
+public class Initializer  implements WebApplicationInitializer {
 
 	public void onStartup(ServletContext servletContext)
 			throws ServletException {
@@ -22,5 +23,9 @@ public class Initializer implements WebApplicationInitializer {
 		Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
 		servlet.addMapping("/");
 		servlet.setLoadOnStartup(1);
+		
+		
 	}
+	
+	
 }

@@ -53,6 +53,7 @@ public class Zamestnanec implements Serializable {
 
 	@Override
 	public String toString() {
+		if (meno.equals("nikto")) return "-";
 		return meno + " " + priezvisko;
 	}
 

@@ -157,23 +157,23 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Majster:</td>
-							<td class="velinar oramovanie1">${formular.majster}</td>
-							<td class="velinar oramovanie1"></td>
+							<td class="velinar oramovanie1">${formular.zamMaerz.zamestnanec2}</td>
+							<td class="velinar oramovanie1">${formular.zamMaerz.zamestnanec2.osobneCislo}</td>
 							<td></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Velinár:</td>
-							<td class="velinar oramovanie1">${formular.velinar}</td>
-							<td class="velinar oramovanie1"></td>
+							<td class="velinar oramovanie1">${formular.zamMaerz.zamestnanec1}</td>
+							<td class="velinar oramovanie1">${formular.zamMaerz.zamestnanec1.osobneCislo}</td>
 							<td></td>
 							<td></td>
 						</tr>
-						
+
 						<tr>
 							<td class="oramovanie-right">Strojník:</td>
-							<td class="velinar oramovanie1">${formular.strojnik}</td>
-							<td class="velinar oramovanie1"></td>
+							<td class="velinar oramovanie1">${formular.zamMaerz.zamestnanec3}</td>
+							<td class="velinar oramovanie1">${formular.zamMaerz.zamestnanec3.osobneCislo}</td>
 							<td></td>
 							<td></td>
 						</tr>
@@ -646,16 +646,16 @@ body {
 							<td class="strojnik label" colspan=6>Filter Herding TLF D 1500, výduch V54</td>
 						</tr>
 						<tr>
-							<td class="velinar label">Vstup tepla: </td>
-							<td class="velinar">${formular.maerz.vstupTepla}</td>
-							<td class="velinar" colspan=2></td>
+							<td class="velinar label vstupv">Vstup tepla: </td>
+							<td class="velinar vstupv">${formular.maerz.vstupTepla}</td>
+							<td class="velinar vstupv" colspan=2></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
 							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCas}</td>
 						</tr>
 						<tr>
-							<td class="velinar label">Teplota pyrometra: </td>
-							<td class="velinar">${formular.maerz.teplotaPyrometra}</td>
-							<td class="velinar" colspan=2></td>
+							<td class="velinar label vstupv">Teplota pyrometra: </td>
+							<td class="velinar vstupv">${formular.maerz.teplotaPyrometra}</td>
+							<td class="velinar vstupv" colspan=2></td>
 							<td class="strojnik odprasovanie-label">Počuť čistiace impulzy</td>
 							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCistiaceImpulzy}</td>
 						</tr>

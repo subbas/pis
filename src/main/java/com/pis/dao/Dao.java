@@ -18,5 +18,6 @@ public interface Dao<T> {
 	public List<Zamestnanec> getAllStrojnik();
 	public List<Zamestnanec> getAllVelinar();
 	public List<Zamestnanec> getAllMajster();
+	public T getEntity(String meno);
 	
 }

@@ -90,4 +90,12 @@ public class RolaDao implements Dao<Rola> {
 		return null;
 	}
 
+	
+
+	@Override
+	public Rola getEntity(String meno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -88,4 +88,13 @@ public class ZamestnanecDao implements Dao<Zamestnanec> {
 		return getCurrentSession().createQuery("from Zamestnanec where rola='4'").list();
 	}
 
+	
+	@Override
+	public Zamestnanec getEntity(String meno) {
+		String _meno;
+		String _priezvisko;
+		getCurrentSession().createQuery("from Zamestnanec");
+		return null;
+	}
+
 }

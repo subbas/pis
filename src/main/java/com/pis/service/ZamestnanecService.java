@@ -74,4 +74,12 @@ public class ZamestnanecService implements EntityService<Zamestnanec> {
 	public List<Zamestnanec> getAllMajster() {
 		return entityDao.getAllMajster();
 	}
+
+
+
+	@Override
+	public Zamestnanec getEntity(String meno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

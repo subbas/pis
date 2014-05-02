@@ -78,4 +78,12 @@ public class OdprasovanieService implements EntityService<Odprasovanie> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
+
+	@Override
+	public Odprasovanie getEntity(String meno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

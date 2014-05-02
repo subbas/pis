@@ -26,8 +26,13 @@ public class ZamMaerzDao implements Dao<ZamMaerz> {
 
 	public void update(ZamMaerz zamMaerz) {
 		ZamMaerz zamMaerzToUpdate = getEntity(zamMaerz.getId());
-		//zamMaerzToUpdate.setName(zamMaerz.getName());
-		//zamMaerzToUpdate.setRating(zamMaerz.getRating());
+		zamMaerzToUpdate.setDatum(zamMaerz.getDatum());
+		zamMaerzToUpdate.setMaerz(zamMaerz.getMaerz());
+		zamMaerzToUpdate.setZamestnanec1(zamMaerz.getZamestnanec1());
+		zamMaerzToUpdate.setZamestnanec2(zamMaerz.getZamestnanec2());
+		zamMaerzToUpdate.setZamestnanec3(zamMaerz.getZamestnanec3());
+		zamMaerzToUpdate.setZmena(zamMaerz.getZmena());
+		
 		getCurrentSession().update(zamMaerzToUpdate);
 		
 	}
@@ -85,6 +90,11 @@ public class ZamMaerzDao implements Dao<ZamMaerz> {
 
 	@Override
 	public List<Zamestnanec> getAllMajster() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public ZamMaerz getEntity(String meno) {
 		// TODO Auto-generated method stub
 		return null;
 	}
