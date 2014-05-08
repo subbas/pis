@@ -14,9 +14,9 @@ public class Formular {
 	private Maerz maerz;
 	private Odprasovanie odprasovanie;
 	private ZamMaerz zamMaerz;
-	private int majsterID;
+	/*private int majsterID;
 	private int velinarID;
-	private int strojnikID;
+	private int strojnikID;*/
 	private String datum;
 	private int zmena;
 	
@@ -38,37 +38,10 @@ public class Formular {
 	}
 
 	
-	public Formular() {
+	private Formular() {
 	}
 	
-	
-	
-	
-	public int getMajsterID() {
-		return majsterID;
-	}
-
-	public void setMajsterID(int majsterID) {
-		this.majsterID = majsterID;
-	}
-
-	public int getVelinarID() {
-		return velinarID;
-	}
-
-	public void setVelinarID(int velinarID) {
-		this.velinarID = velinarID;
-	}
-
-	public int getStrojnikID() {
-		return strojnikID;
-	}
-
-	public void setStrojnikID(int strojnikID) {
-		this.strojnikID = strojnikID;
-	}
-
-	
+		
 	public static Formular getInstance() {
 		if(instance ==  null) {
 			instance = new Formular();

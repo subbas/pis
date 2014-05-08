@@ -6,7 +6,7 @@ table {
 	border-collapse: collapse;
 }
 
-table,td {
+table td{
 	border: 1px solid rgb(204, 255, 204);
 }
 
@@ -77,13 +77,18 @@ td {
 .lekarnicka {
 	background-color: rgb(204, 204, 255);
 }
+.trojuholnik
+{
+	width:15px;
+	height:15px;
+}
 
 .odprasovanie-label {
 	font-size: 12px;
 }
 
 .prvy-stlpec {
-	width: 175px;
+	width: 185px;
 }
 
 .druhy-stlpec {
@@ -120,4 +125,37 @@ td {
 
 .desiaty-stlpec {
 	width: 80px;
+}
+.error-message {
+	font-weight: bold;
+}
+/* formular veduci */
+.veduci-input {
+	width: 60px;
+	border:1px solid rgb(0, 255, 255);
+}
+/* Login page */
+#login-page table td {
+	border: 0 solid transparent;
+}
+#login-page h1{
+	font-size: 20px;
+}
+#login-page {
+	background-color: white;
+}
+#login-page .login-wrapper {
+	background: url('../images/login_page_bg.jpg');
+	margin: 0 auto;
+	width: 1000px;
+	height: 670px;
+}
+
+#login-form {
+	width: 400px;
+	padding-top: 50px;
+	margin: 0 auto;
+}
+#login-form .table {
+	border-color: transparent;
 }

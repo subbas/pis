@@ -21,7 +21,15 @@
 
 	<error-page>
 		<error-code>404</error-code>
-		<location>/login</location>
+		<location>/error-page</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error-page</location>
+	</error-page>
+	<error-page>
+		<error-code>915</error-code>
+		<location>/error-page</location>
 	</error-page>
 
 	<!-- CSS -->

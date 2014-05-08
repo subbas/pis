@@ -50,8 +50,7 @@ public class OdprasovanieDao implements Dao<Odprasovanie> {
 
 	@Override
 	public int getLastId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return (Integer)getCurrentSession().createQuery("select max(id) from Odprasovanie").uniqueResult();
 	}
 
 	@Override

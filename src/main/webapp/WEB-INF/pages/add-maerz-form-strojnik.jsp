@@ -90,7 +90,7 @@ body {
 <body onload="noBack();" onunload="">
 	<div id="hlavna-cast">
 
-		<form:form method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-strojnik.html">
+		<form:form id="formular" method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-strojnik.html">
 			<div id="header">
 			<input type="submit" value="Uložiť" />
 			<a href="${pageContext.request.contextPath}/synchStrojnik.html">Synchronizovat</a>
@@ -653,14 +653,16 @@ body {
 						<tr>
 							<td class="velinar label vstupv">Vstup tepla: </td>
 							<td class="velinar vstupv">${formular.maerz.vstupTepla}</td>
-							<td class="velinar vstupv" colspan=2></td>
+							<td class="velinar vstupv" style="text-align:left;">kcal/kg</td>
+							<td class="velinar vstupv"></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
 							<td class="strojnik" colspan=5><form:input class="strojnik vstup sirka1" path="odprasovanie.herdingCas" /></td>
 						</tr>
 						<tr>
 							<td class="velinar label vstupv">Teplota pyrometra: </td>
 							<td class="velinar vstupv">${formular.maerz.teplotaPyrometra}</td>
-							<td class="velinar vstupv" colspan=2></td>
+							<td class="velinar vstupv" style="text-align:left;">°C</td>
+							<td class="velinar vstupv"></td>
 							<td class="strojnik odprasovanie-label">Počuť čistiace impulzy</td>
 							<td class="strojnik" colspan=5><form:input class="strojnik vstup sirka1" path="odprasovanie.herdingCistiaceImpulzy" /></td>
 						</tr>

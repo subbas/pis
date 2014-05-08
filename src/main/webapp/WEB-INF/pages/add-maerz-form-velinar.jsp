@@ -37,7 +37,7 @@ body {
 <body onload="noBack();" onunload="">
 	<div id="hlavna-cast">
 
-		<form:form id="form" method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-velinar.html">
+		<form:form  method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-velinar.html">
 	<%-- 	<form:form id="myForm" method="POST" commandName="formular"> --%>
 			<div id="header">
 
@@ -169,7 +169,7 @@ body {
 								<form:input id="zasobnik1Druh" class="velinar sirka-velinar vstupv" path="maerz.zasobnik1Druh" /> 
 									<spring:bind path="maerz.zasobnik1Druh">
 										<c:if test="${status.error}">
-											<img src="<c:url value="/resources/images/warning1.png"/>" width="15" height="15" title="Musí byť zadané číslo!" />
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
 										</c:if>
 								   </spring:bind>
 							</td>
@@ -177,7 +177,7 @@ body {
 								<form:input class="velinar sirka-velinar vstupv" path="maerz.zasobnik1Plnenie" /> 
 								<spring:bind path="maerz.zasobnik1Plnenie">
 									<c:if test="${status.error}">
-										<img src="<c:url value="/resources/images/warning1.png"/>" width="15" height="15" title="Musí byť zadané číslo!" />
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
 									</c:if>
 								</spring:bind>
 							</td>
@@ -191,7 +191,7 @@ body {
 								<form:input class="velinar sirka-velinar vstupv" path="maerz.zasobnik2Druh" /> 
 								<spring:bind path="maerz.zasobnik2Druh">
 									<c:if test="${status.error}">
-										<img src="<c:url value="/resources/images/warning1.png"/>" width="15" height="15" title="Musí byť zadané číslo!" />
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
 									</c:if>
 								</spring:bind>
 							</td>
@@ -199,7 +199,7 @@ body {
 								<form:input class="velinar sirka-velinar vstupv" path="maerz.zasobnik2Plnenie" /> 
 								<spring:bind path="maerz.zasobnik2Plnenie">
 									<c:if test="${status.error}">
-										<img src="<c:url value="/resources/images/warning1.png"/>" width="15" height="15" title="Musí byť zadané číslo!" />
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
 									</c:if>
 								</spring:bind>
 							</td>
@@ -212,7 +212,7 @@ body {
 								<form:input class="velinar sirka-velinar vstupv" path="maerz.zasobnik5Druh" />
 								<spring:bind path="maerz.zasobnik5Druh">
 									<c:if test="${status.error}">
-										<img src="<c:url value="/resources/images/warning1.png"/>" width="15" height="15" title="Musí byť zadané číslo!" />
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
 									</c:if>
 								</spring:bind>
 							</td>
@@ -220,7 +220,7 @@ body {
 								<form:input class="velinar sirka-velinar vstupv" path="maerz.zasobnik5Plnenie" />
 								<spring:bind path="maerz.zasobnik5Plnenie">
 									<c:if test="${status.error}">
-										<img src="<c:url value="/resources/images/warning1.png"/>" width="15" height="15" title="Musí byť zadané číslo!" />
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
 									</c:if>
 								</spring:bind>
 							</td>
@@ -233,7 +233,7 @@ body {
 								<form:input class="velinar sirka-velinar vstupv" path="maerz.zasobnikNovaLanovkaDruh" />
 								<spring:bind path="maerz.zasobnikNovaLanovkaDruh">
 									<c:if test="${status.error}">
-										<img src="<c:url value="/resources/images/warning1.png"/>" width="15" height="15" title="Musí byť zadané číslo!" />
+										<img src="<c:url value="/resources/images/warning1.png"/>" class="trojuholnik" title="Musí byť zadané číslo!" />
 									</c:if>
 								</spring:bind>
 							</td>
@@ -241,7 +241,7 @@ body {
 								<form:input class="velinar sirka-velinar vstupv" path="maerz.zasobnikNovaLanovkaPlnenie" />
 								<spring:bind path="maerz.zasobnikNovaLanovkaPlnenie">
 									<c:if test="${status.error}">
-										<img src="<c:url value="/resources/images/warning1.png"/>" width="15" height="15" title="Musí byť zadané číslo!" />
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
 									</c:if>
 								</spring:bind>
 							</td>
@@ -291,7 +291,14 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápna 6% v to</td>
 							<td class="veduci oramovanie1">${vyrobaVapno6Plan}</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapno6Skut" /></td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapno6Skut" />
+								<spring:bind path="maerz.vyrobaVapno6Skut">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
 							<td class="oramovanie1"></td>
 							<td class="vzorec oramovanie1">${E23 }</td>
 							<td class="vzorec oramovanie1">${F23 }</td>
@@ -303,7 +310,14 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápna 17% v to</td>
 							<td class="veduci oramovanie1">${vyrobaVapno17Plan}</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapno17Skut" /></td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapno17Skut" />
+								<spring:bind path="maerz.vyrobaVapno17Skut">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
 							<td class="oramovanie1"></td>
 							<td class="vzorec oramovanie1">${E24 }</td>
 							<td class="vzorec oramovanie1">${F24 }</td>
@@ -315,7 +329,14 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápna 35% v to</td>
 							<td class="veduci oramovanie1">${vyrobaVapno35Plan}</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapno35Skut" /></td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapno35Skut" />
+								<spring:bind path="maerz.vyrobaVapno35Skut">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
 							<td class="oramovanie1"></td>
 							<td class="vzorec oramovanie1">${E25 }</td>
 							<td class="vzorec oramovanie1">${F25 }</td>
@@ -364,8 +385,22 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápenec vsádzka 6% v to</td>
 							<td class="vzorec oramovanie1">${B29 }</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka6Skut" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar stvrty-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka6FrakciaVapenca" /></td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka6Skut" />
+								<spring:bind path="maerz.vyrobaVapenecVsadzka6Skut">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar stvrty-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka6FrakciaVapenca" />
+								<spring:bind path="maerz.vyrobaVapenecVsadzka6FrakciaVapenca">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -376,8 +411,22 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápenec vsádzka 17% v to</td>
 							<td class="vzorec oramovanie1">${B30 }</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka17Skut" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar stvrty-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka17FrakciaVapenca" /></td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka17Skut" />
+								<spring:bind path="maerz.vyrobaVapenecVsadzka17Skut">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar stvrty-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka17FrakciaVapenca" />
+								<spring:bind path="maerz.vyrobaVapenecVsadzka17FrakciaVapenca">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
 							<td></td>
 							<td colspan=2>Briketizačná linka</td>
 							<td></td>
@@ -387,8 +436,22 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápenec vsádzka 35% v to</td>
 							<td class="vzorec oramovanie1">${B31 }</td>
-							<td class="velinar oramovanie1"><form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka35Skut" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar stvrty-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka35FrakciaVapenca" /></td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar treti-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka35Skut" />
+								<spring:bind path="maerz.vyrobaVapenecVsadzka35Skut">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar stvrty-stlpec vstupv" path="maerz.vyrobaVapenecVsadzka35FrakciaVapenca" />
+								<spring:bind path="maerz.vyrobaVapenecVsadzka35FrakciaVapenca">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -413,8 +476,22 @@ body {
 							<td class="oramovanie-bottom"></td>
 							<td></td>
 							<td colspan=2 class="oramovanie-right" style="text-align: right;">Počiatočný stav</td>
-							<td class="velinar oramovanie1"><form:input class="velinar siesty-stlpec vstupv" path="maerz.briketizackaPocStav" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar siedmy-stlpec vstupv" path="maerz.filter_M20_poc_stav" /></td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar siesty-stlpec vstupv" path="maerz.briketizackaPocStav" />
+								<spring:bind path="maerz.briketizackaPocStav">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar siedmy-stlpec vstupv" path="maerz.filter_M20_poc_stav" />
+								<spring:bind path="maerz.filter_M20_poc_stav">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -425,15 +502,36 @@ body {
 							<td></td>
 							<td></td>
 							<td class="oramovanie-right" style="text-align: right;">Konečný stav</td>
-							<td class="velinar oramovanie1"><form:input class="velinar siesty-stlpec vstupv" path="maerz.briketizackaKonStav" /></td>
-							<td class="velinar oramovanie1"><form:input class="velinar siedmy-stlpec vstupv" path="maerz.filter_M20_kon_stav" /></td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar siesty-stlpec vstupv" path="maerz.briketizackaKonStav" />
+								<spring:bind path="maerz.briketizackaKonStav">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar siedmy-stlpec vstupv" path="maerz.filter_M20_kon_stav" />
+								<spring:bind path="maerz.filter_M20_kon_stav">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
 							<td></td>
 							<td></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie1">Chod pece</td>
-							<td class="velinar oramovanie1"><form:input class="velinar druhy-stlpec vstupv" path="maerz.chodPece" /></td>
+							<td class="velinar oramovanie1">
+								<form:input class="velinar druhy-stlpec vstupv" path="maerz.chodPece" />
+								<spring:bind path="maerz.chodPece">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
 							<td></td>
 							<td colspan=2 class="oramovanie-right" style="text-align: right;">Chod zariadenia</td>
 							<td class="vzorec oramovanie1">${F35 }</td>
@@ -528,8 +626,15 @@ body {
 							<td colspan=4>druh činnosti</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4 rowspan=26><form:textarea class="velinar" path="maerz.pracovnaSnimkaVelinar"
-									cssStyle="border:2px solid rgb(253, 233,35);width:500px;height:100px;" /></td>
+							<td class="velinar" colspan=4 rowspan=26>
+								<form:textarea class="velinar" path="maerz.pracovnaSnimkaVelinar"
+									cssStyle="border:2px solid rgb(253, 233,35);width:500px;height:100px;" />
+								<spring:bind path="maerz.pracovnaSnimkaVelinar">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste maximálnu dĺžku!" />
+									</c:if>
+								</spring:bind>
+							</td>
 							<td class="strojnik label" colspan=2>Kontrola ochranných krytov:</td>
 							<td class="strojnik" colspan=4>${kontrolaOchrannychKrytov}</td>
 						</tr>
@@ -654,16 +759,32 @@ body {
 						</tr>
 						<tr>
 							<td class="velinar label vstupv">Vstup tepla:</td>
-							<td class="velinar vstupv"><form:input class="velinar druhy-stlpec" path="maerz.vstupTepla" cssStyle="border:2px solid rgb(253, 233, 35);" /></td>
-							<td class="velinar vstupv" colspan=2></td>
+							<td class="velinar vstupv">
+								<form:input class="velinar druhy-stlpec vstupv" path="maerz.vstupTepla" cssStyle="border:2px solid rgb(253, 233, 35);" />
+								<spring:bind path="maerz.vstupTepla">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
+							<td class="velinar vstupv" style="text-align:left;">kcal/kg</td>
+							<td class="velinar vstupv"></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
 							<td class="strojnik" colspan=5>${herdingCas}</td>
 						</tr>
 						<tr>
 							<td class="velinar  vstupv label prvy-stlpec">Teplota pyrometra:</td>
-							<td class="velinar vstupv"><form:input class="velinar druhy-stlpec" path="maerz.teplotaPyrometra"
-									cssStyle="border:2px solid rgb(253, 233, 35);" /></td>
-							<td class="velinar vstupv" colspan=2></td>
+							<td class="velinar vstupv">
+								<form:input class="velinar druhy-stlpec vstupv" path="maerz.teplotaPyrometra"
+									cssStyle="border:2px solid rgb(253, 233, 35);" />
+								<spring:bind path="maerz.teplotaPyrometra">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
+							<td class="velinar vstupv" style="text-align:left;">°C</td>
+							<td class="velinar vstupv"></td>
 							<td class="strojnik odprasovanie-label">Počuť čistiace impulzy</td>
 							<td class="strojnik" colspan=5>${herdingCistiaceImpulzy}</td>
 						</tr>

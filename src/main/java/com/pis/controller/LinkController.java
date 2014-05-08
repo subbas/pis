@@ -39,19 +39,19 @@ public class LinkController {
 	@RequestMapping(value="/loginfailed", method = RequestMethod.GET)
 	public String loginerror(ModelMap model, HttpServletRequest request) {
         System.out.println(request.getServletPath());
- 		model.addAttribute("message", "Zadali ste neplatne prihlasovacie udaje!");
+ 		model.addAttribute("message", "Zadali ste neplatné prihlasovacie údaje!");
 		return "login";
  	}
 	
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	public String logout(ModelMap model) {
-		model.addAttribute("message", "Boli ste uspesne odhlaseny!");
+		model.addAttribute("message", "Boli ste úspešne odhlásený!");
  		return "login";
  	}
 	
 	@RequestMapping(value="/accessDenied", method = RequestMethod.GET)
 	public String accessDenied(ModelMap model, HttpServletRequest request) {
-		model.addAttribute("message", "Nemate prava!");
+		model.addAttribute("message", "Nemáte práva!");
  		return "login";
  	}
 

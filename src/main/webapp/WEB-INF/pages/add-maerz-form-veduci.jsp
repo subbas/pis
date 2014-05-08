@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -91,9 +92,9 @@ body {
 <body onload="noBack();" onunload="">
 	<div id="hlavna-cast">
 
-		<form:form method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-veduci.html">
+		<form:form id="formular" method="POST" commandName="formularVeduci" action="${pageContext.request.contextPath}/add-maerz-form-veduci.html">
 			<div id="header">
-			<!-- <input type="submit" value="Uložiť" /> -->
+			<input type="submit" value="Uložiť" />
 			<a href="${pageContext.request.contextPath}/synchVeduci.html">Synchronizovat</a>
 			<a href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a>
 			${message}
@@ -284,7 +285,14 @@ body {
 						
 						<tr>
 							<td class="oramovanie1">Vápna 6% v to</td>
-							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno6Plan}</td>
+							<td class="veduci oramovanie1">
+								<form:input class="veduci veduci-input" path="vyrobaVapno6Plan" />
+								<spring:bind path="vyrobaVapno6Plan">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
 							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno6Skut}</td>
 							<td class="oramovanie1"></td>
 							<td class="vzorec oramovanie1">${E23 }</td>
@@ -296,7 +304,14 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie1">Vápna 17% v to</td>
-							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno17Plan}</td>
+							<td class="veduci oramovanie1">
+								<form:input class="veduci veduci-input" path="vyrobaVapno17Plan" />
+								<spring:bind path="vyrobaVapno17Plan">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
 							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno17Skut}</td>
 							<td class="oramovanie1"></td>
 							<td class="vzorec oramovanie1">${E24 }</td>
@@ -308,7 +323,14 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie1">Vápna 35% v to</td>
-							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno35Plan}</td>
+							<td class="veduci oramovanie1">
+								<form:input class="veduci veduci-input" path="vyrobaVapno35Plan" />
+								<spring:bind path="vyrobaVapno35Plan">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+									</c:if>
+								</spring:bind>
+							</td>
 							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno35Skut}</td>
 							<td class="oramovanie1"></td>
 							<td class="vzorec oramovanie1">${E25 }</td>
@@ -648,14 +670,16 @@ body {
 						<tr>
 							<td class="velinar label vstupv">Vstup tepla: </td>
 							<td class="velinar vstupv">${formular.maerz.vstupTepla}</td>
-							<td class="velinar vstupv" colspan=2></td>
+							<td class="velinar vstupv" style="text-align:left;">kcal/kg</td>
+							<td class="velinar vstupv"></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
 							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCas}</td>
 						</tr>
 						<tr>
 							<td class="velinar label vstupv">Teplota pyrometra: </td>
 							<td class="velinar vstupv">${formular.maerz.teplotaPyrometra}</td>
-							<td class="velinar vstupv" colspan=2></td>
+							<td class="velinar vstupv" style="text-align:left;">°C</td>
+							<td class="velinar vstupv"></td>
 							<td class="strojnik odprasovanie-label">Počuť čistiace impulzy</td>
 							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCistiaceImpulzy}</td>
 						</tr>
