@@ -25,8 +25,13 @@ public class ZamestnanecDao implements Dao<Zamestnanec> {
 
 	public void update(Zamestnanec zamestnanec) {
 		Zamestnanec zamestnanecToUpdate = getEntity(zamestnanec.getId());
-		//zamestnanecToUpdate.setName(zamestnanec.getName());
-		//zamestnanecToUpdate.setRating(zamestnanec.getRating());
+		zamestnanecToUpdate.setAktivny(zamestnanec.getAktivny());
+		zamestnanecToUpdate.setHeslo(zamestnanec.getHeslo());
+		zamestnanecToUpdate.setLogin(zamestnanec.getLogin());
+		zamestnanecToUpdate.setMeno(zamestnanec.getMeno());
+		zamestnanecToUpdate.setOsobneCislo(zamestnanec.getOsobneCislo());
+		zamestnanecToUpdate.setPriezvisko(zamestnanec.getPriezvisko());
+		zamestnanecToUpdate.setRolaBean(zamestnanec.getRolaBean());
 		getCurrentSession().update(zamestnanecToUpdate);
 		
 	}

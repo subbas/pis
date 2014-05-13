@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -115,8 +116,14 @@ body {
 							<td class="treti-stlpec"></td>
 							<td class="stvrty-stlpec"></td>
 							<td class="piaty-stlpec"></td>
-							<td class="strojnik" colspan='5' rowspan='18'><form:textarea class="strojnik" path="maerz.neodstranenePoruchy"
-									cssStyle="width:489px;height:415px;" /></td>
+							<td class="strojnik" colspan='5' rowspan='18'>
+								<form:textarea class="strojnik" path="maerz.neodstranenePoruchy"		cssStyle="width:489px;height:415px;" />
+								<spring:bind path="maerz.neodstranenePoruchy">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 
 						</tr>
 						<tr>
@@ -128,14 +135,14 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Dátum:</td>
-							<td class="velinar oramovanie1">${formular.datum}</td>
+							<td class="velinar oramovanie1">${datum}</td>
 							<td></td>
 							<td class="velinar" style="text-align: left;">Vypĺňa velinár</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Zmena:</td>
-							<td class="velinar oramovanie1">${formular.zmena}</td>
+							<td class="velinar oramovanie1">${zmena}</td>
 							<td></td>
 							<td class="veduci" style="text-align:left;">Vypĺňa vedúci vápenky</td>
 							<td></td>
@@ -157,23 +164,23 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Majster:</td>
-							<td class="velinar oramovanie1">${formular.zamMaerz.zamestnanec2}</td>
-							<td class="velinar oramovanie1">${formular.zamMaerz.zamestnanec2.osobneCislo}</td>
+							<td class="velinar oramovanie1">${zamMaerz.zamestnanec2}</td>
+							<td class="velinar oramovanie1">${zamMaerz.zamestnanec2.osobneCislo}</td>
 							<td></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie-right">Velinár:</td>
-							<td class="velinar oramovanie1">${formular.zamMaerz.zamestnanec1}</td>
-							<td class="velinar oramovanie1">${formular.zamMaerz.zamestnanec1.osobneCislo}</td>
+							<td class="velinar oramovanie1">${zamMaerz.zamestnanec1}</td>
+							<td class="velinar oramovanie1">${zamMaerz.zamestnanec1.osobneCislo}</td>
 							<td></td>
 							<td></td>
 						</tr>
 
 						<tr>
 							<td class="oramovanie-right">Strojník:</td>
-							<td class="velinar oramovanie1">${formular.zamMaerz.zamestnanec3}</td>
-							<td class="velinar oramovanie1">${formular.zamMaerz.zamestnanec3.osobneCislo}</td>
+							<td class="velinar oramovanie1">${zamMaerz.zamestnanec3}</td>
+							<td class="velinar oramovanie1">${zamMaerz.zamestnanec3.osobneCislo}</td>
 							<td></td>
 							<td></td>
 						</tr>
@@ -215,30 +222,30 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie1">Zásobník č.1</td>
-							<td class="velinar oramovanie1">${formular.maerz.zasobnik1Druh}</td>
-							<td class="velinar oramovanie1">${formular.maerz.zasobnik1Plnenie}</td>
+							<td class="velinar oramovanie1">${maerz.zasobnik1Druh}</td>
+							<td class="velinar oramovanie1">${maerz.zasobnik1Plnenie}</td>
 							<td class="vzorec oramovanie1">${D16}</td>
 							<td></td>
 						</tr>
 						
 						<tr>
 							<td class="oramovanie1">Zásobník č.2</td>
-							<td class="velinar oramovanie1">${formular.maerz.zasobnik2Druh}</td>
-							<td class="velinar oramovanie1">${formular.maerz.zasobnik2Plnenie}</td>
+							<td class="velinar oramovanie1">${maerz.zasobnik2Druh}</td>
+							<td class="velinar oramovanie1">${maerz.zasobnik2Plnenie}</td>
 							<td class="vzorec oramovanie1">${D17}</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie1">Zásobník č.5</td>
-							<td class="velinar oramovanie1">${formular.maerz.zasobnik5Druh}</td>
-							<td class="velinar oramovanie1">${formular.maerz.zasobnik5Plnenie}</td>
+							<td class="velinar oramovanie1">${maerz.zasobnik5Druh}</td>
+							<td class="velinar oramovanie1">${maerz.zasobnik5Plnenie}</td>
 							<td class="vzorec oramovanie1">${D18}</td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie1">Zásobník nová lanovka</td>
-							<td class="velinar oramovanie1">${formular.maerz.zasobnikNovaLanovkaDruh}</td>
-							<td class="velinar oramovanie1">${formular.maerz.zasobnikNovaLanovkaPlnenie}</td>
+							<td class="velinar oramovanie1">${maerz.zasobnikNovaLanovkaDruh}</td>
+							<td class="velinar oramovanie1">${maerz.zasobnikNovaLanovkaPlnenie}</td>
 							<td class="vzorec oramovanie1"></td>
 							<td></td>
 						</tr>
@@ -284,8 +291,8 @@ body {
 						
 						<tr>
 							<td class="oramovanie1">Vápna 6% v to</td>
-							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno6Plan}</td>
-							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno6Skut}</td>
+							<td class="veduci oramovanie1">${maerz.vyrobaVapno6Plan}</td>
+							<td class="velinar oramovanie1">${maerz.vyrobaVapno6Skut}</td>
 							<td class="oramovanie1"></td>
 							<td class="vzorec oramovanie1">${E23 }</td>
 							<td class="vzorec oramovanie1">${F23 }</td>
@@ -296,8 +303,8 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie1">Vápna 17% v to</td>
-							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno17Plan}</td>
-							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno17Skut}</td>
+							<td class="veduci oramovanie1">${maerz.vyrobaVapno17Plan}</td>
+							<td class="velinar oramovanie1">${maerz.vyrobaVapno17Skut}</td>
 							<td class="oramovanie1"></td>
 							<td class="vzorec oramovanie1">${E24 }</td>
 							<td class="vzorec oramovanie1">${F24 }</td>
@@ -308,8 +315,8 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie1">Vápna 35% v to</td>
-							<td class="veduci oramovanie1">${formular.maerz.vyrobaVapno35Plan}</td>
-							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno35Skut}</td>
+							<td class="veduci oramovanie1">${maerz.vyrobaVapno35Plan}</td>
+							<td class="velinar oramovanie1">${maerz.vyrobaVapno35Skut}</td>
 							<td class="oramovanie1"></td>
 							<td class="vzorec oramovanie1">${E25 }</td>
 							<td class="vzorec oramovanie1">${F25 }</td>
@@ -358,8 +365,8 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápenec vsádzka 6% v to</td>
 							<td class="vzorec oramovanie1">${B29 }</td>
-							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka6Skut}</td>
-							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka6FrakciaVapenca}</td>
+							<td class="velinar oramovanie1">${maerz.vyrobaVapenecVsadzka6Skut}</td>
+							<td class="velinar oramovanie1">${maerz.vyrobaVapenecVsadzka6FrakciaVapenca}</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -370,8 +377,8 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápenec vsádzka 17% v to</td>
 							<td class="vzorec oramovanie1">${B30 }</td>
-							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka17Skut}</td>
-							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka17FrakciaVapenca}</td>
+							<td class="velinar oramovanie1">${maerz.vyrobaVapenecVsadzka17Skut}</td>
+							<td class="velinar oramovanie1">${maerz.vyrobaVapenecVsadzka17FrakciaVapenca}</td>
 							<td></td>
 							<td colspan=2>Briketizačná linka</td>
 							<td></td>
@@ -381,8 +388,8 @@ body {
 						<tr>
 							<td class="oramovanie1">Vápenec vsádzka 35% v to</td>
 							<td class="vzorec oramovanie1">${B31 }</td>
-							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka35Skut}</td>
-							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapenecVsadzka35FrakciaVapenca}</td>
+							<td class="velinar oramovanie1">${maerz.vyrobaVapenecVsadzka35Skut}</td>
+							<td class="velinar oramovanie1">${maerz.vyrobaVapenecVsadzka35FrakciaVapenca}</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -407,8 +414,8 @@ body {
 							<td class="oramovanie-bottom"></td>
 							<td></td>
 							<td colspan=2 class="oramovanie-right" style="text-align: right;">Počiatočný stav</td>
-							<td class="velinar oramovanie1">${formular.maerz.briketizackaPocStav}</td>
-							<td class="velinar oramovanie1">${formular.maerz.filter_M20_poc_stav}</td>
+							<td class="velinar oramovanie1">${maerz.briketizackaPocStav}</td>
+							<td class="velinar oramovanie1">${maerz.filter_M20_poc_stav}</td>
 							<td></td>
 							<td></td>
 							<td></td>
@@ -419,15 +426,15 @@ body {
 							<td></td>
 							<td></td>
 							<td class="oramovanie-right" style="text-align: right;">Konečný stav</td>
-							<td class="velinar oramovanie1">${formular.maerz.briketizackaKonStav}</td>
-							<td class="velinar oramovanie1">${formular.maerz.filter_M20_kon_stav}</td>
+							<td class="velinar oramovanie1">${maerz.briketizackaKonStav}</td>
+							<td class="velinar oramovanie1">${maerz.filter_M20_kon_stav}</td>
 							<td></td>
 							<td></td>
 							<td></td>
 						</tr>
 						<tr>
 							<td class="oramovanie1">Chod pece</td>
-							<td class="velinar oramovanie1">${formular.maerz.chodPece}</td>
+							<td class="velinar oramovanie1">${maerz.chodPece}</td>
 							<td></td>
 							<td colspan=2 class="oramovanie-right" style="text-align: right;">Chod zariadenia</td>
 							<td class="vzorec oramovanie1">${F35 }</td>
@@ -522,33 +529,75 @@ body {
 							<td colspan=4>druh činnosti</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4 rowspan=27 style="text-align:left;">${formular.maerz.pracovnaSnimkaVelinar}</td>
+							<td class="velinar" colspan=4 rowspan=27 style="text-align:left;">${maerz.pracovnaSnimkaVelinar}</td>
 							<td class="strojnik label" colspan=2>Kontrola ochranných krytov:</td>
-							<td class="strojnik" colspan=4><form:input class="strojnik vstup sirka2" path="maerz.kontrolaOchrannychKrytov"/></td>
+							<td class="strojnik" colspan=4>
+								<form:input class="strojnik vstup sirka2" path="maerz.kontrolaOchrannychKrytov"/>
+								<spring:bind path="maerz.kontrolaOchrannychKrytov">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						
 						<tr>
 							<td class="strojnik label" colspan=2>Stav potrubia vzduchotechniky:</td>
-							<td class="strojnik" colspan=4><form:input class="strojnik vstup sirka2" path="maerz.stavPotrubiaVzduchotechniky"/></td>
+							<td class="strojnik" colspan=4>
+								<form:input class="strojnik vstup sirka2" path="maerz.stavPotrubiaVzduchotechniky"/>
+								<spring:bind path="maerz.stavPotrubiaVzduchotechniky">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=2>Stav obežných kolies ventilátorov:</td>
-							<td class="strojnik" colspan=4><form:input class="strojnik vstup sirka2" path="maerz.stavObeznychKoliesVentilatorov"/></td>
+							<td class="strojnik" colspan=4>
+								<form:input class="strojnik vstup sirka2" path="maerz.stavObeznychKoliesVentilatorov"/>
+								<spring:bind path="maerz.stavObeznychKoliesVentilatorov">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=2>Stav izolátorov ventilov:</td>
-							<td class="strojnik" colspan=4><form:input class="strojnik vstup sirka2" path="maerz.stavIzolatorovVentilatorov"/></td>
+							<td class="strojnik" colspan=4>
+								<form:input class="strojnik vstup sirka2" path="maerz.stavIzolatorovVentilatorov"/>
+								<spring:bind path="maerz.stavIzolatorovVentilatorov">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=6>Výsledok kontroly technologického zariadenia na začiatku zmeny:</td>
 						</tr>
 						
 						<tr>
-							<td class="strojnik" colspan=6><form:input class="strojnik vstup" path="maerz.vysledokKontrolyTechnologickehoZariadenia"
-									cssStyle="width:545px;" /></td>
+							<td class="strojnik" colspan=6>
+								<form:input class="strojnik vstup" path="maerz.vysledokKontrolyTechnologickehoZariadenia"
+									cssStyle="width:545px;" />
+								<spring:bind path="maerz.vysledokKontrolyTechnologickehoZariadenia">
+									<c:if test="${status.error}">
+										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+									</c:if>
+							   </spring:bind>
+							</td>
 						</tr>
 						<tr>
-							<td class="strojnik" colspan=6 rowspan=3><form:textarea class="strojnik vstup" path="maerz.pracovnaSnimkaStrojnik" cssStyle="width:545px;"/></td>
+							<td class="strojnik" colspan=6 rowspan=3>
+								<form:textarea class="strojnik vstup" path="maerz.pracovnaSnimkaStrojnik" cssStyle="width:545px;"/>
+								<spring:bind path="maerz.pracovnaSnimkaStrojnik">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr></tr>
 						<tr></tr>
@@ -565,31 +614,87 @@ body {
 						
 						<tr>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.scheuchCas" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.scheuchCas" />
+								<spring:bind path="odprasovanie.scheuchCas">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m10_cas" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m10_cas" />
+								<spring:bind path="odprasovanie.m10_cas">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						
 						<tr>
 							<td class="strojnik odprasovanie-label">Otvárajú všetky membránové ventily</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.scheuchMembranoveVentily" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.scheuchMembranoveVentily" />
+								<spring:bind path="odprasovanie.scheuchMembranoveVentily">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m10_podtlak" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m10_podtlak" />
+								<spring:bind path="odprasovanie.m10_podtlak">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						
 						<tr>
 							<td class="strojnik odprasovanie-label">Fungujú šneky pre vynášanie prachu</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.scheuchSneky" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.scheuchSneky" />
+								<spring:bind path="odprasovanie.scheuchSneky">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
 							
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m10_datum_zmeny_hadic" value="01.01.2014"/></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m10_datum_zmeny_hadic" value="01.01.2014"/>
+								<spring:bind path="odprasovanie.m10_datum_zmeny_hadic">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadaný dátum v tvare 01.01.2014!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						
 						<tr>
 							<td class="strojnik odprasovanie-label">Diferenčný podtlak</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.scheuchPodtlak" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.scheuchPodtlak" />
+								<spring:bind path="odprasovanie.scheuchPodtlak">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m10_funkcnost_tesnost" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m10_funkcnost_tesnost" />
+								<spring:bind path="odprasovanie.m10_funkcnost_tesnost">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=3>Filter M117.3, výduch V38</td>
@@ -597,27 +702,83 @@ body {
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m117_cas" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m117_cas" />
+								<spring:bind path="odprasovanie.m117_cas">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m116_cas" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m116_cas" />
+								<spring:bind path="odprasovanie.m116_cas">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m117_podtlak" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m117_podtlak" />
+								<spring:bind path="odprasovanie.m117_podtlak">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m116_podtlak" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m116_podtlak" />
+								<spring:bind path="odprasovanie.m116_podtlak">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m117_datum_zmeny_hadic"  value="01.01.2014" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m117_datum_zmeny_hadic"  value="01.01.2014" />
+								<spring:bind path="odprasovanie.m117_datum_zmeny_hadic">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadaný dátum v tvare 01.01.2014!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m116_datum_zmeny_hadic"  value="01.01.2014"/></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m116_datum_zmeny_hadic"  value="01.01.2014"/>
+								<spring:bind path="odprasovanie.m116_datum_zmeny_hadic">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadaný dátum v tvare 01.01.2014!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m117_funkcnost_tesnost" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m117_funkcnost_tesnost" />
+								<spring:bind path="odprasovanie.m117_funkcnost_tesnost">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m116_funkcnost_tesnost" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m116_funkcnost_tesnost" />
+								<spring:bind path="odprasovanie.m116_funkcnost_tesnost">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=3>Filter M12, výduch V40</td>
@@ -625,51 +786,128 @@ body {
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m12_cas" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m12_cas" />
+								<spring:bind path="odprasovanie.m12_cas">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m115_cas" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m115_cas" />
+								<spring:bind path="odprasovanie.m115_cas">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m12_podtlak" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m12_podtlak" />
+								<spring:bind path="odprasovanie.m12_podtlak">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 							<td class="strojnik odprasovanie-label">Funkčnosť oklepávacieho zariadenia</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m115_funkcnost_oklepavacieho_zariadenia" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m115_funkcnost_oklepavacieho_zariadenia" />
+								<spring:bind path="odprasovanie.m115_funkcnost_oklepavacieho_zariadenia">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m12_datum_zmeny_hadic"  value="01.01.2014"/></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m12_datum_zmeny_hadic"  value="01.01.2014"/>
+								<spring:bind path="odprasovanie.m12_datum_zmeny_hadic">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadaný dátum v tvare 01.01.2014!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 							<td class="strojnik odprasovanie-label">Chod zberneho snekoveho dopravnika</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m115_chod_snekoveho_dopravnika" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m115_chod_snekoveho_dopravnika" />
+								<spring:bind path="odprasovanie.m115_chod_snekoveho_dopravnika">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m12_funkcnost_tesnost" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m12_funkcnost_tesnost" />
+								<spring:bind path="odprasovanie.m12_funkcnost_tesnost">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 							<td class="strojnik odprasovanie-label">Funkcnost a celistvost filtra a potrubia</td>
-							<td class="strojnik" colspan=2><form:input class="strojnik vstup sirka1" path="odprasovanie.m115_funkcnost_celistvost" /></td>
+							<td class="strojnik" colspan=2>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.m115_funkcnost_celistvost" />
+								<spring:bind path="odprasovanie.m115_funkcnost_celistvost">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=6>Filter Herding TLF D 1500, výduch V54</td>
 						</tr>
 						<tr>
 							<td class="velinar label vstupv">Vstup tepla: </td>
-							<td class="velinar vstupv">${formular.maerz.vstupTepla}</td>
+							<td class="velinar vstupv">${maerz.vstupTepla}</td>
 							<td class="velinar vstupv" style="text-align:left;">kcal/kg</td>
 							<td class="velinar vstupv"></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=5><form:input class="strojnik vstup sirka1" path="odprasovanie.herdingCas" /></td>
+							<td class="strojnik" colspan=5>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.herdingCas" />
+								<spring:bind path="odprasovanie.herdingCas">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="velinar label vstupv">Teplota pyrometra: </td>
-							<td class="velinar vstupv">${formular.maerz.teplotaPyrometra}</td>
+							<td class="velinar vstupv">${maerz.teplotaPyrometra}</td>
 							<td class="velinar vstupv" style="text-align:left;">°C</td>
 							<td class="velinar vstupv"></td>
 							<td class="strojnik odprasovanie-label">Počuť čistiace impulzy</td>
-							<td class="strojnik" colspan=5><form:input class="strojnik vstup sirka1" path="odprasovanie.herdingCistiaceImpulzy" /></td>
+							<td class="strojnik" colspan=5>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.herdingCistiaceImpulzy" />
+								<spring:bind path="odprasovanie.herdingCistiaceImpulzy">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 						<tr>
 							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Chod vyprázdňovacieho zariadenia</td>
-							<td class="strojnik" colspan=5><form:input class="strojnik vstup sirka1" path="odprasovanie.herdingChodVyprazdnovaciehoZariadenia" /></td>
+							<td class="strojnik" colspan=5>
+								<form:input class="strojnik vstup sirka1" path="odprasovanie.herdingChodVyprazdnovaciehoZariadenia" />
+								<spring:bind path="odprasovanie.herdingChodVyprazdnovaciehoZariadenia">
+										<c:if test="${status.error}">
+											<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Prekročili ste dĺžku!" />
+										</c:if>
+								   </spring:bind>
+							</td>
 						</tr>
 
 					</tbody>

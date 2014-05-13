@@ -150,12 +150,26 @@ td {
 	width: 1000px;
 	height: 670px;
 }
-
 #login-form {
 	width: 400px;
 	padding-top: 50px;
 	margin: 0 auto;
 }
-#login-form .table {
+/* #login-form .table {
 	border-color: transparent;
+} */
+/* error-page */
+#error-page {
+	background-color: white;
+}
+#error-page .error-wrapper {
+	background: url('../images/login_page_bg.jpg');
+	margin: 0 auto;
+	width: 1000px;
+	height: 670px;
+}
+#error-info {
+	width: 400px;
+	padding-top: 50px;
+	margin: 0 auto;
 }

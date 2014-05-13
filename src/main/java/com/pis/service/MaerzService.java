@@ -14,5 +14,5 @@ public interface MaerzService {
 	public void delete(int id);
 	public List<Maerz> getEntities();
 	public int getLastId();
-	public int getG23(int mesiac);
+	public double getG23(int mesiac);
 }

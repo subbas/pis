@@ -49,14 +49,6 @@ public class Zamestnanec implements Serializable {
 
 	public Zamestnanec() {
 	}
-	
-
-	@Override
-	public String toString() {
-		if (meno.equals("nikto")) return "-";
-		return meno + " " + priezvisko;
-	}
-
 
 	public int getId() {
 		return this.id;

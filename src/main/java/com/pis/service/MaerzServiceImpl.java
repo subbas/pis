@@ -58,7 +58,7 @@ public class MaerzServiceImpl implements MaerzService {
 	}
 
 	@Override
-	public int getG23(int mesiac) {
+	public double getG23(int mesiac) {
 		
 		return entityDao.getG23(mesiac);
 	}

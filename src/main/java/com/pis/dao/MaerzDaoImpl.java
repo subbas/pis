@@ -170,14 +170,10 @@ public class MaerzDaoImpl implements Dao<Maerz>, MaerzDao {
 	}
 
 	@Override
-	public int getG23(int mesiac) {
-		System.out.println(getCurrentSession().createSQLQuery("select sum(m.vyroba_vapno_6_skut) from Zam_Maerz z inner join Maerz m on z.id_maerz=m.id where z.datum = '2014-05-01'").uniqueResult());
-	/*	for (Integer i:list) {
-			System.out.println(i);
-		}*/
-
-		//return (Integer)getCurrentSession().createQuery("select sum(Maerz.vyroba_vapno_6_skut) from Maerz join ZamMaerz on Maerz.id as ZamMaerz.id_maerz").uniqueResult();
-		return 5;
+	public double getG23(int mesiac) {
+		Object d = getCurrentSession().createSQLQuery("select sum(m.vyroba_vapno_6_skut) from Zam_Maerz z inner join Maerz m on z.id_maerz=m.id where MONTH(z.datum) = '"+mesiac+"'").uniqueResult();
+		if (d == null) return 0;
+		return (Double)d;
 	}
 
 }

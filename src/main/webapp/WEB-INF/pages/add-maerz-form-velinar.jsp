@@ -673,30 +673,30 @@ body {
 
 						<tr>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=2>${scheuchCas}</td>
+							<td class="strojnik" colspan=2>${odprasovanie.scheuchCas}</td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=3>${m10_cas}</td>
+							<td class="strojnik" colspan=3>${odprasovanie.m10_cas}</td>
 						</tr>
 
 						<tr>
 							<td class="strojnik odprasovanie-label">Otvárajú všetky membránové ventily</td>
-							<td class="strojnik" colspan=2>${scheuchMembranoveVentily}</td>
+							<td class="strojnik" colspan=2>${odprasovanie.scheuchMembranoveVentily}</td>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
-							<td class="strojnik" colspan=3>${m10_podtlak}</td>
+							<td class="strojnik" colspan=3>${odprasovanie.m10_podtlak}</td>
 						</tr>
 
 						<tr>
 							<td class="strojnik odprasovanie-label">Fungujú šneky pre vynášanie prachu</td>
-							<td class="strojnik" colspan=2>${scheuchSneky}</td>
+							<td class="strojnik" colspan=2>${odprasovanie.scheuchSneky}</td>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
-							<td class="strojnik" colspan=3>${m10_datum_zmeny_hadic}</td>
+							<td class="strojnik" colspan=3>${odprasovanie.m10_datum_zmeny_hadic}</td>
 						</tr>
 
 						<tr>
 							<td class="strojnik odprasovanie-label">Diferenčný podtlak</td>
-							<td class="strojnik" colspan=2>${scheuchPodtlak}</td>
+							<td class="strojnik" colspan=2>${odprasovanie.scheuchPodtlak}</td>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
-							<td class="strojnik" colspan=3>${m10_funkcnost_tesnost}</td>
+							<td class="strojnik" colspan=3>${odprasovanie.m10_funkcnost_tesnost}</td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=3>Filter M117.3, výduch V38</td>
@@ -704,27 +704,27 @@ body {
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=2>${m117_cas}</td>
+							<td class="strojnik" colspan=2>${odprasovanie.m117_cas}</td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=3>${m116_cas}</td>
+							<td class="strojnik" colspan=3>${odprasovanie.m116_cas}</td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
-							<td class="strojnik" colspan=2>${m117_podtlak}</td>
+							<td class="strojnik" colspan=2>${odprasovanie.m117_podtlak}</td>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
-							<td class="strojnik" colspan=3>${m116_podtlak}</td>
+							<td class="strojnik" colspan=3>${odprasovanie.m116_podtlak}</td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
-							<td class="strojnik" colspan=2>${m117_datum_zmeny_hadic}</td>
+							<td class="strojnik" colspan=2>${odprasovanie.m117_datum_zmeny_hadic}</td>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
-							<td class="strojnik" colspan=3>${m116_datum_zmeny_hadic}</td>
+							<td class="strojnik" colspan=3>${odprasovanie.m116_datum_zmeny_hadic}</td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
-							<td class="strojnik" colspan=2>${m117_funkcnost_tesnost}</td>
+							<td class="strojnik" colspan=2>${odprasovanie.m117_funkcnost_tesnost}</td>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
-							<td class="strojnik" colspan=3>${m116_funkcnost_tesnost}</td>
+							<td class="strojnik" colspan=3>${odprasovanie.m116_funkcnost_tesnost}</td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=3>Filter M12, výduch V40</td>
@@ -732,27 +732,27 @@ body {
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=2>${m12_cas}</td>
+							<td class="strojnik" colspan=2>${odprasovanie.m12_cas}</td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=3>${m115_cas}</td>
+							<td class="strojnik" colspan=3>${odprasovanie.m115_cas}</td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Podtlak</td>
-							<td class="strojnik" colspan=2>${m12_podtlak}</td>
+							<td class="strojnik" colspan=2>${odprasovanie.m12_podtlak}</td>
 							<td class="strojnik odprasovanie-label">Funkčnosť oklepávacieho zariadenia</td>
-							<td class="strojnik" colspan=3>${m115_funkcnost_oklepavacieho_zariadenia}</td>
+							<td class="strojnik" colspan=3>${odprasovanie.m115_funkcnost_oklepavacieho_zariadenia}</td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
-							<td class="strojnik" colspan=2>${m12_datum_zmeny_hadic}</td>
+							<td class="strojnik" colspan=2>${odprasovanie.m12_datum_zmeny_hadic}</td>
 							<td class="strojnik odprasovanie-label">Chod zberneho snekoveho dopravnika</td>
-							<td class="strojnik" colspan=3>${m115_chod_snekoveho_dopravnika}</td>
+							<td class="strojnik" colspan=3>${odprasovanie.m115_chod_snekoveho_dopravnika}</td>
 						</tr>
 						<tr>
 							<td class="strojnik odprasovanie-label">Funkčnosť a tesnosť filtra</td>
-							<td class="strojnik" colspan=2>${m12_funkcnost_tesnost}</td>
+							<td class="strojnik" colspan=2>${odprasovanie.m12_funkcnost_tesnost}</td>
 							<td class="strojnik odprasovanie-label">Funkcnost a celistvost filtra a potrubia</td>
-							<td class="strojnik" colspan=3>${m115_funkcnost_celistvost}</td>
+							<td class="strojnik" colspan=3>${odprasovanie.m115_funkcnost_celistvost}</td>
 						</tr>
 						<tr>
 							<td class="strojnik label" colspan=6>Filter Herding TLF D 1500, výduch V54</td>
@@ -770,7 +770,7 @@ body {
 							<td class="velinar vstupv" style="text-align:left;">kcal/kg</td>
 							<td class="velinar vstupv"></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
-							<td class="strojnik" colspan=5>${herdingCas}</td>
+							<td class="strojnik" colspan=5>${odprasovanie.herdingCas}</td>
 						</tr>
 						<tr>
 							<td class="velinar  vstupv label prvy-stlpec">Teplota pyrometra:</td>
@@ -786,12 +786,12 @@ body {
 							<td class="velinar vstupv" style="text-align:left;">°C</td>
 							<td class="velinar vstupv"></td>
 							<td class="strojnik odprasovanie-label">Počuť čistiace impulzy</td>
-							<td class="strojnik" colspan=5>${herdingCistiaceImpulzy}</td>
+							<td class="strojnik" colspan=5>${odprasovanie.herdingCistiaceImpulzy}</td>
 						</tr>
 						<tr>
 							<td class="velinar" colspan=4></td>
 							<td class="strojnik odprasovanie-label">Chod vyprázdňovacieho zariadenia</td>
-							<td class="strojnik" colspan=5>${herdingChodVyprazdnovaciehoZariadenia}</td>
+							<td class="strojnik" colspan=5>${odprasovanie.herdingChodVyprazdnovaciehoZariadenia}</td>
 						</tr>
 
 					</tbody>

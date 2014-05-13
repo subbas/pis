@@ -14,11 +14,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter;
+import org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
-@ImportResource( { "/WEB-INF/spring-security.xml" } )
+@ImportResource( { "/WEB-INF/classes/spring-security.xml","/WEB-INF/classes/spring-timer.xml" } )
 @ComponentScan("com.pis")
 @EnableWebMvc
 @EnableTransactionManagement
@@ -80,7 +83,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter{
 		resolver.setViewClass(JstlView.class);
 		return resolver;
 	}
-
+	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 	    registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");

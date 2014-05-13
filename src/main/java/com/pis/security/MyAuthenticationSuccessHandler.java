@@ -40,7 +40,7 @@ public class MyAuthenticationSuccessHandler implements
 		if (response.isCommitted()) {
 			// logger.debug("Response has already been committed. Unable to redirect to "
 			// + targetUrl);
-			System.out.println("tu");
+			//System.out.println("tu");
 			return;
 		}
 		redirectStrategy.sendRedirect(request, response, targetUrl);
@@ -87,7 +87,7 @@ public class MyAuthenticationSuccessHandler implements
 		} else if (isVeduciVapenky) {
 			return "/add-maerz-form-veduci";
 		} else if (isAdmin) {
-			return "/login";
+			return "/admin-page";
 		} else {
 			throw new IllegalStateException();
 		}

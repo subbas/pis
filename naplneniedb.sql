@@ -13,12 +13,13 @@ INSERT INTO zamestnanec VALUES(6,'Ján','Tero',4,1,'majster3','6e017b5464f820a6c
 INSERT INTO zamestnanec VALUES(7,'Martin','Velo',1,1,'velinar3','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',7);
 INSERT INTO zamestnanec VALUES(8,'Rudolf','Strojo',2,1,'strojnik2','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',8);
 INSERT INTO zamestnanec VALUES(9,'Rudolf','Veduci',3,1,'veduci','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',9);
-INSERT INTO zamestnanec VALUES(10,'Alzbeta','Buckuliakova',5,1,'admin','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',10);
+INSERT INTO zamestnanec VALUES(10,'Alzbeta','Bučkuliakova',5,1,'admin','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',10);
 INSERT INTO zamestnanec VALUES(11,'nikto','nikto',3,0,'nikto','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',11);
+INSERT INTO zamestnanec VALUES(12,'Alžbeta','Bučkuliaková',5,1,'admin','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',12);
 
-INSERT INTO maerz VALUES(1,'nic',35,70,17,0,6,55,5,100,0,0,0,0,0,22.1,38.1,'40-80',0,null,0,null,1.7,20311.1,20312.7,20311.1,20312.7,'bez zavad','bez zavad','bez zavad','bez zavad','zariadenie schopne prevadzky','750','986','6:00 - 18: 00 vsetko v poriadku','6:00 - 18: 00 vsetko v poriadku','bez zavad');
-INSERT INTO maerz VALUES(2,'nic',35,68,17,10,6,74,5,100,0,0,0,17.8,0,15.6,57.6,'40-80',0,null,0,null,2.7,20312.7,20316.3,20312.7,20316.3,'bez zavad','bez zavad','bez zavad','bez zavad','zariadenie schopne prevadzky','750','986','6:00 - 18: 00 vsetko v poriadku','6:00 - 18: 00 vsetko v poriadku','bez zavad');
-INSERT INTO maerz VALUES(3,'nic',35,68,6,40,6,70,5,80,0,112.9,0,3.0,0,0,0,null,199.8,'40-80',0,null,10,20316.3,20319.6,20316.3,20319.6,'bez zavad','bez zavad','bez zavad','bez zavad','zariadenie schopne prevadzky','750','986','6:00 - 18: 00 vsetko v poriadku','6:00 - 18: 00 vsetko v poriadku','bez zavad');
+INSERT INTO maerz VALUES(1,'nic',35,70,17,0,6,55,5,100,100,0,100,0,100,22.1,38.1,'40-80',0,null,0,null,1.7,20311.1,20312.7,20311.1,20312.7,'bez zavad','bez zavad','bez zavad','bez zavad','zariadenie schopne prevadzky','750','986','6:00 - 18: 00 vsetko v poriadku','6:00 - 18: 00 vsetko v poriadku','bez zavad');
+INSERT INTO maerz VALUES(2,'nic',35,68,17,10,6,74,5,100,100,0,100,17.8,100,15.6,57.6,'40-80',0,null,0,null,2.7,20312.7,20316.3,20312.7,20316.3,'bez zavad','bez zavad','bez zavad','bez zavad','zariadenie schopne prevadzky','750','986','6:00 - 18: 00 vsetko v poriadku','6:00 - 18: 00 vsetko v poriadku','bez zavad');
+INSERT INTO maerz VALUES(3,'nic',35,68,6,40,6,70,5,80,100,112.9,100,3.0,100,0,0,null,199.8,'40-80',0,null,10,20316.3,20319.6,20316.3,20319.6,'bez zavad','bez zavad','bez zavad','bez zavad','zariadenie schopne prevadzky','750','986','6:00 - 18: 00 vsetko v poriadku','6:00 - 18: 00 vsetko v poriadku','bez zavad');
 
 INSERT INTO zam_maerz VALUES(1,20140101,1,4,5,null,1);
 INSERT INTO zam_maerz VALUES(2,20140101,2,6,7,null,2);

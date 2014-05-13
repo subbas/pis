@@ -18,7 +18,7 @@ public class Formular {
 	private int velinarID;
 	private int strojnikID;*/
 	private String datum;
-	private int zmena;
+	private Integer zmena;
 	
 
 	public String getDatum() {
@@ -29,11 +29,11 @@ public class Formular {
 		this.datum = datum;
 	}
 
-	public int getZmena() {
+	public Integer getZmena() {
 		return zmena;
 	}
 
-	public void setZmena(int zmena) {
+	public void setZmena(Integer zmena) {
 		this.zmena = zmena;
 	}
 

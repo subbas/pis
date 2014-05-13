@@ -96,6 +96,7 @@ body {
 			<div id="header">
 			<input type="submit" value="Uložiť" />
 			<a href="${pageContext.request.contextPath}/synchVeduci.html">Synchronizovat</a>
+			<a href="${pageContext.request.contextPath}/trends.html">Štatistiky</a>
 			<a href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a>
 			${message}
 			</div>
