@@ -1,9 +1,6 @@
 package com.pis.controller;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
 import java.beans.PropertyEditorSupport;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -11,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
@@ -35,7 +35,6 @@ import com.pis.model.ZamMaerz;
 import com.pis.model.Zamestnanec;
 import com.pis.service.EntityService;
 import com.pis.service.MaerzService;
-import com.pis.service.MaerzServiceImpl;
 
 @Controller
 @RequestMapping(value = "/")
@@ -63,7 +62,6 @@ public class EntityController extends WebMvcConfigurerAdapter {
 
 	// pomocne
 	private String message = "Maerz bol úspešne pridaný.";
-	private String errorMessage;
 	private Boolean prvaZmena = false;
 	private Boolean druhaZmena = false;
 	private Boolean vytvor = false;
@@ -520,24 +518,28 @@ public class EntityController extends WebMvcConfigurerAdapter {
 
 	public ModelAndView vzorce(ModelAndView model) {
 		DecimalFormat d = new DecimalFormat("#.##");
+		int mesiac = Calendar.getInstance().get(Calendar.MONTH) + 1;
 		model.addObject("D16", Integer.toString(formular.getMaerz().getZasobnik1Plnenie() * 2));
 		model.addObject("D17", Integer.toString(formular.getMaerz().getZasobnik2Plnenie() * 2));
 		model.addObject("D18", Integer.toString(formular.getMaerz().getZasobnik5Plnenie() * 35 / 100));
 		model.addObject("E23", d.format(formular.getMaerz().getVyrobaVapno6Skut() * 0.4));
 		model.addObject("F23", d.format(formular.getMaerz().getVyrobaVapno6Skut() * 0.6));
-		model.addObject("G23", d.format(maerzServiceImpl.getG23(Calendar.getInstance().get(Calendar.MONTH) + 1)));
+		double G23 = maerzServiceImpl.getG23(mesiac);
+		model.addObject("G23", d.format(G23));
 		model.addObject("E24", d.format(formular.getMaerz().getVyrobaVapno17Skut() * 0.4));
 		model.addObject("F24", d.format(formular.getMaerz().getVyrobaVapno17Skut() * 0.6));
-		model.addObject("G24", "0");
+		double G24 = maerzServiceImpl.getG24(mesiac);
+		model.addObject("G24", d.format(G24));
 		model.addObject("E25", d.format(formular.getMaerz().getVyrobaVapno35Skut() * 0.4));
 		model.addObject("F25", d.format(formular.getMaerz().getVyrobaVapno35Skut() * 0.6));
-		model.addObject("G25", "0");
+		double G25 = maerzServiceImpl.getG25(mesiac);
+		model.addObject("G25", d.format(G25));
 		Float B26 = formular.getMaerz().getVyrobaVapno6Plan() + formular.getMaerz().getVyrobaVapno17Plan() + formular.getMaerz().getVyrobaVapno35Plan();
 		model.addObject("B26", d.format(B26));
 		Float C26 = formular.getMaerz().getVyrobaVapno6Skut() + formular.getMaerz().getVyrobaVapno17Skut() + formular.getMaerz().getVyrobaVapno35Skut();
 		model.addObject("C26", d.format(C26));
 		model.addObject("D26", d.format(C26 / B26 * 100));
-		model.addObject("G26", "0");
+		model.addObject("G26", d.format(G23+G24+G25));
 		model.addObject("B29", d.format(formular.getMaerz().getVyrobaVapno6Plan() / 0.552));
 		model.addObject("B30", d.format(formular.getMaerz().getVyrobaVapno17Plan() / 0.552));
 		model.addObject("B31", d.format(formular.getMaerz().getVyrobaVapno35Plan() / 0.552));
@@ -545,8 +547,8 @@ public class EntityController extends WebMvcConfigurerAdapter {
 		model.addObject("F35", d.format(formular.getMaerz().getBriketizackaKonStav() - formular.getMaerz().getBriketizackaPocStav()));
 		model.addObject("G35", d.format(formular.getMaerz().getFilter_M20_kon_stav() - formular.getMaerz().getFilter_M20_poc_stav()));
 		model.addObject("B36", d.format(12 - formular.getMaerz().getChodPece()));
-		model.addObject("F36", "0");
-		model.addObject("G36", "0");
+		model.addObject("F36", d.format(maerzServiceImpl.getF36(mesiac)));
+		model.addObject("G36", d.format(maerzServiceImpl.getG36(mesiac)));
 		return model;
 	}
 

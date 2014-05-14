@@ -1,11 +1,8 @@
 package com.pis.formular;
 
-import java.util.Date;
-
 import com.pis.model.Maerz;
 import com.pis.model.Odprasovanie;
 import com.pis.model.ZamMaerz;
-import com.pis.model.Zamestnanec;
 
 
 public class Formular {
@@ -38,7 +35,7 @@ public class Formular {
 	}
 
 	
-	private Formular() {
+	public Formular() {
 	}
 	
 		

@@ -10,9 +10,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/style.css" />" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js" type="text/javascript"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
-<script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js" type="text/javascript"></script>
 <script src="<c:url value="/resources/js/script.js" />"></script>
 <title>PIS Maerz</title>
 <style>
@@ -38,12 +35,10 @@ body {
 	<div id="hlavna-cast">
 
 		<form:form  method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-velinar.html">
-	<%-- 	<form:form id="myForm" method="POST" commandName="formular"> --%>
 			<div id="header">
-
 				<input type="submit" value="Uložiť"/>
-				<!-- <input type="button" value="Uložiť" onclick="submitForm()"/> --> <a href="${pageContext.request.contextPath}/synchVelinar.html">Synchronizovat</a> <a
-					href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a> ${message}
+				<a href="${pageContext.request.contextPath}/synchVelinar.html">Synchronizovat</a> 
+				<a	href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a> ${message}
 			</div>
 			<div class="ciara"></div>
 			<div id="obsah">

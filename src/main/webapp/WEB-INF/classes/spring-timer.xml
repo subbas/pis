@@ -3,19 +3,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
  
-	<!-- <bean id="runMyTask" class="com.pis.timer.RunMyTask" /> -->
 	<bean id="runMyJob" class="com.pis.timer.RunMyJob" />
  
-	<!-- Spring Quartz -->
-	<!-- <bean name="runMyJob" class="org.springframework.scheduling.quartz.JobDetailBean">
-		<property name="jobClass" value="com.pis.timer.RunMyJob" />
-		<property name="jobDataAsMap">
-		  <map>
-			<entry key="runMyTask" value-ref="runMyTask" />
-		  </map>
-		</property>
-	</bean> -->
-	
 	 <bean id="runMyJobBean"
    class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
    <property name="targetObject" ref="runMyJob" />
@@ -33,7 +22,7 @@
 	<!-- Cron Trigger, run every 5 seconds -->
 	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<property name="jobDetail" ref="runMyJobBean" />
-		<property name="cronExpression" value="0/5 * * * * ?" />
+		<property name="cronExpression" value="0 0 0/1 * * ?" />
 	</bean>
  
 	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">

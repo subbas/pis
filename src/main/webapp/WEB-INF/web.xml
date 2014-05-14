@@ -44,7 +44,7 @@
 </jsp-config>
  -->
 	
-	<error-page>
+	<!-- <error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/pages/error-page.jsp</location>
 	</error-page>
@@ -60,7 +60,7 @@
 	<error-page>
 		<error-code>915</error-code>
 		<location>/WEB-INF/pages/error-page.jsp</location>
-	</error-page>
+	</error-page> -->
 
 	<!-- CSS -->
 	<!-- <servlet-mapping> <servlet-name>default</servlet-name> <url-pattern>/resources/**</url-pattern> 

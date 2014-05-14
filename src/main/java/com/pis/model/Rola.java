@@ -25,6 +25,15 @@ public class Rola implements Serializable {
 
 	public Rola() {
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return  nazov;
+	}
+
+
 
 	public int getId() {
 		return this.id;

@@ -49,6 +49,15 @@ public class Zamestnanec implements Serializable {
 
 	public Zamestnanec() {
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return  meno +  priezvisko;
+	}
+
+
 
 	public int getId() {
 		return this.id;

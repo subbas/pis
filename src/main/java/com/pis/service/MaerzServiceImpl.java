@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.pis.dao.MaerzDaoImpl;
 import com.pis.model.Maerz;
-import com.pis.model.Zamestnanec;
 
 @Service
 @Transactional
@@ -61,5 +60,25 @@ public class MaerzServiceImpl implements MaerzService {
 	public double getG23(int mesiac) {
 		
 		return entityDao.getG23(mesiac);
+	}
+
+	@Override
+	public double getG24(int mesiac) {
+		return entityDao.getG24(mesiac);
+	}
+
+	@Override
+	public double getG25(int mesiac) {
+		return entityDao.getG25(mesiac);
+	}
+
+	@Override
+	public double getF36(int mesiac) {
+		return entityDao.getF36(mesiac);
+	}
+
+	@Override
+	public double getG36(int mesiac) {
+		return entityDao.getG36(mesiac);
 	}
 }

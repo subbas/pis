@@ -8,6 +8,8 @@
 </head>
 <body>
 	<a href="${pageContext.request.contextPath}/list-of-zam.html">Zobraz zamestnancov</a>
+	<a href="${pageContext.request.contextPath}/list-of-maerz.html">Zobraz maerz</a>
+	
 	<a href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a>
 </body>
 </html>

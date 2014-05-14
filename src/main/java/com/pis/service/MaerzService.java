@@ -15,4 +15,8 @@ public interface MaerzService {
 	public List<Maerz> getEntities();
 	public int getLastId();
 	public double getG23(int mesiac);
+	public double getG24(int mesiac);
+	public double getG25(int mesiac);
+	public double getF36(int mesiac);
+	public double getG36(int mesiac);
 }

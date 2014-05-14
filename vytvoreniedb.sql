@@ -90,19 +90,6 @@ CREATE TABLE zam_maerz(
 	PRIMARY KEY(id)
 )ENGINE=INNODB  CHARACTER SET utf8 COLLATE utf8_slovak_ci;
 
---CREATE TABLE pracovna_snimka(
---	id INT NOT NULL AUTO_INCREMENT,
---	odkedy TIME,
---	dokedy TIME,
---    popis VARCHAR(1000),
---	id_maerz INT NOT NULL,
---	FOREIGN KEY (id_maerz)
---		REFERENCES maerz(id),
---	id_rola INT NOT NULL,
---	FOREIGN KEY (id_rola)
---		REFERENCES rola(id),
---	PRIMARY KEY(id)
---)ENGINE=INNODB;
 
 CREATE TABLE odprasovanie(
 	id INT NOT NULL AUTO_INCREMENT,
@@ -147,45 +134,5 @@ CREATE TABLE odprasovanie(
 	PRIMARY KEY(id)
 )ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_slovak_ci ;
 
---CREATE TABLE kontrola_1zmena (
---	id INT NOT NULL AUTO_INCREMENT,
---	poistny_ventil_kontrola INT,
---	poistny_ventil_zavada INT,
---	tlakomer_kontrola INT,
---	tlakomer_zavada INT,
---	PRIMARY KEY (id)
---)ENGINE=INNODB;
---
---CREATE TABLE pracovna_snimka_1zmena(
---	id INT NOT NULL AUTO_INCREMENT,
---	id_maerz INT NOT NULL,
---	FOREIGN KEY (id_maerz)
---		REFERENCES maerz(id),
---	tlak_nadoba_62384 INT,
---	FOREIGN KEY (tlak_nadoba_62384)
---		REFERENCES kontrola_1zmena(id),
---	tlak_nadoba_62400 INT,
---	FOREIGN KEY (tlak_nadoba_62400)
---		REFERENCES kontrola_1zmena(id),
---	tlak_nadoba_susica INT,
---	FOREIGN KEY (tlak_nadoba_susica)
---		REFERENCES kontrola_1zmena(id),
---	tlak_nadoba_vs_776 INT,
---	FOREIGN KEY (tlak_nadoba_vs_776)
---		REFERENCES kontrola_1zmena(id),
---	tlak_nadoba_vzduch_delo_5269 INT,
---	FOREIGN KEY (tlak_nadoba_vzduch_delo_5269)
---		REFERENCES kontrola_1zmena(id),
---	tlak_nadoba_vzduch_delo_5270 INT,
---	FOREIGN KEY (tlak_nadoba_vzduch_delo_5270)
---		REFERENCES kontrola_1zmena(id),
---	tlak_nadoba_vzduch_delo_5271 INT,
---	FOREIGN KEY (tlak_nadoba_vzduch_delo_5271)
---		REFERENCES kontrola_1zmena(id),
---	tlak_nadoba_vzduch_delo_5272 INT,
---	FOREIGN KEY (tlak_nadoba_vzduch_delo_5272)
---		REFERENCES kontrola_1zmena(id),
---	PRIMARY KEY(id)
---)ENGINE=INNODB;
 
 

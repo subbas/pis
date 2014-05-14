@@ -54,8 +54,7 @@ public class ZamestnanecDao implements Dao<Zamestnanec> {
 
 	@Override
 	public int getLastId() {
-		// TODO Auto-generated method stub
-		return 0;
+		return (Integer)getCurrentSession().createQuery("select max(id) from Zamestnanec").uniqueResult();
 	}
 
 	@Override
@@ -96,9 +95,9 @@ public class ZamestnanecDao implements Dao<Zamestnanec> {
 	
 	@Override
 	public Zamestnanec getEntity(String meno) {
-		String _meno;
+		/*String _meno;
 		String _priezvisko;
-		getCurrentSession().createQuery("from Zamestnanec");
+		getCurrentSession().createQuery("from Zamestnanec");*/
 		return null;
 	}
 

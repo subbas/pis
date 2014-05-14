@@ -9,7 +9,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/style.css" />" />
+<script src="<c:url value="/resources/js/script.js" />"></script>
 <title>PIS Maerz</title>
 <style>
 body {
@@ -29,14 +30,6 @@ body {
 }
 
 </style>
-<script type="text/javascript">
-	window.history.forward();
-	var id=0;
-	function noBack() {
-		id=1;
-		window.history.forward();
-	}
-</script>
 </head>
 <body id="trends-page" onload="noBack();" onunload="">
 	<div id="hlavna-cast">

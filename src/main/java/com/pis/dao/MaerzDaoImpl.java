@@ -176,4 +176,34 @@ public class MaerzDaoImpl implements Dao<Maerz>, MaerzDao {
 		return (Double)d;
 	}
 
+	@Override
+	public double getG24(int mesiac) {
+		Object d = getCurrentSession().createSQLQuery("select sum(m.vyroba_vapno_17_skut) from Zam_Maerz z inner join Maerz m on z.id_maerz=m.id where MONTH(z.datum) = '"+mesiac+"'").uniqueResult();
+		if (d == null) return 0;
+		return (Double)d;
+	}
+
+	@Override
+	public double getG25(int mesiac) {
+		Object d = getCurrentSession().createSQLQuery("select sum(m.vyroba_vapno_35_skut) from Zam_Maerz z inner join Maerz m on z.id_maerz=m.id where MONTH(z.datum) = '"+mesiac+"'").uniqueResult();
+		if (d == null) return 0;
+		return (Double)d;
+	}
+
+	@Override
+	public double getF36(int mesiac) {
+		Double d_kon_stav = (Double)getCurrentSession().createSQLQuery("select sum(m.briketizacka_kon_stav) from Zam_Maerz z inner join Maerz m on z.id_maerz=m.id where MONTH(z.datum) = '"+mesiac+"'").uniqueResult();
+		Double d_zac_stav = (Double)getCurrentSession().createSQLQuery("select sum(m.briketizacka_poc_stav) from Zam_Maerz z inner join Maerz m on z.id_maerz=m.id where MONTH(z.datum) = '"+mesiac+"'").uniqueResult();
+		if (d_kon_stav == null || d_zac_stav == null) return 0;
+		return d_kon_stav - d_zac_stav;
+	}
+
+	@Override
+	public double getG36(int mesiac) {
+		Double d_kon_stav = (Double)getCurrentSession().createSQLQuery("select sum(m.filter_M20_kon_stav) from Zam_Maerz z inner join Maerz m on z.id_maerz=m.id where MONTH(z.datum) = '"+mesiac+"'").uniqueResult();
+		Double d_zac_stav = (Double)getCurrentSession().createSQLQuery("select sum(m.filter_M20_poc_stav) from Zam_Maerz z inner join Maerz m on z.id_maerz=m.id where MONTH(z.datum) = '"+mesiac+"'").uniqueResult();
+		if (d_kon_stav == null || d_zac_stav == null) return 0;
+		return d_kon_stav - d_zac_stav;
+	}
+
 }
