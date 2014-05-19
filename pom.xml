@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.mvchib</groupId>
+	<groupId>com.pis</groupId>
 	<artifactId>pis1.0</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
@@ -9,7 +9,7 @@
 
 	<properties>
 		<hibernate.version>4.2.0.Final</hibernate.version>
-		<mysql.connector.version>5.1.21</mysql.connector.version>
+		<mysql.connector.version>5.1.28</mysql.connector.version>
 		<spring.version>3.2.8.RELEASE</spring.version>
 		<spring.security.version>3.2.3.RELEASE</spring.security.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -157,12 +157,7 @@
 			<version>1.0.0.M2</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- pdf -->
-		<dependency>
-			<groupId>com.lowagie</groupId>
-			<artifactId>itext</artifactId>
-			<version>2.1.7</version>
-		</dependency>
+	
 		<!-- css -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pis.model.Maerz;
-import com.pis.model.Zamestnanec;
 
 @Repository
 public class MaerzDaoImpl implements Dao<Maerz>, MaerzDao {
@@ -142,31 +141,6 @@ public class MaerzDaoImpl implements Dao<Maerz>, MaerzDao {
 		maerzToUpdate.setVyrobaVapno6Plan(maerz.getVyrobaVapno6Plan());
 		getCurrentSession().update(maerzToUpdate);
 		
-	}
-
-	@Override
-	public List<Zamestnanec> getAllStrojnik() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Zamestnanec> getAllVelinar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Zamestnanec> getAllMajster() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public Maerz getEntity(String meno) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

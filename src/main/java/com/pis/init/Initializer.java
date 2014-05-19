@@ -12,19 +12,16 @@ import org.springframework.web.servlet.DispatcherServlet;
 public class Initializer implements WebApplicationInitializer {
 
 	public void onStartup(ServletContext servletContext) throws ServletException {
+		//vytvorenie kontextu aplikacie
 		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
 		ctx.register(WebAppConfig.class);
+		//spravovanie kontextu
 		servletContext.addListener(new ContextLoaderListener(ctx));
-
+		//vytvorenie dispatcher servlet kontextu
 		ctx.setServletContext(servletContext);
-
+		//namapovenie na dispatcher servlet
 		Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
 		servlet.addMapping("/");
 		servlet.setLoadOnStartup(1);
-		
-		//new ClassPathXmlApplicationContext("/WEB-INF/classes/spring-timer.xml");
-
 	}
-
-	
 }

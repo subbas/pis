@@ -35,23 +35,20 @@ import com.pis.model.ZamMaerz;
 import com.pis.model.Zamestnanec;
 import com.pis.service.EntityService;
 import com.pis.service.MaerzService;
+import com.pis.service.ZamestnanecService;
 
 @Controller
 @RequestMapping(value = "/")
 public class EntityController extends WebMvcConfigurerAdapter {
 
-	/*
-	 * @Autowired private EntityService<Rola> rolaService;
-	 */
 	@Autowired
 	private MaerzService maerzServiceImpl;
-	// private MaerzServiceImpl maerzServiceImpl;
 	@Autowired
-	private EntityService<ZamMaerz> zamMaerzService;
+	private EntityService<ZamMaerz> zamMaerzServiceImpl;
 	@Autowired
-	private EntityService<Zamestnanec> zamestnanecService;
+	private ZamestnanecService zamestnanecServiceImpl;
 	@Autowired
-	private EntityService<Odprasovanie> odprasovanieService;
+	private EntityService<Odprasovanie> odprasovanieServiceImpl;
 
 	// formular
 	private Formular formular;
@@ -78,7 +75,7 @@ public class EntityController extends WebMvcConfigurerAdapter {
 
 			@Override
 			public void setAsText(String text) {
-				Zamestnanec zam = zamestnanecService.getEntity(Integer.parseInt(text));
+				Zamestnanec zam = zamestnanecServiceImpl.getEntity(Integer.parseInt(text));
 				setValue(zam);
 			}
 		});
@@ -92,13 +89,13 @@ public class EntityController extends WebMvcConfigurerAdapter {
 
 	@RequestMapping(value = "/graf1.jpg", method = RequestMethod.GET)
 	public void renderChart1(String variation, OutputStream stream) throws Exception {
-		JFreeChart graf = TrendCharts.generatePlanChart(zamMaerzService);
+		JFreeChart graf = TrendCharts.generatePlanChart(zamMaerzServiceImpl);
 		ChartUtilities.writeChartAsPNG(stream, graf, 580, 300);
 	}
 
 	@RequestMapping(value = "/graf2.jpg", method = RequestMethod.GET)
 	public void renderChart2(String variation, OutputStream stream) throws Exception {
-		JFreeChart graf = TrendCharts.generateEffeciencyChart(zamMaerzService);
+		JFreeChart graf = TrendCharts.generateEffeciencyChart(zamMaerzServiceImpl);
 		ChartUtilities.writeChartAsPNG(stream, graf, 580, 300);
 	}
 
@@ -145,19 +142,19 @@ public class EntityController extends WebMvcConfigurerAdapter {
 				// vytvor = true;
 				formular = Formular.getInstance();
 				maerzLastId = maerzServiceImpl.getLastId() + 1;
-				zamMaerzLastId = zamMaerzService.getLastId() + 1;
-				odprasovanieLastId = odprasovanieService.getLastId() + 1;
+				zamMaerzLastId = zamMaerzServiceImpl.getLastId() + 1;
+				odprasovanieLastId = odprasovanieServiceImpl.getLastId() + 1;
 				formular.setMaerz(new Maerz());
 				formular.setZamMaerz(new ZamMaerz());
 				formular.setOdprasovanie(new Odprasovanie());
 			} else {
 				formular = Formular.getInstance();
 				maerzLastId = maerzServiceImpl.getLastId();
-				zamMaerzLastId = zamMaerzService.getLastId();
-				odprasovanieLastId = odprasovanieService.getLastId();
+				zamMaerzLastId = zamMaerzServiceImpl.getLastId();
+				odprasovanieLastId = odprasovanieServiceImpl.getLastId();
 				formular.setMaerz(maerzServiceImpl.getEntity(maerzLastId));
-				formular.setZamMaerz(zamMaerzService.getEntity(zamMaerzLastId));
-				formular.setOdprasovanie(odprasovanieService.getEntity(odprasovanieLastId));
+				formular.setZamMaerz(zamMaerzServiceImpl.getEntity(zamMaerzLastId));
+				formular.setOdprasovanie(odprasovanieServiceImpl.getEntity(odprasovanieLastId));
 			}
 			nastavDatumAZmena();
 			// MODEL AND VIEW
@@ -165,6 +162,7 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			modelAndView.addObject("formular", formular);
 			return modelAndView;
 		} catch (Exception e) {
+			e.printStackTrace();
 			ModelAndView modelAndView = new ModelAndView("error-page");
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
@@ -193,16 +191,16 @@ public class EntityController extends WebMvcConfigurerAdapter {
 				// MAERZ
 				maerzServiceImpl.add(form.getMaerz());
 				// ODPRASOVANIE
-				odprasovanieService.add(form.getOdprasovanie());
+				odprasovanieServiceImpl.add(form.getOdprasovanie());
 				vytvor = false;
 			} else {
 				// MAERZ
 				maerzServiceImpl.updateStrojnik(form.getMaerz());
 				// ODPRASOVANIE
-				odprasovanieService.update(form.getOdprasovanie());
+				odprasovanieServiceImpl.update(form.getOdprasovanie());
 			}
 			formular.setMaerz(maerzServiceImpl.getEntity(maerzLastId));
-			formular.setOdprasovanie(odprasovanieService.getEntity(odprasovanieLastId));
+			formular.setOdprasovanie(odprasovanieServiceImpl.getEntity(odprasovanieLastId));
 
 			// MODEL AND VIEW
 			modelAndView = setModelAndViewStrojnik(modelAndView);
@@ -210,6 +208,7 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			modelAndView.addObject("formular", formular);
 			return modelAndView;
 		} catch (Exception e) {
+			e.printStackTrace();
 			ModelAndView modelAndView = new ModelAndView("error-page");
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
@@ -227,45 +226,45 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			ModelAndView modelAndView = new ModelAndView("add-maerz-form-velinar");
 			// nastavZmenu();
 			majsterList = new ArrayList<Zamestnanec>();
-			majsterList = zamestnanecService.getAllMajster();
-			majsterList.add(zamestnanecService.getEntity(11));
+			majsterList = zamestnanecServiceImpl.getAllMajster();
+			majsterList.add(zamestnanecServiceImpl.getEntity(11));
 			velinarList = new ArrayList<Zamestnanec>();
-			velinarList = zamestnanecService.getAllVelinar();
-			velinarList.add(zamestnanecService.getEntity(11));
+			velinarList = zamestnanecServiceImpl.getAllVelinar();
+			velinarList.add(zamestnanecServiceImpl.getEntity(11));
 			strojnikList = new ArrayList<Zamestnanec>();
-			strojnikList = zamestnanecService.getAllStrojnik();
-			strojnikList.add(zamestnanecService.getEntity(11));
+			strojnikList = zamestnanecServiceImpl.getAllStrojnik();
+			strojnikList.add(zamestnanecServiceImpl.getEntity(11));
 			if (jeNovaZmena()) {
 				Formular.setInstance(null);
 				// vytvor = true;
 				formular = Formular.getInstance();
 				maerzLastId = maerzServiceImpl.getLastId() + 1;
-				zamMaerzLastId = zamMaerzService.getLastId() + 1;
-				odprasovanieLastId = odprasovanieService.getLastId() + 1;
+				zamMaerzLastId = zamMaerzServiceImpl.getLastId() + 1;
+				odprasovanieLastId = odprasovanieServiceImpl.getLastId() + 1;
 				formular.setMaerz(new Maerz());
 				formular.setZamMaerz(new ZamMaerz());
 				formular.setOdprasovanie(new Odprasovanie());
 			} else {
 				formular = Formular.getInstance();
 				maerzLastId = maerzServiceImpl.getLastId();
-				zamMaerzLastId = zamMaerzService.getLastId();
-				odprasovanieLastId = odprasovanieService.getLastId();
+				zamMaerzLastId = zamMaerzServiceImpl.getLastId();
+				odprasovanieLastId = odprasovanieServiceImpl.getLastId();
 				formular.setMaerz(maerzServiceImpl.getEntity(maerzLastId));
-				formular.setZamMaerz(zamMaerzService.getEntity(zamMaerzLastId));
-				formular.setOdprasovanie(odprasovanieService.getEntity(odprasovanieLastId));
+				formular.setZamMaerz(zamMaerzServiceImpl.getEntity(zamMaerzLastId));
+				formular.setOdprasovanie(odprasovanieServiceImpl.getEntity(odprasovanieLastId));
 
 				if (formular.getZamMaerz().getZamestnanec2() == null)
-					majsterList.add(0, zamestnanecService.getEntity(11));
+					majsterList.add(0, zamestnanecServiceImpl.getEntity(11));
 				else
 					majsterList.add(0, formular.getZamMaerz().getZamestnanec2());
 
 				if (formular.getZamMaerz().getZamestnanec1() == null)
-					velinarList.add(0, zamestnanecService.getEntity(11));
+					velinarList.add(0, zamestnanecServiceImpl.getEntity(11));
 				else
 					velinarList.add(0, formular.getZamMaerz().getZamestnanec1());
 
 				if (formular.getZamMaerz().getZamestnanec3() == null)
-					strojnikList.add(0, zamestnanecService.getEntity(11));
+					strojnikList.add(0, zamestnanecServiceImpl.getEntity(11));
 				else
 					strojnikList.add(0, formular.getZamMaerz().getZamestnanec3());
 			}
@@ -276,6 +275,7 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			modelAndView.addObject("formular", formular);
 			return modelAndView;
 		} catch (Exception e) {
+			e.printStackTrace();
 			ModelAndView modelAndView = new ModelAndView("error-page");
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
@@ -304,7 +304,7 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			zamMaerz.setMaerz(form.getMaerz());
 			if (form.getZamMaerz().getZamestnanec1().getMeno().equals("nikto")) {
 				zamMaerz.setZamestnanec1(null);
-				velinarList.add(0, zamestnanecService.getEntity(11));
+				velinarList.add(0, zamestnanecServiceImpl.getEntity(11));
 			} else {
 				zamMaerz.setZamestnanec1(form.getZamMaerz().getZamestnanec1());
 				velinarList.remove(0);
@@ -313,7 +313,7 @@ public class EntityController extends WebMvcConfigurerAdapter {
 
 			if (form.getZamMaerz().getZamestnanec2().getMeno().equals("nikto")) {
 				zamMaerz.setZamestnanec2(null);
-				majsterList.add(0, zamestnanecService.getEntity(11));
+				majsterList.add(0, zamestnanecServiceImpl.getEntity(11));
 			} else {
 				zamMaerz.setZamestnanec2(form.getZamMaerz().getZamestnanec2());
 				majsterList.remove(0);
@@ -321,7 +321,7 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			}
 			if (form.getZamMaerz().getZamestnanec3().getMeno().equals("nikto")) {
 				zamMaerz.setZamestnanec3(null);
-				strojnikList.add(0, zamestnanecService.getEntity(11));
+				strojnikList.add(0, zamestnanecServiceImpl.getEntity(11));
 			} else {
 				zamMaerz.setZamestnanec3(form.getZamMaerz().getZamestnanec3());
 				strojnikList.remove(0);
@@ -333,13 +333,13 @@ public class EntityController extends WebMvcConfigurerAdapter {
 				// MAERZ
 				maerzServiceImpl.add(form.getMaerz());
 				// ZAM_MAERZ
-				zamMaerzService.add(zamMaerz);
+				zamMaerzServiceImpl.add(zamMaerz);
 				vytvor = false;
 			} else {
 				// MAERZ
 				maerzServiceImpl.updateVelinar(form.getMaerz());
 				// ZAM_MAERZ
-				zamMaerzService.update(zamMaerz);
+				zamMaerzServiceImpl.update(zamMaerz);
 			}
 			formular.setMaerz(maerzServiceImpl.getEntity(maerzLastId));
 			formular.setZamMaerz(form.getZamMaerz());
@@ -350,6 +350,7 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			modelAndView = setModelAndViewVelinar(modelAndView);
 			return modelAndView;
 		} catch (Exception e) {
+			e.printStackTrace();
 			ModelAndView modelAndView = new ModelAndView("error-page");
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
@@ -376,11 +377,11 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			} else {
 				formular = Formular.getInstance();
 				maerzLastId = maerzServiceImpl.getLastId();
-				zamMaerzLastId = zamMaerzService.getLastId();
-				odprasovanieLastId = odprasovanieService.getLastId();
+				zamMaerzLastId = zamMaerzServiceImpl.getLastId();
+				odprasovanieLastId = odprasovanieServiceImpl.getLastId();
 				formular.setMaerz(maerzServiceImpl.getEntity(maerzLastId));
-				formular.setZamMaerz(zamMaerzService.getEntity(zamMaerzLastId));
-				formular.setOdprasovanie(odprasovanieService.getEntity(odprasovanieLastId));
+				formular.setZamMaerz(zamMaerzServiceImpl.getEntity(zamMaerzLastId));
+				formular.setOdprasovanie(odprasovanieServiceImpl.getEntity(odprasovanieLastId));
 				formularVeduci.setVyrobaVapno6Plan(formular.getMaerz().getVyrobaVapno6Plan());
 				formularVeduci.setVyrobaVapno17Plan(formular.getMaerz().getVyrobaVapno17Plan());
 				formularVeduci.setVyrobaVapno35Plan(formular.getMaerz().getVyrobaVapno35Plan());
@@ -392,6 +393,7 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			modelAndView.addObject("formularVeduci", formularVeduci);
 			return modelAndView;
 		} catch (Exception e) {
+			e.printStackTrace();
 			ModelAndView modelAndView = new ModelAndView("error-page");
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
@@ -428,6 +430,7 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			modelAndView.addObject("message", "maerz uspesne pridany");
 			return modelAndView;
 		} catch (Exception e) {
+			e.printStackTrace();
 			ModelAndView modelAndView = new ModelAndView("error-page");
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
@@ -448,19 +451,19 @@ public class EntityController extends WebMvcConfigurerAdapter {
 				// vytvor = true;
 				formular = Formular.getInstance();
 				maerzLastId = maerzServiceImpl.getLastId() + 1;
-				zamMaerzLastId = zamMaerzService.getLastId() + 1;
-				odprasovanieLastId = odprasovanieService.getLastId() + 1;
+				zamMaerzLastId = zamMaerzServiceImpl.getLastId() + 1;
+				odprasovanieLastId = odprasovanieServiceImpl.getLastId() + 1;
 				formular.setMaerz(new Maerz());
 				formular.setZamMaerz(new ZamMaerz());
 				formular.setOdprasovanie(new Odprasovanie());
 			} else {
 				formular = Formular.getInstance();
 				maerzLastId = maerzServiceImpl.getLastId();
-				zamMaerzLastId = zamMaerzService.getLastId();
-				odprasovanieLastId = odprasovanieService.getLastId();
+				zamMaerzLastId = zamMaerzServiceImpl.getLastId();
+				odprasovanieLastId = odprasovanieServiceImpl.getLastId();
 				formular.setMaerz(maerzServiceImpl.getEntity(maerzLastId));
-				formular.setZamMaerz(zamMaerzService.getEntity(zamMaerzLastId));
-				formular.setOdprasovanie(odprasovanieService.getEntity(odprasovanieLastId));
+				formular.setZamMaerz(zamMaerzServiceImpl.getEntity(zamMaerzLastId));
+				formular.setOdprasovanie(odprasovanieServiceImpl.getEntity(odprasovanieLastId));
 			}
 			nastavDatumAZmena();
 			// MODEL AND VIEW
@@ -468,6 +471,7 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			modelAndView.addObject("formular", formular);
 			return modelAndView;
 		} catch (Exception e) {
+			e.printStackTrace();
 			ModelAndView modelAndView = new ModelAndView("error-page");
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;

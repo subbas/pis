@@ -8,10 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pis.model.ZamMaerz;
-import com.pis.model.Zamestnanec;
 
 @Repository
-public class ZamMaerzDao implements Dao<ZamMaerz> {
+public class ZamMaerzDaoImpl implements Dao<ZamMaerz> {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -56,47 +55,6 @@ public class ZamMaerzDao implements Dao<ZamMaerz> {
 	@Override
 	public int getLastId() {
 		return (Integer)getCurrentSession().createQuery("select max(id) from ZamMaerz").uniqueResult();
-	}
-
-	@Override
-	public void updateVelinar(ZamMaerz entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateStrojnik(ZamMaerz entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateVeduci(ZamMaerz entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<Zamestnanec> getAllStrojnik() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Zamestnanec> getAllVelinar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Zamestnanec> getAllMajster() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public ZamMaerz getEntity(String meno) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

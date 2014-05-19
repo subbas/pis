@@ -55,20 +55,4 @@ public class LinkController {
  		return "login";
  	}
 
-	
-	/*
-	 * @RequestMapping(value="/add-maerz-form", method = RequestMethod.GET)
-	 * public ModelAndView printAddMaerzForm(ModelMap model) {
-	 * 
-	 * User user =
-	 * (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal
-	 * (); String name = user.getUsername();
-	 * 
-	 * model.addAttribute("username", name); model.addAttribute("message",
-	 * "Spring Security login + database example"); return new
-	 * ModelAndView("add-maerz-form");
-	 * 
-	 * }
-	 */
-
 }

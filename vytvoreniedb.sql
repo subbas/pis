@@ -9,7 +9,7 @@ CREATE TABLE rola(
 CREATE TABLE zamestnanec(
 	id INT NOT NULL AUTO_INCREMENT,
 	meno VARCHAR(20),
-	priezvisko VARCHAR(50) COLLATE utf8_slovak_ci,
+	priezvisko VARCHAR(50),
 	rola INT,
 	aktivny INT,
 	login VARCHAR(100),
