@@ -34,8 +34,8 @@ body {
 <body id="trends-page" onload="noBack();" onunload="">
 	<div id="hlavna-cast">
 		<div id="header">
-			<a href="${pageContext.request.contextPath}/add-maerz-form-veduci.html">Späť</a>
-			<a href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a>
+			<a href="${pageContext.request.contextPath}/add-maerz-form-veduci.html" style="font-size: 19px; text-decoration: none; color: black; margin: 10px;">Späť</a>
+			<a href="<c:url value="/j_spring_security_logout" />"><img src="<c:url value="/resources/images/odhlas_veduci.png"/>" class="odhlas-obrazok"/></a>
 		</div>
 		<div class="ciara"></div>
 		<h3>Štatistiky výroby:</h3>

@@ -16,16 +16,6 @@ public class LinkController {
 		return new ModelAndView("login");
 	}
 	
-	/*@RequestMapping(value = "/**")
-	public ModelAndView url() {
-		return new ModelAndView("login");
-	}*/
-	
-	/*@RequestMapping(value = "/*")
-	public ModelAndView url1() {
-		return new ModelAndView("login");
-	}*/
-	
 	@RequestMapping(value = "/login")
 	public ModelAndView loginPage() {
 		return new ModelAndView("login");

@@ -4,18 +4,17 @@ INSERT INTO rola VALUES(3,'ROLE_VEDUCIVAPENKY');
 INSERT INTO rola VALUES(4,'ROLE_MAJSTER');
 INSERT INTO rola VALUES(5,'ROLE_ADMIN');
 
-INSERT INTO zamestnanec VALUES(1,'Ján','Majster',4,1,'majster1','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',1);
-INSERT INTO zamestnanec VALUES(2,'Miroslav','Velinár',1,1,'velinar1','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',2);
-INSERT INTO zamestnanec VALUES(3,'Ján','Strojník',2,1,'strojnik1','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',3);
-INSERT INTO zamestnanec VALUES(4,'Rudolf','Majstrík',4,1,'majster2','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',4);
-INSERT INTO zamestnanec VALUES(5,'Pavol','Velinárik',1,1,'velinar2','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',5);
-INSERT INTO zamestnanec VALUES(6,'Ján','Tero',4,1,'majster3','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',6);
+INSERT INTO zamestnanec VALUES(1,'Jan','Majster',4,1,'majster1','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',1);
+INSERT INTO zamestnanec VALUES(2,'Miroslav','Velinar',1,1,'velinar1','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',2);
+INSERT INTO zamestnanec VALUES(3,'Jan','Strojnik',2,1,'strojnik1','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',3);
+INSERT INTO zamestnanec VALUES(4,'Rudolf','Majstrik',4,1,'majster2','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',4);
+INSERT INTO zamestnanec VALUES(5,'Pavol','Velinarik',1,1,'velinar2','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',5);
+INSERT INTO zamestnanec VALUES(6,'Jan','Tero',4,1,'majster3','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',6);
 INSERT INTO zamestnanec VALUES(7,'Martin','Velo',1,1,'velinar3','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',7);
 INSERT INTO zamestnanec VALUES(8,'Rudolf','Strojo',2,1,'strojnik2','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',8);
 INSERT INTO zamestnanec VALUES(9,'Rudolf','Veduci',3,1,'veduci','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',9);
-INSERT INTO zamestnanec VALUES(10,'Alzbeta','Bučkuliakova',5,1,'admin','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',10);
+INSERT INTO zamestnanec VALUES(10,'Alzbeta','Adminova',5,1,'admin','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',10);
 INSERT INTO zamestnanec VALUES(11,'nikto','nikto',3,0,'nikto','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',11);
-INSERT INTO zamestnanec VALUES(12,'Alžbeta','Bučkuliaková',5,1,'admin','6e017b5464f820a6c1bb5e9f6d711a667a80d8ea',12);
 
 INSERT INTO maerz VALUES(1,'nic',35,70,17,0,6,55,5,100,100,0,100,0,100,22.1,38.1,'40-80',0,null,0,null,1.7,20311.1,20312.7,20311.1,20312.7,'bez zavad','bez zavad','bez zavad','bez zavad','zariadenie schopne prevadzky','750','986','6:00 - 18: 00 vsetko v poriadku','6:00 - 18: 00 vsetko v poriadku','bez zavad');
 INSERT INTO maerz VALUES(2,'nic',35,68,17,10,6,74,5,100,100,0,100,17.8,100,15.6,57.6,'40-80',0,null,0,null,2.7,20312.7,20316.3,20312.7,20316.3,'bez zavad','bez zavad','bez zavad','bez zavad','zariadenie schopne prevadzky','750','986','6:00 - 18: 00 vsetko v poriadku','6:00 - 18: 00 vsetko v poriadku','bez zavad');

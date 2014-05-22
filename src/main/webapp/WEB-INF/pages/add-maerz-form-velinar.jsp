@@ -14,19 +14,19 @@
 <title>PIS Maerz</title>
 <style>
 body {
-	background-color: rgb(255, 255, 153);
+	background-color: rgb(255, 255, 176);
 }
 
 #hlavna-cast {
-	background-color: white; border: 2px solid rgb(253, 233, 35); width: 1223px; margin-left: auto; margin-right: auto; font-family: Arial, Verdana; font-size: 14px;
+	background-color: white; border: 2px solid rgb(245,225,34); width: 1223px; margin-left: auto; margin-right: auto; font-family: Arial, Verdana; font-size: 14px;
 }
 
 #header {
-	height: 50px; background-color: rgb(255, 255, 153);
+	height: 50px; background-color: rgb(255, 255, 176);
 }
 
 .ciara {
-	border: 1px solid rgb(253, 233, 35);
+	border: 1px solid rgb(245,225,34);
 }
 </style>
 
@@ -36,9 +36,13 @@ body {
 
 		<form:form  method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-velinar.html">
 			<div id="header">
-				<input type="submit" value="Uložiť"/>
-				<a href="${pageContext.request.contextPath}/synchVelinar.html">Synchronizovat</a> 
-				<a	href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a> ${message}
+				<button type="submit" class="uloz-button">
+					<img src="<c:url value="/resources/images/uloz_velinar.png"/>" class="uloz-obrazok"/>
+				</button>
+				<a href="${pageContext.request.contextPath}/synchVelinar.html">
+					<img src="<c:url value="/resources/images/synch_velinar.png"/>" class="synch-obrazok"/>
+				</a> 
+				<a href="<c:url value="/j_spring_security_logout" />"><img src="<c:url value="/resources/images/odhlas_velinar.png"/>" class="odhlas-obrazok"/></a>
 			</div>
 			<div class="ciara"></div>
 			<div id="obsah">

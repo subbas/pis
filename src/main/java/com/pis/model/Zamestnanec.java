@@ -54,7 +54,9 @@ public class Zamestnanec implements Serializable {
 
 	@Override
 	public String toString() {
-		return  meno +  priezvisko;
+		if (id == 11)
+			return "-";
+		return  meno + " " +priezvisko;
 	}
 
 

@@ -26,11 +26,11 @@
 				<table>
 					<tr>
 						<td>Prihlasovacie meno:</td>
-						<td><input type='text' name='j_username'/></td>
+						<td><input type='text' name='j_username' title="napr. velinar1, majster1, strojnik1, veduci, admin"/></td>
 					</tr>
 					<tr>
 						<td>Heslo:</td>
-						<td><input type='password' name='j_password' value='heslo' /></td>
+						<td><input type='password' name='j_password' title="napr. heslo"/></td>
 					</tr>
 					<tr>
 						<td colspan='2'><input name="submit" type="submit" value="Prihlásiť" /></td>

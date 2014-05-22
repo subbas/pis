@@ -22,7 +22,12 @@
 	<!-- Cron Trigger, run every 5 seconds -->
 	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<property name="jobDetail" ref="runMyJobBean" />
-		<property name="cronExpression" value="0 0 0/1 * * ?" />
+		<!-- kazdu hodinu -->
+		<!-- <property name="cronExpression" value="0 0 0/1 * * ?" /> -->
+	<!-- 	kazdu minutu -->
+	<!-- 	<property name="cronExpression" value="0 0/1 * * * ?" /> -->
+		<!-- kazdy pondelok -->
+		<property name="cronExpression" value="0 0 0 ? * MON" />
 	</bean>
  
 	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">

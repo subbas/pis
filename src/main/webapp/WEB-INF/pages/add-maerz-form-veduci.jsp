@@ -3,7 +3,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,17 +18,16 @@ body {
 }
 
 #hlavna-cast {
-	background-color: white; border: 2px solid rgb(0,217,217); width: 1223px; margin-left: auto; margin-right: auto; font-family: Arial, Verdana; font-size: 14px;
+	background-color: white; border: 2px solid rgb(0, 217, 217); width: 1223px; margin-left: auto; margin-right: auto; font-family: Arial, Verdana; font-size: 14px;
 }
 
 #header {
-	height: 50px;background-color: rgb(200, 255, 255);
+	height: 50px; background-color: rgb(200, 255, 255);
 }
 
 .ciara {
-	border: 1px solid rgb(0,217,217);
+	border: 1px solid rgb(0, 217, 217);
 }
-
 </style>
 </head>
 <body onload="noBack();" onunload="">
@@ -36,11 +35,14 @@ body {
 
 		<form:form id="formular" method="POST" commandName="formularVeduci" action="${pageContext.request.contextPath}/add-maerz-form-veduci.html">
 			<div id="header">
-			<input type="submit" value="Uložiť" />
-			<a href="${pageContext.request.contextPath}/synchVeduci.html">Synchronizovat</a>
-			<a href="${pageContext.request.contextPath}/trends.html">Štatistiky</a>
-			<a href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a>
-			${message}
+				<button type="submit" class="uloz-button">
+					<img src="<c:url value="/resources/images/uloz_veduci.png"/>" class="uloz-obrazok" />
+				</button>
+				<a href="${pageContext.request.contextPath}/synchVeduci.html"><img src="<c:url value="/resources/images/synch_veduci.png"/>"
+					class="synch-obrazok" /></a> 
+				<a href="${pageContext.request.contextPath}/trends.html"><img src="<c:url value="/resources/images/statistiky.png"/>" style="width: 45px; margin-left: 18px;"/></a> 
+				<a href="<c:url value="/j_spring_security_logout"/>"><img src="<c:url value="/resources/images/odhlas_veduci.png"/>" class="odhlas-obrazok"/></a>
+			
 			</div>
 			<div class="ciara"></div>
 			<div id="obsah">
@@ -81,10 +83,10 @@ body {
 							<td class="oramovanie-right">Zmena:</td>
 							<td class="velinar oramovanie1">${formular.zmena}</td>
 							<td></td>
-							<td class="veduci" style="text-align:left;">Vypĺňa vedúci vápenky</td>
+							<td class="veduci" style="text-align: left;">Vypĺňa vedúci vápenky</td>
 							<td></td>
 						</tr>
-						 
+
 						<tr>
 							<td></td>
 							<td></td>
@@ -164,7 +166,7 @@ body {
 							<td class="vzorec oramovanie1">${D16}</td>
 							<td></td>
 						</tr>
-						
+
 						<tr>
 							<td class="oramovanie1">Zásobník č.2</td>
 							<td class="velinar oramovanie1">${formular.maerz.zasobnik2Druh}</td>
@@ -225,17 +227,14 @@ body {
 							<td></td>
 
 						</tr>
-						
+
 						<tr>
 							<td class="oramovanie1">Vápna 6% v to</td>
-							<td class="veduci oramovanie1">
-								<form:input class="veduci veduci-input" path="vyrobaVapno6Plan" />
-								<spring:bind path="vyrobaVapno6Plan">
+							<td class="veduci oramovanie1"><form:input class="veduci veduci-input" path="vyrobaVapno6Plan" /> <spring:bind path="vyrobaVapno6Plan">
 									<c:if test="${status.error}">
-										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										<img src="<c:url value="/resources/images/warning1.png"/>" class="trojuholnik" title="Musí byť zadané číslo!" />
 									</c:if>
-								</spring:bind>
-							</td>
+								</spring:bind></td>
 							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno6Skut}</td>
 							<td class="oramovanie1"></td>
 							<td class="vzorec oramovanie1">${E23 }</td>
@@ -247,14 +246,11 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie1">Vápna 17% v to</td>
-							<td class="veduci oramovanie1">
-								<form:input class="veduci veduci-input" path="vyrobaVapno17Plan" />
-								<spring:bind path="vyrobaVapno17Plan">
+							<td class="veduci oramovanie1"><form:input class="veduci veduci-input" path="vyrobaVapno17Plan" /> <spring:bind path="vyrobaVapno17Plan">
 									<c:if test="${status.error}">
-										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										<img src="<c:url value="/resources/images/warning1.png"/>" class="trojuholnik" title="Musí byť zadané číslo!" />
 									</c:if>
-								</spring:bind>
-							</td>
+								</spring:bind></td>
 							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno17Skut}</td>
 							<td class="oramovanie1"></td>
 							<td class="vzorec oramovanie1">${E24 }</td>
@@ -266,14 +262,11 @@ body {
 						</tr>
 						<tr>
 							<td class="oramovanie1">Vápna 35% v to</td>
-							<td class="veduci oramovanie1">
-								<form:input class="veduci veduci-input" path="vyrobaVapno35Plan" />
-								<spring:bind path="vyrobaVapno35Plan">
+							<td class="veduci oramovanie1"><form:input class="veduci veduci-input" path="vyrobaVapno35Plan" /> <spring:bind path="vyrobaVapno35Plan">
 									<c:if test="${status.error}">
-										<img src="<c:url value="/resources/images/warning1.png"/>"  class="trojuholnik"  title="Musí byť zadané číslo!" />
+										<img src="<c:url value="/resources/images/warning1.png"/>" class="trojuholnik" title="Musí byť zadané číslo!" />
 									</c:if>
-								</spring:bind>
-							</td>
+								</spring:bind></td>
 							<td class="velinar oramovanie1">${formular.maerz.vyrobaVapno35Skut}</td>
 							<td class="oramovanie1"></td>
 							<td class="vzorec oramovanie1">${E25 }</td>
@@ -319,7 +312,7 @@ body {
 							<td></td>
 							<td></td>
 						</tr>
-						
+
 						<tr>
 							<td class="oramovanie1">Vápenec vsádzka 6% v to</td>
 							<td class="vzorec oramovanie1">${B29 }</td>
@@ -401,7 +394,7 @@ body {
 							<td></td>
 							<td></td>
 						</tr>
-						
+
 						<tr>
 							<td class="oramovanie1">Prestoje spolu v hod</td>
 							<td class="vzorec oramovanie1">${B36 }</td>
@@ -487,7 +480,7 @@ body {
 							<td colspan=4>druh činnosti</td>
 						</tr>
 						<tr>
-							<td class="velinar" colspan=4 rowspan=26 style="text-align:left;">${formular.maerz.pracovnaSnimkaVelinar}</td>
+							<td class="velinar" colspan=4 rowspan=26 style="text-align: left;">${formular.maerz.pracovnaSnimkaVelinar}</td>
 							<td class="strojnik label" colspan=2>Kontrola ochranných krytov:</td>
 							<td class="strojnik" colspan=4>${formular.maerz.kontrolaOchrannychKrytov}</td>
 						</tr>
@@ -568,7 +561,7 @@ body {
 							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_podtlak}</td>
 						</tr>
 						<tr>
-					<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
+							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
 							<td class="strojnik" colspan=2>${formular.odprasovanie.m117_datum_zmeny_hadic}</td>
 							<td class="strojnik odprasovanie-label">Dátum zmeny hadíc filtra</td>
 							<td class="strojnik" colspan=3>${formular.odprasovanie.m116_datum_zmeny_hadic}</td>
@@ -611,17 +604,17 @@ body {
 							<td class="strojnik label" colspan=6>Filter Herding TLF D 1500, výduch V54</td>
 						</tr>
 						<tr>
-							<td class="velinar label vstupv">Vstup tepla: </td>
+							<td class="velinar label vstupv">Vstup tepla:</td>
 							<td class="velinar vstupv">${formular.maerz.vstupTepla}</td>
-							<td class="velinar vstupv" style="text-align:left;">kcal/kg</td>
+							<td class="velinar vstupv" style="text-align: left;">kcal/kg</td>
 							<td class="velinar vstupv"></td>
 							<td class="strojnik odprasovanie-label">Chod zariadenia</td>
 							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCas}</td>
 						</tr>
 						<tr>
-							<td class="velinar label vstupv">Teplota pyrometra: </td>
+							<td class="velinar label vstupv">Teplota pyrometra:</td>
 							<td class="velinar vstupv">${formular.maerz.teplotaPyrometra}</td>
-							<td class="velinar vstupv" style="text-align:left;">°C</td>
+							<td class="velinar vstupv" style="text-align: left;">°C</td>
 							<td class="velinar vstupv"></td>
 							<td class="strojnik odprasovanie-label">Počuť čistiace impulzy</td>
 							<td class="strojnik" colspan=5>${formular.odprasovanie.herdingCistiaceImpulzy}</td>
@@ -633,10 +626,10 @@ body {
 						</tr>
 
 					</tbody>
-				
+
 				</table>
 			</div>
-			
+
 		</form:form>
 
 	</div>

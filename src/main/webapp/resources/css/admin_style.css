@@ -1,0 +1,52 @@
+#edit-maerz-page .admin-wrapper {
+	background-color: white; border: 2px solid rgb(159,216,249); width: 1230px;margin-left: auto; margin-right: auto; font-family: Arial, Verdana; font-size: 14px;
+}
+.admin-wrapper {
+	background-color: white; border: 2px solid rgb(159,216,249); width: 750px;margin-left: auto; margin-right: auto; font-family: Arial, Verdana; font-size: 14px; min-height: 400px;
+}
+
+.ciara {
+	border: 2px solid rgb(159,216,249);
+}
+#admin-header {
+	font-size: 18px;
+}
+a {
+	text-decoration: none;
+	color: #800299;
+}
+nav li {
+	display:inline; border: 4px; margin: 5px;
+}
+
+#admin-body {
+	padding: 5px;
+}
+
+.admin-pages {
+	background-color: #c3edff;
+}
+
+.admin-pages table td{
+	padding: 5px;
+}
+
+.druhe-menu{
+	margin-left: 5px;
+	font-size: 16px;
+}
+h1 {
+	margin-left: 5px;
+}
+th {
+	padding: 2px;
+}
+#edit-button {
+	width: 50px;
+	height: 22px;
+	margin-bottom: 3px;
+	background: transparent;
+	border: 0;
+	font-size: 16px;
+	color: #800299;
+}

@@ -91,8 +91,6 @@ public class AdminController {
 			zamList = zamestnanecServiceImpl.getEntities();
 			aktList = new ArrayList<Zamestnanec>();
 			for (Zamestnanec z : zamList) {
-				// z.setAktivny(1);
-				// zamestnanecServiceImpl.update(z);
 				if (z.getAktivny() == 1) {
 					aktList.add(z);
 				}
@@ -106,7 +104,6 @@ public class AdminController {
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
 		}
-
 	}
 
 	@RequestMapping(value = "/list-of-maerz", method = RequestMethod.GET)
@@ -122,12 +119,14 @@ public class AdminController {
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
 		}
-
 	}
+	
+	private Integer idMaerz;
 
 	@RequestMapping(value = "/maerz/edit/{id}", method = RequestMethod.GET)
 	public ModelAndView editMaerzPage(@PathVariable Integer id) {
 		try {
+			idMaerz = id;
 			ModelAndView modelAndView = new ModelAndView("admin/edit-maerz-page");
 			Maerz maerz = maerzServiceImpl.getEntity(id);
 			List<Odprasovanie> odprasovanieList = odprasovanieServiceImpl.getEntities();
@@ -162,12 +161,10 @@ public class AdminController {
 				majsterList.add(0, zamestnanecServiceImpl.getEntity(11));
 			else
 				majsterList.add(0, formular.getZamMaerz().getZamestnanec2());
-
 			if (formular.getZamMaerz().getZamestnanec1() == null)
 				velinarList.add(0, zamestnanecServiceImpl.getEntity(11));
 			else
 				velinarList.add(0, formular.getZamMaerz().getZamestnanec1());
-
 			if (formular.getZamMaerz().getZamestnanec3() == null)
 				strojnikList.add(0, zamestnanecServiceImpl.getEntity(11));
 			else
@@ -177,7 +174,6 @@ public class AdminController {
 			modelAndView.addObject("majsterList", majsterList);
 			modelAndView.addObject("velinarList", velinarList);
 			modelAndView.addObject("strojnikList", strojnikList);
-
 			return modelAndView;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -185,20 +181,19 @@ public class AdminController {
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
 		}
-
 	}
 
 	@RequestMapping(value = "/maerz/edit/{id}", method = RequestMethod.POST)
-	public ModelAndView editingMaerz(@ModelAttribute @Valid Formular form, @PathVariable Integer id, BindingResult bindingResult) {
+	public ModelAndView editingMaerz(@ModelAttribute Formular form,@PathVariable Integer id) {
 		try {
-			if (bindingResult.hasErrors()) {
-				ModelAndView modelAndView = new ModelAndView("redirect:/maerz/edit/{" + id + "}");
+			/*if (bindingResult.hasErrors()) {
+				ModelAndView modelAndView = new ModelAndView("redirect:/maerz/edit/{" + idMaerz + "}");
 				return modelAndView;
-			}
+			}*/
 			ModelAndView modelAndView = new ModelAndView("redirect:/list-of-maerz");
 
-			System.out.println(id);
-			form.getMaerz().setId(id);
+			System.out.println(idMaerz);
+			form.getMaerz().setId(idMaerz);
 			form.getZamMaerz().setId(formular.getZamMaerz().getId());
 			form.getZamMaerz().setDatum(formular.getZamMaerz().getDatum());
 			form.getZamMaerz().setZmena(formular.getZamMaerz().getZmena());
@@ -241,8 +236,13 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/zam/edit/{id}", method = RequestMethod.POST)
-	public ModelAndView editingZam(@ModelAttribute @Valid Zamestnanec zam, @PathVariable Integer id) {
+	public ModelAndView editingZam(@ModelAttribute Zamestnanec zam, @PathVariable Integer id) {
 		try {
+			/*if (bindingResult.hasErrors()) {
+				//ModelAndView modelAndView = new ModelAndView("redirect:/zam/edit/{" + id + "}");
+				ModelAndView modelAndView = new ModelAndView("admin/edit-zam-page");
+				return modelAndView;
+			}*/
 			ModelAndView modelAndView = new ModelAndView("redirect:/list-of-zam");
 			zam.setAktivny(1);
 			zam.setHeslo(zamestnanecServiceImpl.getEntity(id).getHeslo());
@@ -275,8 +275,12 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public ModelAndView addingZam(@ModelAttribute @Valid Zamestnanec zam) {
+	public ModelAndView addingZam(@ModelAttribute @Valid Zamestnanec zam, BindingResult bindingResult) {
 		try {
+			if (bindingResult.hasErrors()) {
+				ModelAndView modelAndView = new ModelAndView("redirect:/add");
+				return modelAndView;
+			}
 			ModelAndView modelAndView = new ModelAndView("redirect:/list-of-zam");
 
 			String heslo = "heslo";
@@ -332,7 +336,6 @@ public class AdminController {
 	public ModelAndView vzorce(ModelAndView model) {
 		try {
 			DecimalFormat d = new DecimalFormat("#.##");
-			//int mesiac = Calendar.getInstance().get(Calendar.MONTH) + 1;
 			int mesiac = formular.getZamMaerz().getDatum().getMonth();
 			model.addObject("D16", Integer.toString(formular.getMaerz().getZasobnik1Plnenie() * 2));
 			model.addObject("D17", Integer.toString(formular.getMaerz().getZasobnik2Plnenie() * 2));
@@ -371,7 +374,5 @@ public class AdminController {
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
 		}
-
 	}
-
 }

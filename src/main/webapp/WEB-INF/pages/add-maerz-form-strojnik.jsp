@@ -36,10 +36,12 @@ body {
 
 		<form:form id="formular" method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-strojnik.html">
 			<div id="header">
-			<input type="submit" value="Uložiť" />
-			<a href="${pageContext.request.contextPath}/synchStrojnik.html">Synchronizovat</a>
-			<a href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a>
-			${message}
+			<button type="submit" class="uloz-button">
+				<img src="<c:url value="/resources/images/uloz_strojnik.png"/>" class="uloz-obrazok"/>
+			</button>
+			<a href="${pageContext.request.contextPath}/synchStrojnik.html"><img src="<c:url value="/resources/images/synch_strojnik.png"/>" class="synch-obrazok"/></a>
+			<a href="<c:url value="/j_spring_security_logout" />"><img src="<c:url value="/resources/images/odhlas_strojnik.png"/>" class="odhlas-obrazok"/></a>
+			
 			</div>
 			<div class="ciara"></div>
 			<div id="obsah">

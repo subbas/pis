@@ -36,8 +36,10 @@ body {
 
 		<form:form method="POST" commandName="formular" action="${pageContext.request.contextPath}/add-maerz-form-majster.html">
 			<div id="header">
-				<a href="${pageContext.request.contextPath}/synchMajster.html">Synchronizovat</a> <a href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a>
-				${message}
+				<a href="${pageContext.request.contextPath}/synchMajster.html">
+					<img src="<c:url value="/resources/images/synch_majster.png"/>"	class="synch-obrazok" />
+				</a> <a href="<c:url value="/j_spring_security_logout" />"><img src="<c:url value="/resources/images/odhlas_majster.png"/>" class="odhlas-obrazok"/></a>
+				
 			</div>
 			<div class="ciara"></div>
 			<div id="obsah">

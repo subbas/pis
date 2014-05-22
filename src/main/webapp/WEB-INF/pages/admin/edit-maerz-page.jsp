@@ -8,16 +8,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/admin_style.css" />" />
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/style.css" />" />
+<title>PIS Maerz</title>
 </head>
-<body>
-	<a href="${pageContext.request.contextPath}/admin-page.html">Späť na úvodnú stránku</a>
+<body id="edit-maerz-page" class="admin-pages">
+<div class="admin-wrapper">
+<div id="admin-header">
+		<h1>Edituj Maerz</h1>
+		<div class="ciara"></div>
+		<nav>
+		<li><a href="${pageContext.request.contextPath}/list-of-zam.html">Zobraz zamestnancov</a></li>
+		<li><a href="${pageContext.request.contextPath}/list-of-maerz.html">Zobraz maerz</a></li>
+		<li><a href="<c:url value="/j_spring_security_logout" />">Odhlásiť</a></li>
+		</nav>
+	</div>
+	<div class="ciara"></div>
+	<div id="admin-body">
 	<form:form method="POST" commandName="formular" action="${pageContext.request.contextPath}/maerz/edit/${formular.maerz.id}.html">
 		<div id="header">
-			<input type="submit" value="Uložiť" />
-
+			<button type="submit" id="edit-button">Uložiť</button>
 		</div>
-		<div class="ciara"></div>
+		<div class="ciara" style="margin-left: -5px;margin-right: -5px;"></div>
 		<div id="obsah">
 			<table id="tabulka">
 				<tbody id="teloTabulky">
@@ -571,7 +583,7 @@
 						<td colspan=4>druh činnosti</td>
 					</tr>
 					<tr>
-						<td class="velinar" colspan=4 rowspan=26><form:textarea class="velinar" path="maerz.pracovnaSnimkaVelinar"
+						<td class="velinar" colspan=4 rowspan=27><form:textarea class="velinar" path="maerz.pracovnaSnimkaVelinar"
 								cssStyle="border:2px solid rgb(253, 233,35);width:500px;height:100px;" /> <spring:bind path="maerz.pracovnaSnimkaVelinar">
 								<c:if test="${status.error}">
 									<img src="<c:url value="/resources/images/warning1.png"/>" class="trojuholnik" title="Prekročili ste maximálnu dĺžku!" />
@@ -906,6 +918,9 @@
 		</div>
 
 	</form:form>
+	</div>
+	</div>
+
 
 </body>
 </html>

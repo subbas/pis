@@ -16,21 +16,20 @@ public class RunMyJob {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy-H-m");
 		String datum = sdf.format(new Date());
-		String path = "C:\\pomoc\\mysqldump-"+datum+".sql";
+		String path = "mysqldump-"+datum+".sql";
 		
 		File file = new File(path);
 		try {
 			if (file.createNewFile()){
-			    System.out.println("Vytvoril sa subor pre zalohu!");
+			    System.out.println("Vytvoril sa subor pre zalohu! Najdete ho:" + file.getAbsolutePath());
 			    System.out.println("zalohujem..");
 				backupDB(dbName,dbUserName,dbPassword,path);
 			  }else{
 			    System.out.println("Vyskytli sa problemy pri vytvarani suboru pre zalohu!!! Zaloha sa vytvori do defaultneho suboru");
 			    System.out.println("zalohujem..");
-				backupDB(dbName,dbUserName,dbPassword,"C:\\pomoc\\mysqldump.sql");
+				backupDB(dbName,dbUserName,dbPassword,"mysqldump.sql");
 			  }
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

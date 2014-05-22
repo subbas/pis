@@ -136,10 +136,8 @@ public class EntityController extends WebMvcConfigurerAdapter {
 	public ModelAndView addMaerzPageStrojnik() {
 		try {
 			ModelAndView modelAndView = new ModelAndView("add-maerz-form-strojnik");
-			// nastavZmenu();
 			if (jeNovaZmena()) {
 				Formular.setInstance(null);
-				// vytvor = true;
 				formular = Formular.getInstance();
 				maerzLastId = maerzServiceImpl.getLastId() + 1;
 				zamMaerzLastId = zamMaerzServiceImpl.getLastId() + 1;
@@ -167,7 +165,6 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
 		}
-
 	}
 
 	@RequestMapping(value = "/add-maerz-form-strojnik", method = RequestMethod.POST)
@@ -213,18 +210,14 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
 		}
-
 	}
 
 	// ---------------------------------------------------------------- VELINAR
-	// -----------------------------
-	// ---------------------------------
 
 	@RequestMapping(value = "/add-maerz-form-velinar", method = RequestMethod.GET)
 	public ModelAndView addMaerzPageVelinar(@ModelAttribute Formular form) {
 		try {
 			ModelAndView modelAndView = new ModelAndView("add-maerz-form-velinar");
-			// nastavZmenu();
 			majsterList = new ArrayList<Zamestnanec>();
 			majsterList = zamestnanecServiceImpl.getAllMajster();
 			majsterList.add(zamestnanecServiceImpl.getEntity(11));
@@ -236,7 +229,6 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			strojnikList.add(zamestnanecServiceImpl.getEntity(11));
 			if (jeNovaZmena()) {
 				Formular.setInstance(null);
-				// vytvor = true;
 				formular = Formular.getInstance();
 				maerzLastId = maerzServiceImpl.getLastId() + 1;
 				zamMaerzLastId = zamMaerzServiceImpl.getLastId() + 1;
@@ -280,7 +272,6 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
 		}
-
 	}
 
 	@RequestMapping(value = "/add-maerz-form-velinar", method = RequestMethod.POST)
@@ -355,20 +346,16 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
 		}
-
 	}
 
 	// --------------------------------------------------------------- VEDUCI
-	// --------------------------------------------------
 	@RequestMapping(value = "/add-maerz-form-veduci", method = RequestMethod.GET)
 	public ModelAndView addingMaerzPageVeduci(@ModelAttribute FormularVeduci formVeduci) {
 		try {
 			ModelAndView modelAndView = new ModelAndView("add-maerz-form-veduci");
-			// nastavZmenu();
 			formularVeduci = new FormularVeduci();
 			if (jeNovaZmena()) {
 				Formular.setInstance(null);
-				// vytvor = true;
 				formular = Formular.getInstance();
 				maerzLastId = maerzServiceImpl.getLastId() + 1;
 				formular.setMaerz(new Maerz());
@@ -398,7 +385,6 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
 		}
-
 	}
 
 	@RequestMapping(value = "/add-maerz-form-veduci", method = RequestMethod.POST)
@@ -444,11 +430,8 @@ public class EntityController extends WebMvcConfigurerAdapter {
 	public ModelAndView addMaerzPageMajster() {
 		try {
 			ModelAndView modelAndView = new ModelAndView("add-maerz-form-majster");
-			// nastavZmenu();
-
 			if (jeNovaZmena()) {
 				Formular.setInstance(null);
-				// vytvor = true;
 				formular = Formular.getInstance();
 				maerzLastId = maerzServiceImpl.getLastId() + 1;
 				zamMaerzLastId = zamMaerzServiceImpl.getLastId() + 1;
@@ -476,7 +459,6 @@ public class EntityController extends WebMvcConfigurerAdapter {
 			modelAndView.addObject("errorMessage", "nieco zle sa stalo");
 			return modelAndView;
 		}
-
 	}
 
 	public Boolean jeNovaZmena() {

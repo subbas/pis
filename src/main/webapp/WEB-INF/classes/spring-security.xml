@@ -8,7 +8,13 @@
 
 	<http use-expressions="true" auto-config="true">
 		<intercept-url pattern="/login" access="permitAll()" />
-		<intercept-url pattern="/add*" access="isAuthenticated()" />
+		<intercept-url pattern="/add-maerz-form-velinar" access="hasAnyRole('ROLE_VELINAR')" />
+		<intercept-url pattern="/add-maerz-form-strojnik" access="hasAnyRole('ROLE_STROJNIK')" />
+		<intercept-url pattern="/add-maerz-form-majster" access="hasAnyRole('ROLE_MAJSTER')" />
+		<intercept-url pattern="/add-maerz-form-veduci" access="hasAnyRole('ROLE_VEDUCIVAPENKY')" />
+		<intercept-url pattern="/admin/*" access="hasAnyRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/admin*" access="hasAnyRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/trends" access="hasAnyRole('ROLE_VEDUCIVAPENKY')" />
 		<form-login login-page="/login" authentication-failure-url="/loginfailed"
 			authentication-success-handler-ref="myAuthenticationSuccessHandler" />
 		<access-denied-handler error-page="/accessDenied" />
